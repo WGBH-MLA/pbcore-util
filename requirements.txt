@@ -4,3 +4,4 @@ gunicorn
 lxml
 jsonschema
 python-multipart
+httpx
