@@ -6,19 +6,20 @@
   <xsl:output method="text" encoding="UTF-8"/>
   <xsl:strip-space elements="*"/>
 
-  <!-- Hardcoded list of multi-occurrence elements -->
-  <xsl:variable name="repeatable" select="'pbcoreIdentifier pbcoreTitle pbcoreSubject pbcoreDescription pbcoreGenre pbcoreRelation pbcoreCoverage pbcoreAudienceLevel pbcoreAudienceRating pbcoreCreator pbcoreContributor pbcorePublisher pbcoreRightsSummary instantiation extension annotation'"/>
+  <!-- Hardcoded list of multi-occurrence elements. Each term, including fist
+  and last, must be surrounded by a space in order to make it easier to detect
+  repeatable terms from the node name -->
+  <xsl:variable name="repeatable" select="' pbcoreIdentifier pbcoreTitle pbcoreSubject pbcoreDescription pbcoreGenre pbcoreRelation pbcoreCoverage pbcoreAudienceLevel pbcoreAudienceRating pbcoreCreator pbcoreContributor pbcorePublisher pbcoreRightsSummary instantiation extension annotation '"/>
 
   <xsl:key name="by-name" match="*" use="name()" />
 
   <xsl:template match="/">
-    <xsl:text>{&#10;  "pbcoreDescriptionDocument": </xsl:text>
+    <xsl:text>{"pbcoreDescriptionDocument":</xsl:text>
     <xsl:apply-templates select="*"/>
-    <xsl:text>&#10;}</xsl:text>
+    <xsl:text>}</xsl:text>
   </xsl:template>
 
   <xsl:template match="*">
-    <xsl:param name="indent" select="'  '"/>
     <xsl:text>{</xsl:text>
 
     <xsl:variable name="has-attributes" select="count(@*) &gt; 0"/>
@@ -31,9 +32,7 @@
       <xsl:if test="position() &gt; 1">
         <xsl:text>,</xsl:text>
       </xsl:if>
-      <xsl:text>&#10;</xsl:text>
-      <xsl:value-of select="$indent"/>
-      <xsl:text>"</xsl:text><xsl:value-of select="name()"/><xsl:text>": "</xsl:text>
+      <xsl:text>"</xsl:text><xsl:value-of select="name()"/><xsl:text>":"</xsl:text>
       <xsl:call-template name="escape-json-string">
         <xsl:with-param name="text" select="."/>
       </xsl:call-template>
@@ -45,8 +44,6 @@
       <xsl:if test="$has-attributes">
         <xsl:text>,</xsl:text>
       </xsl:if>
-      <xsl:text>&#10;</xsl:text>
-      <xsl:value-of select="$indent"/>
       <xsl:text>"text": "</xsl:text>
       <xsl:call-template name="escape-json-string">
         <xsl:with-param name="text" select="normalize-space(.)"/>
@@ -60,11 +57,9 @@
       <xsl:if test="$has-attributes or $has-text or position() &gt; 1">
         <xsl:text>,</xsl:text>
       </xsl:if>
-      <xsl:text>&#10;</xsl:text>
-      <xsl:value-of select="$indent"/>
-      <xsl:text>"</xsl:text><xsl:value-of select="$name"/><xsl:text>": </xsl:text>
+      <xsl:text>"</xsl:text><xsl:value-of select="$name"/><xsl:text>":</xsl:text>
 
-      <xsl:variable name="is-multi" select="contains(concat(' ', $repeatable, ' '), concat(' ', $name, ' '))"/>
+      <xsl:variable name="is-multi" select="contains($repeatable, concat(' ', $name, ' '))"/>
       <xsl:variable name="group" select="key('by-name', $name)"/>
 
       <xsl:choose>
@@ -74,26 +69,15 @@
             <xsl:if test="position() &gt; 1">
               <xsl:text>,</xsl:text>
             </xsl:if>
-            <xsl:text>&#10;</xsl:text>
-            <xsl:value-of select="concat($indent, '  ')"/>
-            <xsl:apply-templates select=".">
-              <xsl:with-param name="indent" select="concat($indent, '  ')"/>
-            </xsl:apply-templates>
+            <xsl:apply-templates select="." />
           </xsl:for-each>
-          <xsl:text>&#10;</xsl:text>
-          <xsl:value-of select="$indent"/>
           <xsl:text>]</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:apply-templates select="$group[1]">
-            <xsl:with-param name="indent" select="concat($indent, '  ')"/>
-          </xsl:apply-templates>
+          <xsl:apply-templates select="$group[1]" />
         </xsl:otherwise>
       </xsl:choose>
     </xsl:for-each>
-
-    <xsl:text>&#10;</xsl:text>
-    <xsl:value-of select="substring($indent, 1, string-length($indent) - 2)"/>
     <xsl:text>}</xsl:text>
   </xsl:template>
 
