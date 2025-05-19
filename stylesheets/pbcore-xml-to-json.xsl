@@ -9,7 +9,7 @@
   <!-- Hardcoded list of multi-occurrence elements. Each term, including fist
   and last, must be surrounded by a space in order to make it easier to detect
   repeatable terms from the node name -->
-  <xsl:variable name="repeatable" select="' pbcoreIdentifier pbcoreTitle pbcoreSubject pbcoreDescription pbcoreGenre pbcoreRelation pbcoreCoverage pbcoreAudienceLevel pbcoreAudienceRating pbcoreCreator pbcoreContributor pbcorePublisher pbcoreRightsSummary instantiation extension annotation '"/>
+  <xsl:variable name="repeatable" select="' pbcoreIdentifier pbcoreTitle pbcoreSubject pbcoreDescription pbcoreGenre pbcoreRelation pbcoreCoverage pbcoreAudienceLevel pbcoreAudienceRating pbcoreCreator creatorRole pbcoreContributor pbcorePublisher pbcoreRightsSummary instantiation extension annotation '"/>
 
   <xsl:key name="by-name" match="*" use="name()" />
 
