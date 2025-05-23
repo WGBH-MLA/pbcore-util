@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd"><pbcoreIdentifier source="MARS Asset Record ID">A_8UA2ZD8ME88DA04</pbcoreIdentifier><pbcoreIdentifier source="MARS Source Creation Order">1203914</pbcoreIdentifier><pbcoreIdentifier source="http://americanarchiveinventory.org">cpb-aacip/15-77sn0pqh</pbcoreIdentifier><pbcoreTitle titleType="Program">Lionheart</pbcoreTitle><pbcoreTitle titleType="Episode Number">10726</pbcoreTitle><pbcoreTitle titleType="Series">Classical Performances</pbcoreTitle><pbcoreDescription>Lionheart (vocal ensemble):
+Jeffrey Johnson
+Lawrence  Lipnik
+Kurt-Owen Richards
+Richard Porterfield
+John Olund
+Michael Ryan-Wenger
+
+Location:  "FM 1"
+
+Engineer:  "Oliart"
+
+Musical Comments:  "Excellent.  "
+
+Production Comments:  "EFA 59"</pbcoreDescription><pbcoreCreator><creator>Radio</creator><creatorRole>Production Unit</creatorRole></pbcoreCreator><pbcoreCreator><creator ref="http://id.loc.gov/authorities/names/n50052713">WGBH Educational Foundation</creator><creatorRole>Producing Organization</creatorRole></pbcoreCreator><pbcoreInstantiation><instantiationIdentifier source="WGBH Item ID">CP 00580</instantiationIdentifier><instantiationIdentifier source="WGBH Barcode">140319</instantiationIdentifier><instantiationIdentifier source="WGBH File Number">AA-02410</instantiationIdentifier><instantiationIdentifier source="reel number">5370</instantiationIdentifier><instantiationDate dateType="created">2001-04-26</instantiationDate><instantiationPhysical>DAT</instantiationPhysical><instantiationLocation>HOLDINGS_LOCATION = Vault.  Vault-ML010384-142-2--</instantiationLocation><instantiationMediaType>Sound</instantiationMediaType><instantiationGenerations>Master</instantiationGenerations><instantiationTracks>Audio:  tracks</instantiationTracks><instantiationAnnotation annotationType="Alternate Generation">Radio program (Master)</instantiationAnnotation><instantiationAnnotation annotationType="organization">WGBH</instantiationAnnotation></pbcoreInstantiation><pbcoreAnnotation annotationType="last_modified">2013-06-23 05:04:43</pbcoreAnnotation><pbcoreAnnotation annotationType="organization">WGBH</pbcoreAnnotation></pbcoreDescriptionDocument>
