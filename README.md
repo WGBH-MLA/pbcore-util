@@ -20,7 +20,7 @@ cd pbcore-util
 docker compose up dev
 ```
 
-This use the configuraiton in [`docker-compose.yml`](docker-compose.yml) to start a Docker container called `pbcore-util-dev-1` and with port-forwarding on port 8000, and 
+This uses the configuraiton in [`docker-compose.yml`](docker-compose.yml) to start a Docker container called `pbcore-util-dev-1` and with port-forwarding on port 8000, and 
 
 ### View OpenAPI interface
 
@@ -32,3 +32,11 @@ From the terminal where you stared the application, simply hit Ctrl-C and wait f
 ```
 docker compose up dev --build
 ```
+### Run tests
+
+This application uses pytest for testing. You can run tests using the `test` service defined in `docker-compose.yml` with this command:
+```
+docker compose --rm run test
+```
+> [!TIP]
+> The `--rm` flag will automatically remove the container once `pytest` has finished running, helping you avoid an accumulation of stopped containers that will never be started again.

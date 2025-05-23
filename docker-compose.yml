@@ -1,11 +1,22 @@
 services:
-  dev:
+  local: &local
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
       - .:/app
+  dev:
+    <<: *local
     ports:
       - "8000:8000"
     environment:
       - ENV=development
+  test:
+    <<: *local
+    ports:
+      - "8001:8000"
+    environment:
+      - ENV=test
+    command:
+      # - "pytest --maxfail=1 --disable-warnings -q"
+      - "pytest"

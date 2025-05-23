@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd">
+    <pbcoreAssetType>Episode</pbcoreAssetType>
+    <pbcoreIdentifier source="WYSU">The Debt Culture</pbcoreIdentifier>
+    <pbcoreIdentifier source="http://americanarchiveinventory.org">cpb-aacip/100-009w0w2t</pbcoreIdentifier>
+    <pbcoreTitle titleType="Program">The Debt Culture</pbcoreTitle>
+    <pbcoreDescription>Commentator Tom Shipka talked about a new iniative to confront the debt culture in America.</pbcoreDescription>
+    <pbcoreDescription>6:35 AM &amp; 8:35 AM</pbcoreDescription>
+    <pbcoreGenre source="AAPB Format Genre">Talk Show</pbcoreGenre>
+    <pbcoreCoverage>
+        <coverage>Youngstown, OH</coverage>
+        <coverageType>Spatial</coverageType>
+    </pbcoreCoverage>
+    <pbcoreCreator>
+        <creator>WYSU 88.5 FM</creator>
+        <creatorRole>Producing Organization</creatorRole>
+    </pbcoreCreator>
+    <pbcoreContributor>
+        <contributor>Tom Shipka</contributor>
+    </pbcoreContributor>
+    <pbcorePublisher>
+        <publisher>WYSU 88.5 FM</publisher>
+        <publisherRole>Copyright Holder</publisherRole>
+    </pbcorePublisher>
+    <pbcoreInstantiation>
+        <instantiationIdentifier source="WYSU 88.5 FM">673.0</instantiationIdentifier>
+        <instantiationDate>2008-04-29</instantiationDate>
+        <instantiationDigital>audio/vnd.wave</instantiationDigital>
+        <instantiationLocation>WYSU Archive</instantiationLocation>
+        <instantiationMediaType>Sound</instantiationMediaType>
+        <instantiationGenerations>Master</instantiationGenerations>
+        <instantiationDuration>00:03:00</instantiationDuration>
+        <instantiationLanguage>eng</instantiationLanguage>
+        <instantiationEssenceTrack>
+            <essenceTrackType>General</essenceTrackType>
+            <essenceTrackEncoding source="wav file">wav file</essenceTrackEncoding>
+        </instantiationEssenceTrack>
+        <instantiationAnnotation annotationType="organization">WYSU 88.5 FM</instantiationAnnotation>
+    </pbcoreInstantiation>
+    <pbcoreAnnotation annotationType="last_modified">2013-06-17 13:48:29</pbcoreAnnotation>
+    <pbcoreAnnotation annotationType="organization">WYSU 88.5 FM</pbcoreAnnotation>
+</pbcoreDescriptionDocument>
