@@ -14,16 +14,19 @@ JSON_SCHEMA_PATH = "schemas/pbcore-schema.json"
 @app.post("/validate/xml-file", tags=["XML Validation"])
 async def validate_xml(file: UploadFile = File(...)):
     try:
-        xml_doc = etree.parse(file.file)
-        xmlschema_doc = etree.parse(XSD_PATH)
-        xmlschema = etree.XMLSchema(xmlschema_doc)
-        xmlschema.assertValid(xml_doc)
+        pbcore_xml = etree.parse(file.file)
+        pbcore_schema = etree.XMLSchema(
+            etree.parse(XSD_PATH)
+        )
+        pbcore_schema.assertValid(pbcore_xml)
         return {
             "valid": True,
             "file": file.filename
         }
     except etree.DocumentInvalid as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        raise HTTPException(status_code=422, detail=f"PBCore XML Validation Error: {str(e)}")
+    except etree.XMLSyntaxError as e:
+        raise HTTPException(status_code=422, detail=f"XML Parsing Error: {str(e)}")
 
 
 @app.post("/validate/xml-url", tags=["XML Validation"])
@@ -36,15 +39,15 @@ async def validate_xml_from_url(url: str = Query(..., description="URL pointing 
         raise HTTPException(status_code=400, detail=f"Error fetching URL: {str(e)}")
 
     try:
-        xml_doc = etree.fromstring(response.content)
-        with open(XSD_PATH, "rb") as xsd_file:
-            schema_root = etree.parse(xsd_file)
-            schema = etree.XMLSchema(schema_root)
-            schema.assertValid(xml_doc)
+        pbcore_xml = etree.fromstring(response.content)
+        pbcore_schema = etree.XMLSchema(
+            etree.parse(XSD_PATH)
+        )
+        pbcore_schema.assertValid(pbcore_xml)
     except etree.XMLSchemaError as e:
         raise HTTPException(status_code=422, detail=f"XML Validation Error: {str(e)}")
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=f"XML Parsing Error: {str(e)}")
+    except etree.XMLSyntaxError as e:
+        raise HTTPException(status_code=422, detail=f"XML Parsing Error: {str(e)}")
 
     return {
         "valid": True,
@@ -98,10 +101,10 @@ async def validate_xml_from_url(url: str = Query(..., description="URL pointing 
 @app.post("/convert/xml-to-json-file", tags=["Conversion"])
 async def convert_xml_to_json(file: UploadFile = File(...)):
     try:
-        xml_doc = etree.parse(file.file)
+        pbcore_xml = etree.parse(file.file)
         xslt_doc = etree.parse(XSL_PATH)
         transform = etree.XSLT(xslt_doc)
-        json_str = str(transform(xml_doc))
+        json_str = str(transform(pbcore_xml))
         return json.loads(json_str)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -117,10 +120,10 @@ async def convert_xml_to_json(url: str = Query(..., description="URL pointing to
         raise HTTPException(status_code=400, detail=f"Error fetching URL: {str(e)}")
 
     try:
-        xml_doc = etree.fromstring(response.content)
+        pbcore_xml = etree.fromstring(response.content)
         xslt_doc = etree.parse(XSL_PATH)
         transform = etree.XSLT(xslt_doc)
-        json_str = str(transform(xml_doc))
+        json_str = str(transform(pbcore_xml))
         return json.loads(json_str)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

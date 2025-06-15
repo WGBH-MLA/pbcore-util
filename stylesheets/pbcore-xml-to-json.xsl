@@ -6,10 +6,10 @@
   <xsl:output method="text" encoding="UTF-8"/>
   <xsl:strip-space elements="*"/>
 
-  <!-- Hardcoded list of multi-occurrence elements. Each term, including fist
+  <!-- Hardcoded list of repeatable elements. Each term, including fist
   and last, must be surrounded by a space in order to make it easier to detect
   repeatable terms from the node name -->
-  <xsl:variable name="repeatable" select="' pbcoreIdentifier pbcoreTitle pbcoreSubject pbcoreDescription pbcoreGenre pbcoreRelation pbcoreCoverage pbcoreAudienceLevel pbcoreAudienceRating pbcoreCreator pbcoreContributor pbcorePublisher pbcoreRightsSummary instantiation extension annotation '"/>
+  <xsl:variable name="repeatable" select="' pbcoreAssetType pbcoreAssetDate pbcoreIdentifier pbcoreTitle pbcoreSubject pbcoreDescription pbcoreGenre pbcoreRelation pbcoreCoverage pbcoreAudienceLevel pbcoreAudienceRating pbcoreCreator creatorRole pbcoreContributor contributorRole pbcorePublisher publisherRole pbcoreInstantiation pbcoreAnnotation pbcorePart pbcoreExtension instantiationIdentifier instantiationDate instantiationDimensions instantiationGenerations instantiationEssenceTrack instantiationRelation instantiationAnnotation instantiationExtension essenceTrackIdentifier essenceTrackLanguage essenceTrackAnnotation essenceTrackExtension extensionWrap extensionEmbedded '"/>
 
   <xsl:key name="by-name" match="*" use="name()" />
 

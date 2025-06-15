@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd">
+    <pbcoreTitle titleType="Program">Test Program</pbcoreTitle>
+    <pbcoreRelation>
+        <pbcoreRelationType>Test relationt type</pbcoreRelationType>
+         <pbcoreRelationIdentifier>test-relation-id</pbcoreRelationIdentifier>
+    </pbcoreRelation>
+    <pbcoreCoverage>
+        <coverage>Test Location</coverage>
+        <coverageType>Spatial</coverageType>
+    </pbcoreCoverage>
+    <pbcoreAudienceLevel>test audience level</pbcoreAudienceLevel>
+    <pbcoreAudienceRating>test audience rating</pbcoreAudienceRating>
+    <pbcoreCreator>
+        <creator>Test Creator</creator>
+        <creatorRole>Test Role</creatorRole>
+    </pbcoreCreator>
+    <pbcoreContributor>
+        <contributor>Test Contributor</contributor>
+        <contributorRole>Test Contributor Role</contributorRole>
+    </pbcoreContributor>
+    <pbcorePublisher>
+        <publisher>Test Publisher</publisher>
+        <publisherRole>Test Publisher Role</publisherRole>
+    </pbcorePublisher>
+</pbcoreDescriptionDocument>
