@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd">
+    <pbcoreAssetType>Episode</pbcoreAssetType>
+    <pbcoreAssetDate>2023-10-01</pbcoreAssetDate>
+    <pbcoreIdentifier source="http://example.org">example-id-123</pbcoreIdentifier>
+    <pbcoreTitle titleType="Program">Test Program</pbcoreTitle>
+    <pbcoreSubject>Test subject</pbcoreSubject>
+    <pbcoreDescription>This is a test description for the PBCore XML document.</pbcoreDescription>
+    <pbcoreGenre source="Test Genre Source">Test Genre</pbcoreGenre>
+    <pbcoreRelation>
+        <pbcoreRelationType>Test relationt type</pbcoreRelationType>
+         <pbcoreRelationIdentifier>test-relation-id</pbcoreRelationIdentifier>
+    </pbcoreRelation>
+    <pbcoreCoverage>
+        <coverage>Test Location</coverage>
+        <coverageType>Spatial</coverageType>
+    </pbcoreCoverage>
+    <pbcoreAudienceLevel>test audience level</pbcoreAudienceLevel>
+    <pbcoreAudienceRating>test audience rating</pbcoreAudienceRating>
+    <pbcoreCreator>
+        <creator>Test Creator</creator>
+        <creatorRole>Test Role</creatorRole>
+    </pbcoreCreator>
+    <pbcoreContributor>
+        <contributor>Test Contributor</contributor>
+        <contributorRole>Test Contributor Role</contributorRole>
+    </pbcoreContributor>
+    <pbcorePublisher>
+        <publisher>Test Publisher</publisher>
+        <publisherRole>Test Publisher Role</publisherRole>
+    </pbcorePublisher>
+    <pbcoreAnnotation annotationType="organization">Test Annotation</pbcoreAnnotation>
+    <pbcoreInstantiation>
+        <instantiationIdentifier source="Test Source">test-instantiation-id</instantiationIdentifier>
+        <instantiationDate>2023-10-01</instantiationDate>
+        <instantiationDigital>audio/mpeg</instantiationDigital>
+        <instantiationLocation>Test Location</instantiationLocation>
+        <instantiationMediaType>Sound</instantiationMediaType>
+        <instantiationGenerations>Master</instantiationGenerations>
+        <instantiationDuration>00:05:00</instantiationDuration>
+        <instantiationLanguage>eng</instantiationLanguage>
+        <instantiationEssenceTrack>
+            <essenceTrackType>General</essenceTrackType>
+            <essenceTrackEncoding source="mp3 file">mp3 file</essenceTrackEncoding>
+        </instantiationEssenceTrack>
+        <instantiationAnnotation annotationType="organization">Test Organization</instantiationAnnotation>
+    </pbcoreInstantiation>
+    <pbcoreExtension>
+        <someOtherSchema>Test other value></someOtherSchema>
+    </pbcoreExtension>
+</pbcoreDescriptionDocument>

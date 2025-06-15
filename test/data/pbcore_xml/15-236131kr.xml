@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd"><pbcoreIdentifier source="MARS Asset Record ID">A_A46UONHPJN6R73K</pbcoreIdentifier><pbcoreIdentifier source="MARS Source Creation Order">1206433</pbcoreIdentifier><pbcoreIdentifier source="http://americanarchiveinventory.org">cpb-aacip/15-236131kr</pbcoreIdentifier><pbcoreTitle titleType="Program">Cho-Liang Lin / Li Jian</pbcoreTitle><pbcoreTitle titleType="Episode Number">1170</pbcoreTitle><pbcoreTitle titleType="Series">Classical Performances</pbcoreTitle><pbcoreDescription>Cho-Liang Lin, violin
+Li Jian, piano
+
+Location:  "Jordan Hall"
+
+Producer:  "Fleming"
+
+Producer:  "Fleming"
+
+Engineer:  "Donahue/Kyle"
+
+Musical Comments:  "Good.  Bright violin."
+
+Production Comments:  "MF/AO"</pbcoreDescription><pbcoreCreator><creator>Radio</creator><creatorRole>Production Unit</creatorRole></pbcoreCreator><pbcoreCreator><creator ref="http://id.loc.gov/authorities/names/n50052713">WGBH Educational Foundation</creator><creatorRole>Producing Organization</creatorRole></pbcoreCreator><pbcoreInstantiation><instantiationIdentifier source="WGBH Item ID">CP 00515</instantiationIdentifier><instantiationIdentifier source="WGBH Barcode">141094</instantiationIdentifier><instantiationIdentifier source="WGBH File Number">AA-02939</instantiationIdentifier><instantiationIdentifier source="reel number">3638</instantiationIdentifier><instantiationDate dateType="created">1998-04-10</instantiationDate><instantiationPhysical>DAT</instantiationPhysical><instantiationLocation>HOLDINGS_LOCATION = Vault.  Vault-ML010370-142-1--</instantiationLocation><instantiationMediaType>Sound</instantiationMediaType><instantiationGenerations>Master</instantiationGenerations><instantiationTracks>Audio:  tracks</instantiationTracks><instantiationAnnotation annotationType="Alternate Generation">Radio program (Master)</instantiationAnnotation><instantiationAnnotation annotationType="organization">WGBH</instantiationAnnotation></pbcoreInstantiation><pbcoreAnnotation annotationType="last_modified">2013-06-22 16:09:38</pbcoreAnnotation><pbcoreAnnotation annotationType="organization">WGBH</pbcoreAnnotation></pbcoreDescriptionDocument>

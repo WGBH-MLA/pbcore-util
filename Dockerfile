@@ -16,4 +16,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Run with Gunicorn and Uvicorn workers
-CMD ["gunicorn", "-c", "gunicorn_conf.py", "main:app"]
+CMD ["gunicorn", "-c", "gunicorn_conf.py", "app.main:app"]
