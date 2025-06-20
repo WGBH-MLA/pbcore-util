@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd">
+    <pbcoreTitle titleType="Program">Test Program</pbcoreTitle>
+    <pbcoreRelation>
+        <pbcoreRelationType>Test relationt type 1</pbcoreRelationType>
+         <pbcoreRelationIdentifier>test-relation-id-1</pbcoreRelationIdentifier>
+        <pbcoreRelationType>Test relationt type 2</pbcoreRelationType>
+         <pbcoreRelationIdentifier>test-relation-id-2</pbcoreRelationIdentifier>
+    </pbcoreRelation>
+    <pbcoreCoverage>
+        <coverage>Test Location</coverage>
+        <coverageType>Spatial</coverageType>
+    </pbcoreCoverage>
+    <pbcoreCoverage>
+        <coverage>Test Time</coverage>
+        <coverageType>Temporal</coverageType>
+    </pbcoreCoverage>
+    <pbcoreCreator>
+        <creator>Test Creator 1</creator>
+        <creatorRole>Test Creator Role 1</creatorRole>
+    </pbcoreCreator>
+    <pbcoreCreator>
+        <creator>Test Creator 2</creator>
+        <creatorRole>Test Creator Role 2</creatorRole>
+    </pbcoreCreator>
+    <pbcoreContributor>
+        <contributor>Test Contributor 1</contributor>
+        <contributorRole>Test Contributor Role 1</contributorRole>
+    </pbcoreContributor>
+    <pbcoreContributor>
+        <contributor>Test Contributor 2</contributor>
+        <contributorRole>Test Contributor Role 2</contributorRole>
+    </pbcoreContributor>
+    <pbcorePublisher>
+        <publisher>Test Publisher 1</publisher>
+        <publisherRole>Test Publisher Role 1</publisherRole>
+    </pbcorePublisher>
+    <pbcorePublisher>
+        <publisher>Test Publisher 2</publisher>
+        <publisherRole>Test Publisher Role 2</publisherRole>
+    </pbcorePublisher>
+</pbcoreDescriptionDocument>
