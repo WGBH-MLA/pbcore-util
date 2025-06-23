@@ -99,10 +99,14 @@ async def convert_xml_to_json_from_url(
 
 @app.post("/convert/json-to-xml", tags=["PBCore Conversion"])
 async def convert_json_to_xml(file: UploadFile = File(...)):
-    raise HTTPException(status_code=400, detail="PBCore JSON to XML Conversion not yet implemented")
-        
+    raise HTTPException(
+        status_code=400, detail="PBCore JSON to XML Conversion not yet implemented"
+    )
 
 
 @app.post("/convert/roundtrip/xml-json/file", tags=["PBCore Conversion"])
 async def validate_roundtrip(file: UploadFile = File(...)):
-    raise HTTPException(status_code=400, detail="PBCore XML-to-JSON round-trip validation not yet implemented")
+    raise HTTPException(
+        status_code=400,
+        detail="PBCore XML-to-JSON round-trip validation not yet implemented",
+    )
