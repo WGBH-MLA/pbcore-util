@@ -1,6 +1,5 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException, Query
 from lxml import etree
-from jsonschema import validate as json_validate, ValidationError
 import httpx
 import json
 
@@ -55,18 +54,18 @@ async def validate_xml_from_url(
 
 @app.post("/validate/json-file", tags=["JSON Validation"])
 async def validate_json(file: UploadFile = File(...)):
-    HTTPException(status_code=400, detail=f"PBCore JSON validation not yet implemented")
+    HTTPException(status_code=400, detail="PBCore JSON validation not yet implemented")
 
 
 @app.post("/validate/json-url", tags=["JSON Validation"])
 async def validate_json_from_url(
     url: str = Query(..., description="URL pointing to a PBCore JSON document")
 ):
-    HTTPException(status_code=400, detail=f"PBCore JSON validation not yet implemented")
+    HTTPException(status_code=400, detail="PBCore JSON validation not yet implemented")
 
 
 @app.post("/convert/xml-to-json-file", tags=["Conversion"])
-async def convert_xml_to_json(file: UploadFile = File(...)):
+async def convert_xml_to_json_from_file(file: UploadFile = File(...)):
     try:
         pbcore_xml = etree.parse(file.file)
         xslt_doc = etree.parse(XSL_PATH)
@@ -78,7 +77,7 @@ async def convert_xml_to_json(file: UploadFile = File(...)):
 
 
 @app.post("/convert/xml-to-json-url", tags=["Conversion"])
-async def convert_xml_to_json(
+async def convert_xml_to_json_from_url(
     url: str = Query(..., description="URL pointing to a PBCore XML document")
 ):
     try:

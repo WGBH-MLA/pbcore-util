@@ -58,7 +58,7 @@ def test_validate_xml(valid_xml):
     response = client.post("/validate/xml-file", files={"file": valid_xml})
     assert response.status_code == 200
     response_json = response.json()
-    assert response_json["valid"] == True
+    assert response_json["valid"]
     assert "100-009w0w2t.xml" in response_json["file"]
 
 
