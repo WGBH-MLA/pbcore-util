@@ -3,9 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd">
     <pbcoreTitle titleType="Program">Test Program</pbcoreTitle>
     <pbcoreRelation>
-        <pbcoreRelationType>Test relationt type 1</pbcoreRelationType>
+        <pbcoreRelationType>Test relation type 1</pbcoreRelationType>
          <pbcoreRelationIdentifier>test-relation-id-1</pbcoreRelationIdentifier>
-        <pbcoreRelationType>Test relationt type 2</pbcoreRelationType>
+        <pbcoreRelationType>Test relation type 2</pbcoreRelationType>
          <pbcoreRelationIdentifier>test-relation-id-2</pbcoreRelationIdentifier>
     </pbcoreRelation>
     <pbcoreCoverage>
