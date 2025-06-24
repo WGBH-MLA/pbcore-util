@@ -61,7 +61,7 @@ async def validate_json(file: UploadFile = File(...)):
 async def validate_json_from_url(
     url: str = Query(..., description="URL pointing to a PBCore JSON document")
 ):
-    HTTPException(status_code=400, detail="PBCore JSON validation not yet implemented")
+    raise HTTPException(status_code=400, detail="PBCore JSON validation not yet implemented")
 
 
 @app.post("/convert/xml-to-json-file", tags=["Conversion"])
