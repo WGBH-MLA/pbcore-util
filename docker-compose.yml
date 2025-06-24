@@ -17,6 +17,4 @@ services:
       - "8001:8000"
     environment:
       - ENV=test
-    command:
-      # - "pytest --maxfail=1 --disable-warnings -q"
-      - "pytest"
+    command: ["uv", "run", "pytest"]

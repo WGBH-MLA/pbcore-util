@@ -1,0 +1,21 @@
+[project]
+name = "pbcore-util"
+version = "0.1.0"
+description = "PBCore API Utility"
+requires-python = '>=3.11,<4.0'
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "gunicorn",
+    "lxml",
+    "jsonschema",
+    "python-multipart",
+    "httpx"
+]
+
+[dependency-groups]
+dev = [
+  "pytest",
+  "ruff",
+  "black"
+]
