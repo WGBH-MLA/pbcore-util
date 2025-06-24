@@ -20,7 +20,7 @@ cd pbcore-util
 docker compose up dev
 ```
 
-This uses the configuraiton in [`docker-compose.yml`](docker-compose.yml) to start a Docker container called `pbcore-util-dev-1` and with port-forwarding on port 8000, and 
+This uses the configuration in [`docker-compose.yml`](docker-compose.yml) to start a Docker container called `pbcore-util-dev-1` and with port-forwarding on port 8000, and 
 
 ### View OpenAPI interface
 
