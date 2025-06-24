@@ -1,6 +1,6 @@
 version: '3.8'
 services:
   dev:
-    # Overrides defailt command for dev service
+    # Overrides default command for dev service
     command: sleep infinity
  
