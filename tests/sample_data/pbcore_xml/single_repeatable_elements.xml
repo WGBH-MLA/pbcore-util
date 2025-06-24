@@ -47,6 +47,6 @@
         <instantiationAnnotation annotationType="organization">Test Organization</instantiationAnnotation>
     </pbcoreInstantiation>
     <pbcoreExtension>
-        <someOtherSchema>Test other value></someOtherSchema>
+        <someOtherSchema>Test other value</someOtherSchema>
     </pbcoreExtension>
 </pbcoreDescriptionDocument>
