@@ -9,7 +9,7 @@
     <pbcoreDescription>This is a test description for the PBCore XML document.</pbcoreDescription>
     <pbcoreGenre source="Test Genre Source">Test Genre</pbcoreGenre>
     <pbcoreRelation>
-        <pbcoreRelationType>Test relationt type</pbcoreRelationType>
+        <pbcoreRelationType>Test relation type</pbcoreRelationType>
          <pbcoreRelationIdentifier>test-relation-id</pbcoreRelationIdentifier>
     </pbcoreRelation>
     <pbcoreCoverage>
