@@ -562,3 +562,47 @@ def test_convert_xml_to_json_subelements_with_attrs(pbcore_xml_subelements_with_
         ]
         == "test coverage type annotation"
     )
+
+
+def test_convert_xml_to_json_no_text_with_subelements(pbcore_xml_subelements):
+    response = client.post(
+        "/convert/xml-to-json-file",
+        files={"file": pbcore_xml_subelements},
+    )
+    assert response.status_code == 200
+    response_json = response.json()
+
+    assert "text" not in response_json["pbcoreDescriptionDocument"]
+
+    for element in response_json["pbcoreDescriptionDocument"]["pbcoreRelation"]:
+        assert "text" not in element
+
+    for element in response_json["pbcoreDescriptionDocument"]["pbcoreCoverage"]:
+        assert "text" not in element
+
+    for element in response_json["pbcoreDescriptionDocument"]["pbcoreCreator"]:
+        assert "text" not in element
+
+    for element in response_json["pbcoreDescriptionDocument"]["pbcoreContributor"]:
+        assert "text" not in element
+
+    for element in response_json["pbcoreDescriptionDocument"]["pbcorePublisher"]:
+        assert "text" not in element
+
+    for element in response_json["pbcoreDescriptionDocument"]["pbcoreRightsSummary"]:
+        assert "text" not in element
+
+    for element in response_json["pbcoreDescriptionDocument"]["pbcoreRightsSummary"]:
+        assert "text" not in element
+
+    for element in response_json["pbcoreDescriptionDocument"]["pbcoreInstantiation"]:
+        assert "text" not in element
+        for instantiation in response_json["pbcoreDescriptionDocument"][
+            "pbcoreInstantiation"
+        ]:
+            for element in instantiation["instantiationEssenceTrack"]:
+                assert "text" not in element
+            for element in instantiation["instantiationRights"]:
+                assert "text" not in element
+            for element in instantiation["instantiationRelation"]:
+                assert "text" not in element
