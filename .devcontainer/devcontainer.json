@@ -6,6 +6,17 @@
 		"../docker-compose.yml",
 		"docker-compose.yml"
 	],
+	"runServices": ["dev"],
 	"service": "dev",
-	"workspaceFolder": "/app"
+	"workspaceFolder": "/app",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	}
 }
+
+
