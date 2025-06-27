@@ -98,15 +98,45 @@
     <xsl:text>}</xsl:text>
   </xsl:template>
 
-  <!-- Escape double quotes -->
+  <!-- Escape backslashes and double quotes -->
   <xsl:template name="escape-json-string">
+    <xsl:param name="text" />
+    <xsl:call-template name="escape-quotes">
+      <xsl:with-param name="text">
+        <xsl:call-template name="escape-backslashes">
+          <xsl:with-param name="text" select="$text" />
+        </xsl:call-template>
+      </xsl:with-param>
+    </xsl:call-template>
+  </xsl:template>
+
+  <!-- Escape backslashes first -->
+  <xsl:template name="escape-backslashes">
+    <xsl:param name="text" />
+    <xsl:choose>
+      <xsl:when test="contains($text, '\')">
+        <xsl:value-of select="substring-before($text, '\')" />
+        <xsl:text>\\</xsl:text>
+        <xsl:call-template
+          name="escape-backslashes">
+          <xsl:with-param name="text" select="substring-after($text, '\')" />
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$text" />
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <!-- Escape double quotes second -->
+  <xsl:template name="escape-quotes">
     <xsl:param name="text" />
     <xsl:choose>
       <xsl:when test="contains($text, '&quot;')">
         <xsl:value-of select="substring-before($text, '&quot;')" />
         <xsl:text>\&quot;</xsl:text>
         <xsl:call-template
-          name="escape-json-string">
+          name="escape-quotes">
           <xsl:with-param name="text" select="substring-after($text, '&quot;')" />
         </xsl:call-template>
       </xsl:when>
