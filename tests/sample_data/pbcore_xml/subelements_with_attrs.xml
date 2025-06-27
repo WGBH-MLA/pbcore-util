@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd">
+    <pbcoreTitle titleType="Program">Test Program</pbcoreTitle>
+    <pbcoreCoverage>
+        <coverage startTime="test-coverage-start-time" endTime="test-coverage-end-time">Test Location</coverage>
+        <coverageType>Spatial</coverageType>
+    </pbcoreCoverage>
+    <pbcoreCoverage>
+        <coverage>Test Time</coverage>
+        <coverageType annotation="test coverage type annotation">Temporal</coverageType>
+    </pbcoreCoverage>
+</pbcoreDescriptionDocument>

@@ -1,19 +1,13 @@
-FROM python:3.11-slim
+FROM python:3.12-bookworm
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    libxml2-dev libxslt1-dev gcc \
-    && rm -rf /var/lib/apt/lists/*
-
-# Set working directory
+# Change the working directory to the `app` directory
 WORKDIR /app
 
-# Install Python dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy the project into the image
+ADD . /app
 
-# Copy the FastAPI app
-COPY . .
+# Sync the project
+RUN uv sync
 
-# Run with Gunicorn and Uvicorn workers
-CMD ["gunicorn", "-c", "gunicorn_conf.py", "main:app"]
+CMD ["uv", "run", "gunicorn", "-c", "gunicorn_conf.py", "app.main:app"]

@@ -5,3 +5,5 @@ lxml
 jsonschema
 python-multipart
 httpx
+pytest
+black

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd">
+    <pbcoreIdentifier>12345</pbcoreIdentifier>
+    <pbcoreTitle>Test Title</pbcoreTitle>
+    <pbcoreInstantiation>
+        <instantiationIdentifier>alpha</instantiationIdentifier>
+        <instantiationEssenceTrack>
+            <essenceTrackType>bravo</essenceTrackType>
+            <essenceTrackAnnotation annotationType="charlie">
+                delta
+            </essenceTrackAnnotation>
+            <essenceTrackAnnotation annotationType="echo">
+                foxtrot
+            </essenceTrackAnnotation>
+        </instantiationEssenceTrack>
+        <instantiationEssenceTrack>
+            <essenceTrackType>golf</essenceTrackType>
+            <essenceTrackAnnotation annotationType="hotel">
+                india
+            </essenceTrackAnnotation>
+            <essenceTrackAnnotation annotationType="juliet">
+                kilo
+            </essenceTrackAnnotation>
+        </instantiationEssenceTrack>
+    </pbcoreInstantiation>
+    <pbcoreInstantiation>
+        <instantiationIdentifier>lima</instantiationIdentifier>
+        <instantiationEssenceTrack>
+            <essenceTrackType>mike</essenceTrackType>
+            <essenceTrackAnnotation annotationType="november">
+                oscar
+            </essenceTrackAnnotation>
+            <essenceTrackAnnotation annotationType="papa">
+                quebec
+            </essenceTrackAnnotation>
+        </instantiationEssenceTrack>
+        <instantiationEssenceTrack>
+            <essenceTrackType>romeo</essenceTrackType>
+            <essenceTrackAnnotation annotationType="sierra">
+                tango
+            </essenceTrackAnnotation>
+            <essenceTrackAnnotation annotationType="uniform">
+                victor
+            </essenceTrackAnnotation>
+        </instantiationEssenceTrack>
+    </pbcoreInstantiation>
+</pbcoreDescriptionDocument>

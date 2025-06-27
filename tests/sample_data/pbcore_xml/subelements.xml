@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd">
+    <pbcoreTitle titleType="Program">Test Program</pbcoreTitle>
+    <pbcoreRelation>
+        <pbcoreRelationType>Test relation type 1</pbcoreRelationType>
+         <pbcoreRelationIdentifier>test-relation-id-1</pbcoreRelationIdentifier>
+        <pbcoreRelationType>Test relation type 2</pbcoreRelationType>
+         <pbcoreRelationIdentifier>test-relation-id-2</pbcoreRelationIdentifier>
+    </pbcoreRelation>
+    <pbcoreCoverage>
+        <coverage>Test Location</coverage>
+        <coverageType>Spatial</coverageType>
+    </pbcoreCoverage>
+    <pbcoreCoverage>
+        <coverage>Test Time</coverage>
+        <coverageType>Temporal</coverageType>
+    </pbcoreCoverage>
+    <pbcoreCreator>
+        <creator>Test Creator 1</creator>
+        <creatorRole>Test Creator Role 1</creatorRole>
+    </pbcoreCreator>
+    <pbcoreCreator>
+        <creator>Test Creator 2</creator>
+        <creatorRole>Test Creator Role 2</creatorRole>
+    </pbcoreCreator>
+    <pbcoreContributor>
+        <contributor>Test Contributor 1</contributor>
+        <contributorRole>Test Contributor Role 1</contributorRole>
+    </pbcoreContributor>
+    <pbcoreContributor>
+        <contributor>Test Contributor 2</contributor>
+        <contributorRole>Test Contributor Role 2</contributorRole>
+    </pbcoreContributor>
+    <pbcorePublisher>
+        <publisher>Test Publisher 1</publisher>
+        <publisherRole>Test Publisher Role 1</publisherRole>
+    </pbcorePublisher>
+    <pbcorePublisher>
+        <publisher>Test Publisher 2</publisher>
+        <publisherRole>Test Publisher Role 2</publisherRole>
+    </pbcorePublisher>
+    <pbcoreRightsSummary>
+        <rightsSummary>Test Rights Summary</rightsSummary>
+    </pbcoreRightsSummary>
+    <pbcoreRightsSummary>
+        <rightsLink>http://example.com/test-rights-link</rightsLink>
+    </pbcoreRightsSummary>
+    <pbcoreInstantiation>
+        <instantiationIdentifier source="Test Source">test-instantiation-id</instantiationIdentifier>
+        <instantiationDate>2023-10-01</instantiationDate>
+        <instantiationDigital>audio/mpeg</instantiationDigital>
+        <instantiationLocation>Test Location</instantiationLocation>
+        <instantiationMediaType>Sound</instantiationMediaType>
+        <instantiationGenerations>Master</instantiationGenerations>
+        <instantiationDuration>00:05:00</instantiationDuration>
+        <instantiationLanguage>eng</instantiationLanguage>
+        <instantiationEssenceTrack>
+            <essenceTrackType>General</essenceTrackType>
+            <essenceTrackEncoding source="mp3 file">mp3 file</essenceTrackEncoding>
+        </instantiationEssenceTrack>
+        <instantiationEssenceTrack>
+            <essenceTrackType>General</essenceTrackType>
+            <essenceTrackEncoding source="mp3 file">mp3 file</essenceTrackEncoding>
+        </instantiationEssenceTrack>
+        <instantiationAnnotation annotationType="organization">Test Organization</instantiationAnnotation>
+        <instantiationRelation>
+            <instantiationRelationType>test-instantiation-relation-type-1</instantiationRelationType>
+            <instantiationRelationIdentifier>test-instantiation-relation-id-1</instantiationRelationIdentifier>
+        </instantiationRelation>
+        <instantiationRelation>
+            <instantiationRelationType>test-instantiation-relation-type-2</instantiationRelationType>
+            <instantiationRelationIdentifier>test-instantiation-relation-id-2</instantiationRelationIdentifier>
+        </instantiationRelation>
+        <instantiationRights>
+            <instantiationRightsSummary>Test Instantiation Rights Summary</instantiationRightsSummary>
+        </instantiationRights>
+        <instantiationRights>
+            <instantiationRightsLink>Test Instantiation Rights Summary</instantiationRightsLink>
+        </instantiationRights>
+    </pbcoreInstantiation>
+    <pbcoreInstantiation>
+        <instantiationIdentifier source="Test Source">test-instantiation-id-2</instantiationIdentifier>
+        <instantiationDate>2023-10-01</instantiationDate>
+        <instantiationDigital>audio/mpeg</instantiationDigital>
+        <instantiationLocation>Test Location</instantiationLocation>
+        <instantiationMediaType>Sound</instantiationMediaType>
+        <instantiationGenerations>Master</instantiationGenerations>
+        <instantiationDuration>00:05:00</instantiationDuration>
+        <instantiationLanguage>eng</instantiationLanguage>
+        <instantiationEssenceTrack>
+            <essenceTrackType>General</essenceTrackType>
+            <essenceTrackEncoding source="mp3 file">mp3 file</essenceTrackEncoding>
+        </instantiationEssenceTrack>
+        <instantiationEssenceTrack>
+            <essenceTrackType>General</essenceTrackType>
+            <essenceTrackEncoding source="mp3 file">mp3 file</essenceTrackEncoding>
+        </instantiationEssenceTrack>
+        <instantiationAnnotation annotationType="organization">Test Organization</instantiationAnnotation>
+        <instantiationRelation>
+            <instantiationRelationType>test-instantiation-relation-type-1</instantiationRelationType>
+            <instantiationRelationIdentifier>test-instantiation-relation-id-1</instantiationRelationIdentifier>
+        </instantiationRelation>
+        <instantiationRelation>
+            <instantiationRelationType>test-instantiation-relation-type-2</instantiationRelationType>
+            <instantiationRelationIdentifier>test-instantiation-relation-id-2</instantiationRelationIdentifier>
+        </instantiationRelation>
+        <instantiationRights>
+            <instantiationRightsSummary>Test Instantiation Rights Summary</instantiationRightsSummary>
+        </instantiationRights>
+        <instantiationRights>
+            <instantiationRightsLink>Test Instantiation Rights Summary</instantiationRightsLink>
+        </instantiationRights>
+    </pbcoreInstantiation>
+</pbcoreDescriptionDocument>
