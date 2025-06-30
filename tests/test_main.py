@@ -50,6 +50,12 @@ def pbcore_xml_multiple_repeatable_elements_with_attrs():
         "tests/sample_data/pbcore_xml/multiple_repeatable_elements_with_attrs.xml", "rb"
     )
 
+@fixture
+def pbcore_xml_with_special_characters():
+    return open(
+        "tests/sample_data/pbcore_xml/special_characters.xml", "rb"
+    )
+
 
 ### TESTS ###
 
@@ -606,3 +612,26 @@ def test_convert_xml_to_json_no_text_with_subelements(pbcore_xml_subelements):
                 assert "text" not in element
             for element in instantiation["instantiationRelation"]:
                 assert "text" not in element
+
+
+def test_convert_xml_to_json_handles_special_characters(pbcore_xml_with_special_characters):
+    response = client.post(
+        "/convert/xml-to-json-file",
+        files={"file": pbcore_xml_with_special_characters},
+    )
+    assert response.status_code == 200
+    response_json = response.json()
+
+    assert response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][0]['text'] == "\"quoted string\""
+    assert response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][1]['text'] == "\"improperly quoted string"
+    assert response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][2]['text'] == "\\\"previously escaped quoted string\\\""
+    assert response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][3]['text'] == "single \\ backslash"
+    assert response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][4]['text'] == "double \\\\ backslash"
+    # The test below is an actual example of bad data that made it's way into
+    # our production PBCore. While not ideal, we still need to make sure that
+    # values like this do not result in invalid JSON when converted.
+    assert response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][5]['text'] == "[\"[\\\"480\\\"]\"] x [\"[\\\"360\\\"]\"]"
+    
+
+
+
