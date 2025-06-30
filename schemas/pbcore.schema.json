@@ -1,0 +1,268 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PBCore JSON Schema",
+  "type": "object",
+  "properties": {
+    "pbcoreDescriptionDocument": {
+      "type": "object",
+      "properties": {
+        "xsi:schemaLocation": {
+          "type": "string"
+        },
+        "pbcoreIdentifier": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": ["source", "text"]
+          }
+        },
+        "pbcoreTitle": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titleType": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": ["titleType", "text"]
+          }
+        },
+        "pbcoreDescription": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": ["text"]
+          }
+        },
+        "pbcoreCreator": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "creator": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "ref": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              },
+              "creatorRole": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["text"]
+                }
+              }
+            },
+            "required": ["creator", "creatorRole"]
+          }
+        },
+        "pbcoreInstantiation": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "instantiationIdentifier": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "source": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["source", "text"]
+                }
+              },
+              "instantiationPhysical": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              },
+              "instantiationLocation": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              },
+              "instantiationMediaType": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              },
+              "instantiationGenerations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["text"]
+                }
+              },
+              "instantiationDuration": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              },
+              "instantiationTracks": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              },
+              "instantiationChannelConfiguration": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              },
+              "instantiationAlternativeModes": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              },
+              "instantiationEssenceTrack": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "essenceTrackType": {
+                      "type": "object",
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["text"]
+                    },
+                    "essenceTrackAspectRatio": {
+                      "type": "object",
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["text"]
+                    }
+                  },
+                  "required": ["essenceTrackType", "essenceTrackAspectRatio"]
+                }
+              },
+              "instantiationAnnotation": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "annotationType": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["annotationType", "text"]
+                }
+              }
+            },
+            "required": [
+              "instantiationIdentifier",
+              "instantiationPhysical",
+              "instantiationLocation",
+              "instantiationMediaType",
+              "instantiationGenerations",
+              "instantiationDuration",
+              "instantiationTracks",
+              "instantiationChannelConfiguration",
+              "instantiationAlternativeModes",
+              "instantiationEssenceTrack",
+              "instantiationAnnotation"
+            ]
+          }
+        },
+        "pbcoreAnnotation": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "annotationType": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": ["annotationType", "text"]
+          }
+        }
+      },
+      "required": [
+        "xsi:schemaLocation",
+        "pbcoreIdentifier",
+        "pbcoreTitle",
+        "pbcoreDescription",
+        "pbcoreCreator",
+        "pbcoreInstantiation",
+        "pbcoreAnnotation"
+      ]
+    }
+  },
+  "required": ["pbcoreDescriptionDocument"]
+}
