@@ -296,6 +296,35 @@
             },
             "required": ["coverage"]
           }
+        },
+        "pbcoreAudienceLevel": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "audienceLevel": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "ref": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  },
+                  "annotation": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              }
+            }
+          }
         }
       },
       "required": [
