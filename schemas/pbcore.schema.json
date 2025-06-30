@@ -203,7 +203,7 @@
                       "required": ["text"]
                     }
                   },
-                  "required": ["essenceTrackType", "essenceTrackAspectRatio"]
+                  "required": ["essenceTrackType"]
                 }
               },
               "instantiationAnnotation": {
@@ -218,23 +218,11 @@
                       "type": "string"
                     }
                   },
-                  "required": ["annotationType", "text"]
+                  "required": ["text"]
                 }
               }
             },
-            "required": [
-              "instantiationIdentifier",
-              "instantiationPhysical",
-              "instantiationLocation",
-              "instantiationMediaType",
-              "instantiationGenerations",
-              "instantiationDuration",
-              "instantiationTracks",
-              "instantiationChannelConfiguration",
-              "instantiationAlternativeModes",
-              "instantiationEssenceTrack",
-              "instantiationAnnotation"
-            ]
+            "required": ["instantiationIdentifier", "instantiationLocation"]
           }
         },
         "pbcoreAnnotation": {
@@ -251,6 +239,63 @@
             },
             "required": ["annotationType", "text"]
           }
+        },
+        "pbcoreRelation": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pbcoreRelationType": {
+                "type": "object",
+                "properties": {
+                  "source": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              },
+              "pbcoreRelationIdentifier": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              }
+            },
+            "required": ["pbcoreRelationType", "pbcoreRelationIdentifier"]
+          }
+        },
+        "pbcoreCoverage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "coverage": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              },
+              "coverageType": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              }
+            },
+            "required": ["coverage"]
+          }
         }
       },
       "required": [
@@ -258,8 +303,6 @@
         "pbcoreIdentifier",
         "pbcoreTitle",
         "pbcoreDescription",
-        "pbcoreCreator",
-        "pbcoreInstantiation",
         "pbcoreAnnotation"
       ]
     }
