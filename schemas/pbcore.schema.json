@@ -3,33 +3,57 @@
   "title": "PBCore JSON Schema",
   "type": "object",
   "definitions": {
+    "pbcoreTextElement": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": ["text"]
+    },
+    "pbcoreSourceElement": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/pbcoreTextElement"
+        }
+      ],
+      "properties": {
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+
     "pbcoreElement": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/pbcoreSourceElement"
+        }
+      ],
+      "properties": {
+        "ref": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "annotation": {
+          "type": "string"
+        }
+      }
+    },
+    "pbcoreRepeatableElement": {
       "type": "array",
       "items": {
         "type": "object",
-        "properties": {
-          "audienceLevel": {
-            "type": "object",
-            "properties": {
-              "text": {
-                "type": "string"
-              },
-              "source": {
-                "type": "string"
-              },
-              "ref": {
-                "type": "string"
-              },
-              "version": {
-                "type": "string"
-              },
-              "annotation": {
-                "type": "string"
-              }
-            },
-            "required": ["text"]
+        "allOf": [
+          {
+            "$ref": "#/definitions/pbcoreTextElement"
           }
-        }
+        ]
       }
     }
   },
@@ -39,6 +63,9 @@
       "properties": {
         "xsi:schemaLocation": {
           "type": "string"
+        },
+        "pbcoreAssetType": {
+          "$ref": "#/definitions/pbcoreRepeatableElement"
         },
         "pbcoreIdentifier": {
           "type": "array",
@@ -268,7 +295,7 @@
                 "type": "string"
               }
             },
-            "required": ["annotationType", "text"]
+            "required": ["text"]
           }
         },
         "pbcoreRelation": {
@@ -328,14 +355,15 @@
             "required": ["coverage"]
           }
         },
-        "pbcoreAudienceLevel": { "$ref": "#/definitions/pbcoreElement" }
+        "pbcoreAudienceLevel": {
+          "$ref": "#/definitions/pbcoreRepeatableElement"
+        }
       },
       "required": [
         "xsi:schemaLocation",
         "pbcoreIdentifier",
         "pbcoreTitle",
-        "pbcoreDescription",
-        "pbcoreAnnotation"
+        "pbcoreDescription"
       ]
     }
   },
