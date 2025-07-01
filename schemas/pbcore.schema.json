@@ -2,6 +2,37 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "PBCore JSON Schema",
   "type": "object",
+  "definitions": {
+    "pbcoreElement": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "audienceLevel": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "ref": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "annotation": {
+                "type": "string"
+              }
+            },
+            "required": ["text"]
+          }
+        }
+      }
+    }
+  },
   "properties": {
     "pbcoreDescriptionDocument": {
       "type": "object",
@@ -297,35 +328,7 @@
             "required": ["coverage"]
           }
         },
-        "pbcoreAudienceLevel": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "audienceLevel": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  },
-                  "source": {
-                    "type": "string"
-                  },
-                  "ref": {
-                    "type": "string"
-                  },
-                  "version": {
-                    "type": "string"
-                  },
-                  "annotation": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              }
-            }
-          }
-        }
+        "pbcoreAudienceLevel": { "$ref": "#/definitions/pbcoreElement" }
       },
       "required": [
         "xsi:schemaLocation",
