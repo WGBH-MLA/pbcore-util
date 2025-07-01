@@ -48,12 +48,7 @@
     "pbcoreRepeatableElement": {
       "type": "array",
       "items": {
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/definitions/pbcoreTextElement"
-          }
-        ]
+        "$ref": "#/definitions/pbcoreElement"
       }
     }
   },
@@ -67,34 +62,69 @@
         "pbcoreAssetType": {
           "$ref": "#/definitions/pbcoreRepeatableElement"
         },
+        "pbcoreAssetDate": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/definitions/pbcoreElement"
+              }
+            ],
+            "properties": {
+              "dateType": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "pbcoreIdentifier": {
           "type": "array",
           "items": {
             "type": "object",
-            "properties": {
-              "source": {
-                "type": "string"
-              },
-              "text": {
-                "type": "string"
+            "allOf": [
+              {
+                "$ref": "#/definitions/pbcoreSourceElement"
               }
-            },
-            "required": ["source", "text"]
+            ],
+            "required": ["source"]
           }
         },
         "pbcoreTitle": {
           "type": "array",
           "items": {
             "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/definitions/pbcoreElement"
+              }
+            ],
             "properties": {
               "titleType": {
                 "type": "string"
               },
-              "text": {
+              "titleTypeSource": {
+                "type": "string"
+              },
+              "titleTypeRef": {
+                "type": "string"
+              },
+              "titleTypeVersion": {
+                "type": "string"
+              },
+              "titleTypeAnnotation": {
+                "type": "string"
+              },
+              "startTime": {
+                "type": "string"
+              },
+              "endTime": {
+                "type": "string"
+              },
+              "timeAnnotation": {
                 "type": "string"
               }
-            },
-            "required": ["titleType", "text"]
+            }
           }
         },
         "pbcoreDescription": {
@@ -139,7 +169,7 @@
                 }
               }
             },
-            "required": ["creator", "creatorRole"]
+            "required": ["creator"]
           }
         },
         "pbcoreInstantiation": {
