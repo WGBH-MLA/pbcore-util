@@ -50,6 +50,20 @@
       "items": {
         "$ref": "#/definitions/pbcoreElement"
       }
+    },
+    "pbcoreTimeAttributes": {
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "timeAnnotation": {
+          "type": "string"
+        }
+      }
     }
   },
   "properties": {
@@ -60,7 +74,22 @@
           "type": "string"
         },
         "pbcoreAssetType": {
-          "$ref": "#/definitions/pbcoreRepeatableElement"
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/pbcoreTextElement"
+              }
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "text": true,
+              "source": true,
+              "ref": true,
+              "version": true,
+              "annotation": true
+            }
+          }
         },
         "pbcoreAssetDate": {
           "type": "array",
@@ -95,9 +124,8 @@
           "items": {
             "type": "object",
             "allOf": [
-              {
-                "$ref": "#/definitions/pbcoreElement"
-              }
+              { "$ref": "#/definitions/pbcoreElement" },
+              { "$ref": "#/definitions/pbcoreTimeAttributes" }
             ],
             "properties": {
               "titleType": {
@@ -114,14 +142,36 @@
               },
               "titleTypeAnnotation": {
                 "type": "string"
+              }
+            }
+          }
+        },
+        "pbcoreSubject": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/definitions/pbcoreElement"
               },
-              "startTime": {
+              {
+                "$ref": "#/definitions/pbcoreTimeAttributes"
+              }
+            ],
+            "properties": {
+              "subjectType": {
                 "type": "string"
               },
-              "endTime": {
+              "subjectTypeSource": {
                 "type": "string"
               },
-              "timeAnnotation": {
+              "subjectTypeRef": {
+                "type": "string"
+              },
+              "subjectTypeVersion": {
+                "type": "string"
+              },
+              "subjectTypeAnnotation": {
                 "type": "string"
               }
             }
