@@ -3,7 +3,7 @@
   "title": "PBCore JSON Schema",
   "type": "object",
   "$defs": {
-    "pbcoreTextElement": {
+    "pbcoreElementText": {
       "type": "object",
       "properties": {
         "text": {
@@ -12,11 +12,11 @@
       },
       "required": ["text"]
     },
-    "pbcoreSourceElement": {
+    "pbcoreAttributeSource": {
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/$defs/pbcoreTextElement"
+          "$ref": "#/$defs/pbcoreElementText"
         }
       ],
       "properties": {
@@ -30,7 +30,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/$defs/pbcoreSourceElement"
+          "$ref": "#/$defs/pbcoreAttributeSource"
         }
       ],
       "properties": {
@@ -51,7 +51,7 @@
         "$ref": "#/$defs/pbcoreElement"
       }
     },
-    "pbcoreTimeAttributes": {
+    "pbcoreAttributesTime": {
       "type": "object",
       "properties": {
         "startTime": {
@@ -81,13 +81,8 @@
                 "$ref": "#/$defs/pbcoreElement"
               }
             ],
-            "additionalProperties": false,
-            "properties": {
-              "text": true,
-              "source": true,
-              "ref": true,
-              "version": true,
-              "annotation": true
+            "unevaluatedProperties": {
+              "$ref": "#/$defs/pbcoreElement"
             }
           }
         },
@@ -113,7 +108,7 @@
             "type": "object",
             "allOf": [
               {
-                "$ref": "#/$defs/pbcoreSourceElement"
+                "$ref": "#/$defs/pbcoreAttributeSource"
               }
             ],
             "required": ["source"]
@@ -125,7 +120,7 @@
             "type": "object",
             "allOf": [
               { "$ref": "#/$defs/pbcoreElement" },
-              { "$ref": "#/$defs/pbcoreTimeAttributes" }
+              { "$ref": "#/$defs/pbcoreAttributesTime" }
             ],
             "properties": {
               "titleType": {
@@ -155,7 +150,7 @@
                 "$ref": "#/$defs/pbcoreElement"
               },
               {
-                "$ref": "#/$defs/pbcoreTimeAttributes"
+                "$ref": "#/$defs/pbcoreAttributesTime"
               }
             ],
             "properties": {
