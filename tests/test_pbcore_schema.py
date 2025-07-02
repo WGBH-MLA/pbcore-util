@@ -52,6 +52,20 @@ def test_missing_pbcoreIdentifier(validator):
     assert error.value.message == '"pbcoreIdentifier" is a required property'
 
 
+def test_missing_pbcoreIdentifier_data(validator):
+    """Test document with an empty identifier. This should fail."""
+    with raises(ValidationError) as error:
+        validator(
+            {
+                "pbcoreDescriptionDocument": {
+                    "xsi:schemaLocation": "http://www.example.com/schema",
+                    "pbcoreIdentifier": [],
+                }
+            }
+        )
+    assert error.value.message == '[] has less than 1 item'
+
+
 def test_missing_pbcoreIdentifierText(validator):
     """Test document with an empty identifier text. This should fail."""
     with raises(ValidationError) as error:
@@ -66,7 +80,7 @@ def test_missing_pbcoreIdentifierText(validator):
     assert error.value.message == '"text" is a required property'
 
 
-def test_missing_pbcoreIdentifierSource(validator):
+def test_missing_pbcoreIdentifier_source(validator):
     """Test document with an empty identifier source. This should fail."""
     with raises(ValidationError) as error:
         validator(
@@ -81,7 +95,7 @@ def test_missing_pbcoreIdentifierSource(validator):
 
 
 def test_missing_pbcoreTitle(validator):
-    """Test document with an empty title. This should fail."""
+    """Test document without a pbcoreTitle. This should fail."""
     with raises(ValidationError) as error:
         validator(
             {
@@ -92,3 +106,63 @@ def test_missing_pbcoreTitle(validator):
             }
         )
     assert error.value.message == '"pbcoreTitle" is a required property'
+
+
+def test_missing_pbcoreTitle_data(validator):
+    with raises(ValidationError) as error:
+        validator(
+            {
+                "pbcoreDescriptionDocument": {
+                    "xsi:schemaLocation": "http://www.example.com/schema",
+                    "pbcoreIdentifier": [{"text": "123", "source": "example"}],
+                    "pbcoreTitle": [],
+                },
+            }
+        )
+    assert error.value.message == '[] has less than 1 item'
+
+
+def test_missing_pbcoreTitle_text(validator):
+    with raises(ValidationError) as error:
+        validator(
+            {
+                "pbcoreDescriptionDocument": {
+                    "xsi:schemaLocation": "http://www.example.com/schema",
+                    "pbcoreIdentifier": [{"text": "123", "source": "example"}],
+                    "pbcoreTitle": [{"source": "Test Source"}],
+                },
+            }
+        )
+    assert error.value.message == '"text" is a required property'
+
+
+def test_invalid_pbcoreTitle(validator):
+    with raises(ValidationError) as error:
+        validator(
+            {
+                "pbcoreDescriptionDocument": {
+                    "xsi:schemaLocation": "http://www.example.com/schema",
+                    "pbcoreIdentifier": [{"text": "123", "source": "example"}],
+                    "pbcoreTitle": [{"text": "Test Title", "invalid": "property"}],
+                },
+            }
+        )
+    assert (
+        error.value.message
+        == "Unevaluated properties are not allowed ('invalid' was unexpected)"
+    )
+
+
+def test_missing_pbcoreDescription(validator):
+    """Test document with an empty description. This should fail."""
+    with raises(ValidationError) as error:
+        validator(
+            {
+                "pbcoreDescriptionDocument": {
+                    "xsi:schemaLocation": "http://www.example.com/schema",
+                    "pbcoreIdentifier": [{"text": "123", "source": "example"}],
+                    "pbcoreTitle": [{"text": "Test Title"}],
+                },
+            }
+        )
+    assert error.value.message == '"pbcoreDescription" is a required property'
