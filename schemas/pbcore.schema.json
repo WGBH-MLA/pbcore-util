@@ -48,7 +48,14 @@
     "pbcoreRepeatableElement": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/pbcoreElement"
+        "allOf": [
+          {
+            "$ref": "#/$defs/pbcoreElement"
+          }
+        ],
+        "unevaluatedProperties": {
+          "$ref": "#/$defs/pbcoreElement"
+        }
       }
     },
     "pbcoreAttributesTime": {
@@ -74,17 +81,7 @@
           "type": "string"
         },
         "pbcoreAssetType": {
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "$ref": "#/$defs/pbcoreElement"
-              }
-            ],
-            "unevaluatedProperties": {
-              "$ref": "#/$defs/pbcoreElement"
-            }
-          }
+          "$ref": "#/$defs/pbcoreRepeatableElement"
         },
         "pbcoreAssetDate": {
           "type": "array",
@@ -95,6 +92,9 @@
                 "$ref": "#/$defs/pbcoreElement"
               }
             ],
+            "unevaluatedProperties": {
+              "$ref": "#/$defs/pbcoreElement"
+            },
             "properties": {
               "dateType": {
                 "type": "string"
@@ -105,12 +105,10 @@
         "pbcoreIdentifier": {
           "type": "array",
           "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "$ref": "#/$defs/pbcoreAttributeSource"
-              }
-            ],
+            "$ref": "#/$defs/pbcoreElement",
+            "unevaluatedProperties": {
+              "$ref": "#/$defs/pbcoreElement"
+            },
             "required": ["source"]
           }
         },
