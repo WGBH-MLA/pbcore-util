@@ -633,20 +633,25 @@ def test_convert_xml_to_json_handles_special_characters(
     )
     assert (
         response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][2]["text"]
-        == '\\"previously escaped quoted string\\"'
+        == r'\"previously escaped quoted string\"'
     )
     assert (
         response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][3]["text"]
-        == "single \\ backslash"
+        == r"single \ backslash"
     )
     assert (
         response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][4]["text"]
-        == "double \\\\ backslash"
+        == r"double \\ backslash"
+    )
+
+    assert (
+        response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][5]["text"]
+        == r"triple \\\ backslash"
     )
     # The test below is an actual example of bad data that made it's way into
     # our production PBCore. While not ideal, we still need to make sure that
     # values like this do not result in invalid JSON when converted.
     assert (
-        response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][5]["text"]
-        == '["[\\"480\\"]"] x ["[\\"360\\"]"]'
+        response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][6]["text"]
+        == r'["[\"480\"]"] x ["[\"360\"]"]'
     )

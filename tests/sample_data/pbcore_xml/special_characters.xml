@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd">
     <pbcoreIdentifier>test-id</pbcoreIdentifier>
     <pbcoreTitle>"quoted string"</pbcoreTitle>
     <pbcoreTitle>"improperly quoted string</pbcoreTitle>
     <pbcoreTitle>\"previously escaped quoted string\"</pbcoreTitle>
     <pbcoreTitle>single \ backslash</pbcoreTitle>
     <pbcoreTitle>double \\ backslash</pbcoreTitle>
+    <pbcoreTitle>triple \\\ backslash</pbcoreTitle>
     <pbcoreTitle annotation="originally from essenceTrackFrameSize">["[\"480\"]"] x ["[\"360\"]"]</pbcoreTitle>
 </pbcoreDescriptionDocument>
