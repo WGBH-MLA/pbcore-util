@@ -1,6 +1,6 @@
-from jsonschema_rs import validator_for, ValidationError
+from jsonschema_rs import validator_for
 from json import load
-from pytest import fixture, raises, mark
+from pytest import fixture
 
 
 @fixture
