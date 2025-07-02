@@ -1,13 +1,19 @@
-def test_mvpbcore(validator, mvp):
-    """Test minimum viable pbcore document. This should pass."""
-    validator(mvp)
+from jsonschema_rs import ValidationError
+from pytest import raises, mark
 
 
 def test_pbcore_schema_is_valid_schema(validator):
+    """
+    Test that the pbcore schema is a valid JSON schema.
+    """
     from types import BuiltinFunctionType
 
-    assert validator is not None
     assert isinstance(validator, BuiltinFunctionType)
+
+
+def test_mvpbcore(validator, mvp):
+    """Test minimum viable pbcore document. This should pass."""
+    validator(mvp)
 
 
 def test_pbcore_empty_document(validator):
@@ -87,6 +93,17 @@ def test_pbcoreIdentifier_invalid(validator, mvp):
     )
 
 
+def test_pbcoreIdentifier_multiple(validator, mvp):
+    """Test document with multiple pbcoreIdentifier elements."""
+    mvp['pbcoreDescriptionDocument']['pbcoreIdentifier'].append(
+        {
+            "text": "video-2",
+            "source": "local",
+        }
+    )
+    validator(mvp)
+
+
 def test_pbcoreTitle_missing(validator, mvp):
     """Test document without a pbcoreTitle. This should fail."""
     del mvp['pbcoreDescriptionDocument']['pbcoreTitle']
@@ -122,6 +139,12 @@ def test_pbcoreTitle_invalid(validator, mvp):
     )
 
 
+def test_pbcoreTitle_multiple(validator, mvp):
+    """Test document with multiple pbcoreTitle elements."""
+    mvp['pbcoreDescriptionDocument']['pbcoreTitle'].append({"text": "Alternate title"})
+    validator(mvp)
+
+
 def test_pbcoreDescription_missing(validator, mvp):
     """Test document with an empty description. This should fail."""
     del mvp['pbcoreDescriptionDocument']['pbcoreDescription']
@@ -136,6 +159,14 @@ def test_pbcoreDescription_empty(validator, mvp):
     with raises(ValidationError) as error:
         validator(mvp)
     assert error.value.message == '[] has less than 1 item'
+
+
+def test_pbcoreDescription_multiple(validator, mvp):
+    """Test document with multiple pbcoreDescription elements."""
+    mvp['pbcoreDescriptionDocument']['pbcoreDescription'].append(
+        {"text": "Alternate description"}
+    )
+    validator(mvp)
 
 
 @mark.xfail
