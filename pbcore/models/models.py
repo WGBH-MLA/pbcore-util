@@ -28,19 +28,13 @@ class PBCoreElement(PBCoreTextElement, PBCoreBaseAttributes):
     """Base class for PBCore elements with required text and optional attributes."""
 
 
-class PBCoreRepeatableElement(RootModel):
-    """Base class for repeatable PBCore elements."""
-
-    root: List[PBCoreElement] = Field(..., min_items=1)
-
-
 class PBCoreIdentifier(PBCoreElement):
     """PBCore identifier element."""
 
     source: str = Field(..., description="Source of the identifier (required)")
 
 
-class PBCoreDescriptionItem(PBCoreElement):
+class PBCoreDescription(PBCoreElement):
     text: str
 
 
@@ -56,7 +50,7 @@ class PBCoreCreator(RootModel, PBCoreBaseModel):
     root: List[Creator | CreatorRole] = Field(..., min_items=1)
 
 
-class InstantiationIdentifierItem(BaseModel):
+class InstantiationIdentifier(BaseModel):
     source: str
     text: str
 
@@ -101,18 +95,18 @@ class EssenceTrackAspectRatio(BaseModel):
     text: str
 
 
-class InstantiationEssenceTrackItem(BaseModel):
+class InstantiationEssenceTrack(BaseModel):
     essenceTrackType: EssenceTrackType
     essenceTrackAspectRatio: Optional[EssenceTrackAspectRatio] = None
 
 
-class InstantiationAnnotationItem(BaseModel):
+class InstantiationAnnotation(BaseModel):
     annotationType: Optional[str] = None
     text: str
 
 
-class PBCoreInstantiationItem(BaseModel):
-    instantiationIdentifier: List[InstantiationIdentifierItem]
+class PBCoreInstantiation(BaseModel):
+    instantiationIdentifier: List[InstantiationIdentifier]
     instantiationPhysical: Optional[InstantiationPhysical] = None
     instantiationLocation: InstantiationLocation
     instantiationMediaType: Optional[InstantiationMediaType] = None
@@ -123,11 +117,11 @@ class PBCoreInstantiationItem(BaseModel):
         None
     )
     instantiationAlternativeModes: Optional[InstantiationAlternativeModes] = None
-    instantiationEssenceTrack: Optional[List[InstantiationEssenceTrackItem]] = None
-    instantiationAnnotation: Optional[List[InstantiationAnnotationItem]] = None
+    instantiationEssenceTrack: Optional[List[InstantiationEssenceTrack]] = None
+    instantiationAnnotation: Optional[List[InstantiationAnnotation]] = None
 
 
-class PBCoreAnnotationItem(BaseModel):
+class PBCoreAnnotation(BaseModel):
     annotationType: Optional[str] = None
     text: str
 
@@ -141,7 +135,7 @@ class PBCoreRelationIdentifier(BaseModel):
     text: str
 
 
-class PBCoreRelationItem(BaseModel):
+class PBCoreRelation(BaseModel):
     pbcoreRelationType: PBCoreRelationType
     pbcoreRelationIdentifier: PBCoreRelationIdentifier
 
@@ -154,7 +148,7 @@ class CoverageType(BaseModel):
     text: str
 
 
-class PBCoreCoverageItem(BaseModel):
+class PBCoreCoverage(BaseModel):
     coverage: Coverage
     coverageType: Optional[CoverageType] = None
 
@@ -165,7 +159,7 @@ class PBCoreAttributesTime(BaseModel):
     timeAnnotation: Optional[str] = None
 
 
-class PBCoreTitleItem(PBCoreElement, PBCoreAttributesTime):
+class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
     titleType: Optional[str] = None
     titleTypeSource: Optional[str] = None
     titleTypeRef: Optional[str] = None
@@ -173,7 +167,7 @@ class PBCoreTitleItem(PBCoreElement, PBCoreAttributesTime):
     titleTypeAnnotation: Optional[str] = None
 
 
-class PBCoreSubjectItem(PBCoreElement, PBCoreAttributesTime):
+class PBCoreSubject(PBCoreElement, PBCoreAttributesTime):
     subjectType: Optional[str] = None
     subjectTypeSource: Optional[str] = None
     subjectTypeRef: Optional[str] = None
@@ -183,18 +177,18 @@ class PBCoreSubjectItem(PBCoreElement, PBCoreAttributesTime):
 
 class PBCoreDescriptionDocument(BaseModel):
     xsi_schemaLocation: str = Field(..., alias='xsi:schemaLocation')
-    pbcoreAssetType: Optional[PBCoreRepeatableElement] = None
+    pbcoreAssetType: Optional[List[PBCoreElement]] = None
     pbcoreAssetDate: Optional[List[PBCoreElement]] = Field(None, min_items=1)
     pbcoreIdentifier: List[PBCoreIdentifier] = Field(..., min_items=1)
-    pbcoreTitle: List[PBCoreTitleItem] = Field(..., min_items=1)
-    pbcoreSubject: Optional[List[PBCoreSubjectItem]] = None
-    pbcoreDescription: List[PBCoreDescriptionItem] = Field(..., min_items=1)
+    pbcoreTitle: List[PBCoreTitle] = Field(..., min_items=1)
+    pbcoreSubject: Optional[List[PBCoreSubject]] = None
+    pbcoreDescription: List[PBCoreDescription] = Field(..., min_items=1)
     pbcoreCreator: Optional[List[PBCoreCreator]] = None
-    pbcoreInstantiation: Optional[List[PBCoreInstantiationItem]] = None
-    pbcoreAnnotation: Optional[List[PBCoreAnnotationItem]] = None
-    pbcoreRelation: Optional[List[PBCoreRelationItem]] = None
-    pbcoreCoverage: Optional[List[PBCoreCoverageItem]] = None
-    pbcoreAudienceLevel: Optional[PBCoreRepeatableElement] = None
+    pbcoreInstantiation: Optional[List[PBCoreInstantiation]] = None
+    pbcoreAnnotation: Optional[List[PBCoreAnnotation]] = None
+    pbcoreRelation: Optional[List[PBCoreRelation]] = None
+    pbcoreCoverage: Optional[List[PBCoreCoverage]] = None
+    pbcoreAudienceLevel: Optional[List[PBCoreElement]] = None
 
 
 class PBCore(BaseModel):

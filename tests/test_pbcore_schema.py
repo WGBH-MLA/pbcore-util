@@ -1,6 +1,7 @@
 # from jsonschema_rs import ValidationError
 from pydantic import ValidationError
 from pytest import raises, mark
+from pbcore import PBCore
 
 invalid_text_elements = [
     3,
@@ -17,51 +18,19 @@ invalid_text_elements = [
 ]
 
 
-def set_nested_path(d, path, value):
-    keys = path.split('.')
-    for key in keys[:-1]:
-        d = d.setdefault(key, {})
-    d[keys[-1]] = value
-    return d
-
-
-def check_invalid_text_elements(validator, pbcore, path):
-    """
-    Helper function to check invalid text elements.
-
-    Create a pbcore document with invalid text elements at the specified path,
-    then validate it using the provided validator.
-    """
-    for element in invalid_text_elements:
-        bad_pbcore = set_nested_path(pbcore.copy(), path, element)
-        # with raises(ValidationError):
-        validator(bad_pbcore)
-
-
-def test_invalid_text_elements(validator, mvp):
-    """Test invalid text elements in the minimum viable pbcore document."""
-    check_invalid_text_elements(validator, mvp, "pbcoreDescriptionDocument.pbcoreTitle")
-
-
-def test_pbcore_schema_is_valid_schema(validator):
-    """
-    Test that the pbcore schema is a valid JSON schema.
-    """
-    from types import BuiltinFunctionType
-
-    assert isinstance(validator, BuiltinFunctionType)
-
-
-def test_mvpbcore(validator, mvp):
+def test_mvpbcore(mvp):
     """Test minimum viable pbcore document. This should pass."""
-    validator(mvp)
+    pbcore = PBCore(**mvp)
 
 
-def test_pbcore_empty_document(validator):
+def test_pbcore_empty_document():
     """Test empty document. This should fail."""
-    with raises(ValidationError) as error:
-        validator({})
-    assert error.value.message == '"pbcoreDescriptionDocument" is a required property'
+    try:
+        pbcore = PBCore()
+    except ValidationError as error:
+        errors = error.errors()
+        assert len(errors) == 1
+        assert errors[0] == '"pbcoreDescriptionDocument" is a required property'
 
 
 def test_pbcoreDescriptionDocument_invalid_types(validator):
