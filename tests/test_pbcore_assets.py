@@ -1,4 +1,6 @@
-from jsonschema_rs import ValidationError
+# from jsonschema_rs import ValidationError
+from pydantic import ValidationError
+
 from pytest import raises
 
 
@@ -11,9 +13,14 @@ def test_pbcoreAssetType(validator, mvp):
 def test_pbcoreAssetType_type(validator, mvp):
     """Test pbcoreAssetType."""
     mvp['pbcoreDescriptionDocument']['pbcoreAssetType'] = 'string'
-    with raises(ValidationError) as error:
+    try:
         validator(mvp)
-    assert error.value.message == '"string" is not of type "array"'
+    except ValidationError as error:
+        errors = error.errors()
+        assert len(errors) == 1
+        assert errors[0]['type'] == 'list_type'
+        assert errors[0]['loc'] == ('pbcoreDescriptionDocument', 'pbcoreAssetType')
+        assert errors[0]['msg'] == 'Input should be a valid list'
     mvp['pbcoreDescriptionDocument']['pbcoreAssetType'] = 3
     with raises(ValidationError) as error:
         validator(mvp)

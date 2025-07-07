@@ -3,22 +3,57 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, RootModel
 
 
-class PBCoreDescriptionItem(BaseModel):
+class PBCoreBaseModel(BaseModel):
+    """Base class for all PBCore elements."""
+
+    pass
+
+
+class PBCoreTextElement(PBCoreBaseModel):
+    """Base class for a required text elements in PBCore."""
+
     text: str
 
 
-class Creator(BaseModel):
-    text: str
+class PBCoreBaseAttributes(PBCoreBaseModel):
+    """Base class for attributes in PBCore."""
+
+    source: Optional[str] = None
     ref: Optional[str] = None
+    version: Optional[str] = None
+    annotation: Optional[str] = None
 
 
-class CreatorRoleItem(BaseModel):
+class PBCoreElement(PBCoreTextElement, PBCoreBaseAttributes):
+    """Base class for PBCore elements with required text and optional attributes."""
+
+
+class PBCoreRepeatableElement(RootModel):
+    """Base class for repeatable PBCore elements."""
+
+    root: List[PBCoreElement] = Field(..., min_items=1)
+
+
+class PBCoreIdentifier(PBCoreElement):
+    """PBCore identifier element."""
+
+    source: str = Field(..., description="Source of the identifier (required)")
+
+
+class PBCoreDescriptionItem(PBCoreElement):
     text: str
 
 
-class PBCoreCreatorItem(BaseModel):
-    creator: Creator
-    creatorRole: Optional[List[CreatorRoleItem]] = None
+class CreatorRole(PBCoreElement):
+    pass
+
+
+class Creator(PBCoreElement):
+    pass
+
+
+class PBCoreCreator(RootModel, PBCoreBaseModel):
+    root: List[Creator | CreatorRole] = Field(..., min_items=1)
 
 
 class InstantiationIdentifierItem(BaseModel):
@@ -124,25 +159,6 @@ class PBCoreCoverageItem(BaseModel):
     coverageType: Optional[CoverageType] = None
 
 
-class PBCoreElementText(BaseModel):
-    text: str
-
-
-class PBCoreAttributeSource(BaseModel):
-    source: Optional[str] = None
-
-
-class PBCoreElement(BaseModel):
-    ref: Optional[str] = None
-    version: Optional[str] = None
-    annotation: Optional[str] = None
-
-
-class PBCoreRepeatableElement(RootModel):
-
-    root: List[PBCoreElement] = Field(..., min_items=1)
-
-
 class PBCoreAttributesTime(BaseModel):
     startTime: Optional[str] = None
     endTime: Optional[str] = None
@@ -169,11 +185,11 @@ class PBCoreDescriptionDocument(BaseModel):
     xsi_schemaLocation: str = Field(..., alias='xsi:schemaLocation')
     pbcoreAssetType: Optional[PBCoreRepeatableElement] = None
     pbcoreAssetDate: Optional[List[PBCoreElement]] = Field(None, min_items=1)
-    pbcoreIdentifier: List[PBCoreElement] = Field(..., min_items=1)
+    pbcoreIdentifier: List[PBCoreIdentifier] = Field(..., min_items=1)
     pbcoreTitle: List[PBCoreTitleItem] = Field(..., min_items=1)
     pbcoreSubject: Optional[List[PBCoreSubjectItem]] = None
     pbcoreDescription: List[PBCoreDescriptionItem] = Field(..., min_items=1)
-    pbcoreCreator: Optional[List[PBCoreCreatorItem]] = None
+    pbcoreCreator: Optional[List[PBCoreCreator]] = None
     pbcoreInstantiation: Optional[List[PBCoreInstantiationItem]] = None
     pbcoreAnnotation: Optional[List[PBCoreAnnotationItem]] = None
     pbcoreRelation: Optional[List[PBCoreRelationItem]] = None
