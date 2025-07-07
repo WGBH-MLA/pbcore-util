@@ -1,1 +1,6 @@
 __pycache__
+
+.venv/
+
+batch3
+pbcore-json
