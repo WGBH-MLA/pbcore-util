@@ -30,7 +30,9 @@ def test_pbcore_empty_document():
     except ValidationError as error:
         errors = error.errors()
         assert len(errors) == 1
-        assert errors[0] == '"pbcoreDescriptionDocument" is a required property'
+        assert errors[0]['type'] == 'missing'
+        assert errors[0]['loc'] == ('pbcoreDescriptionDocument',)
+        assert errors[0]['msg'] == 'Field required'
 
 
 def test_pbcoreDescriptionDocument_invalid_types(validator):
