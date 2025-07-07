@@ -1,0 +1,31 @@
+name: 🧪 Integration Tests
+
+on: [push, pull_request, merge_group, workflow_dispatch]
+
+jobs:
+  tests:
+    name: 🐍 Run pytest
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: 🧪 Run pytest suite
+        run: uv run pytest
+
+  lint:
+    name: 👕 Lint
+    uses: WGBH-MLA/.github/.github/workflows/lint.yml@main
+
+  black:
+    name: 🖤 Black
+    uses: WGBH-MLA/.github/.github/workflows/black.yml@main
