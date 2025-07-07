@@ -5,6 +5,7 @@ from pytest import fixture
 
 @fixture
 def validator(schema_path='schemas/pbcore.schema.json', scope='module'):
+    """Return a rust-compiled PBCore schema validator."""
     with open(schema_path, 'r') as schema_file:
         schema = load(schema_file)
 

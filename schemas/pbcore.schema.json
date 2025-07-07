@@ -40,9 +40,7 @@
       "minItems": 1,
       "items": {
         "$ref": "#/$defs/pbcoreElement",
-        "unevaluatedProperties": {
-          "$ref": "#/$defs/pbcoreElement"
-        }
+        "unevaluatedProperties": false
       }
     },
     "pbcoreAttributesTime": {
@@ -90,9 +88,7 @@
           "minItems": 1,
           "items": {
             "$ref": "#/$defs/pbcoreElement",
-            "unevaluatedProperties": {
-              "$ref": "#/$defs/pbcoreElement"
-            },
+            "unevaluatedProperties": false,
             "required": ["source"]
           }
         },
@@ -122,9 +118,7 @@
                 "type": "string"
               }
             },
-            "unevaluatedProperties": {
-              "$ref": "#/$defs/pbcoreElement"
-            }
+            "unevaluatedProperties": false
           }
         },
         "pbcoreSubject": {
@@ -155,7 +149,8 @@
               "subjectTypeAnnotation": {
                 "type": "string"
               }
-            }
+            },
+            "unevaluatedProperties": false
           }
         },
         "pbcoreDescription": {
