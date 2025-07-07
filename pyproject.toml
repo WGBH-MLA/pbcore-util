@@ -4,18 +4,27 @@ version = "0.1.0"
 description = "PBCore API Utility"
 requires-python = '>=3.11,<4.0'
 dependencies = [
-    "fastapi",
-    "uvicorn[standard]",
-    "gunicorn",
-    "lxml",
-    "jsonschema",
-    "python-multipart",
-    "httpx"
+  "fastapi~=0.115",
+  "httpx~=0.28",
+  "jsonschema~=4.24",
+  "jsonschema-rs~=0.30",
+  "lxml~=6.0",
+  "python-multipart~=0.0",
+  "requests~=2.32",
+]
+
+[project.optional-dependencies]
+production = [
+    "gunicorn>=23.0.0,<23.1.0",
+    "uvicorn[standard]>=0.35.0,<0.35.1",
 ]
 
 [dependency-groups]
 dev = [
-  "pytest",
-  "ruff",
-  "black"
+  "black~=25.1",
+  "pytest~=8.4",
+  "ruff~=0.12",
 ]
+
+[tool.uv]
+add-bounds = "minor"

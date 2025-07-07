@@ -8,6 +8,6 @@ WORKDIR /app
 ADD . /app
 
 # Sync the project
-RUN uv sync
+RUN uv sync --all-extras
 
 CMD ["uv", "run", "gunicorn", "-c", "gunicorn_conf.py", "app.main:app"]
