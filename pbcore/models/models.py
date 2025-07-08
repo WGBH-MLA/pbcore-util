@@ -39,6 +39,7 @@ class PBCoreAttributesAffiliation(PBCoreBaseModel):
     affiliationSource: Optional[str] = None
     affiliationRef: Optional[str] = None
     affiliationVersion: Optional[str] = None
+    affiliationAnnotation: Optional[str] = None
 
 
 class PBCoreElement(PBCoreTextElement, PBCoreBaseAttributes):
@@ -96,17 +97,160 @@ class PBCoreGenre(PBCoreElement, PBCoreAttributesTime):
     """PBCore Genre element."""
 
 
+class PBCoreRelationType(PBCoreElement):
+    """PBCoreRelationType element."""
+
+
+class PBCoreRelationIdentifier(PBCoreElement):
+    """PBCoreRelationIdentifier element."""
+
+
+class PBCoreRelation(PBCoreBaseModel):
+    """PBCore Relation element."""
+
+    pbcoreRelationType: PBCoreRelationType
+    pbcoreRelationIdentifier: PBCoreRelationIdentifier
+
+
+class Coverage(PBCoreElement, PBCoreAttributesTime):
+    """Coverage element."""
+
+
+class CoverageType(PBCoreElement):
+    """CoverageType element."""
+
+
+class PBCoreCoverage(PBCoreBaseModel):
+    """PBCoreCoverage element."""
+
+    coverage: Coverage
+    coverageType: Optional[CoverageType] = None
+
+
+class PBCoreAudienceLevel(PBCoreElement):
+    """PBCoreAudienceLevel element."""
+
+
+class PBCoreAudienceRating(PBCoreElement):
+    """PBCoreAudienceRating element."""
+
+
 class Creator(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
-    """PBCore Creator element."""
+    """Creator element."""
 
 
 class CreatorRole(PBCoreElement):
-    """PBCore CreatorRole element."""
+    """CreatorRole element."""
 
 
 class PBCoreCreator(PBCoreBaseModel):
+    """PBCoreCreator element."""
+
     creator: Creator
     creatorRole: Optional[List[CreatorRole]] = None
+
+
+class Contributor(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
+    """Contributor element."""
+
+
+class ContributorRole(PBCoreElement):
+    """ContributorRole element."""
+
+    portrayal: Optional[str] = None
+
+
+class PBCoreContributor(PBCoreBaseModel):
+    """PBCoreContributor element."""
+
+    contributor: Contributor
+    contributorRole: Optional[List[ContributorRole]] = None
+
+
+class Publisher(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
+    """Publisher element."""
+
+
+class PublisherRole(PBCoreElement):
+    """PublisherRole element."""
+
+
+class PBCorePublisher(PBCoreBaseModel):
+    """PBCorePublisher element."""
+
+    publisher: Publisher
+    publisherRole: Optional[List[PublisherRole]] = None
+
+
+class RightsSummary(PBCoreElement):
+    """RightsSummary element."""
+
+
+class RightsLink(PBCoreElement):
+    """RightsLink element."""
+
+
+class RightsEmbedded(PBCoreElement):
+    """RightsEmbedded element."""
+
+
+class PBCoreRightsSummary(PBCoreAttributesTime):
+    """PBCoreRightsSummary element.
+
+    TODO: Validate that only one type of rightsSummary, rightsLink, or rightsEmbedded are present.
+    """
+
+    rightsSummary: Optional[List[RightsSummary]] = None
+    rightsLink: Optional[List[RightsLink]] = None
+    rightsEmbedded: Optional[List[RightsEmbedded]] = None
+
+
+class PBCorePart(PBCoreBaseModel):
+    """PBCorePart element.
+
+    TODO: Fixme
+    """
+
+    pass
+
+
+class PBCoreAnnotation(PBCoreElement):
+    """PBCoreAnnotation element."""
+
+    annotationType: Optional[str] = None
+
+
+class ExtensionElement(PBCoreTextElement):
+    """ExtensionElement element."""
+
+
+class ExtensionValue(PBCoreTextElement):
+    """ExtensionValue element."""
+
+
+class ExtensionAuthorityUsed(PBCoreTextElement):
+    """ExtensionAuthorityUsed element."""
+
+
+class ExtensionWrap(PBCoreBaseAttributes):
+    """ExtensionWrap element."""
+
+    extensionElement: ExtensionElement
+    extensionValue: ExtensionValue
+    extensionAuthorityUsed: Optional[ExtensionAuthorityUsed] = None
+
+
+class ExtensionEmbedded(PBCoreBaseAttributes):
+    """ExtensionEmbedded element."""
+
+
+class PBCoreExtension(PBCoreBaseModel):
+    """PBCoreExtension element.
+
+    TODO: Validate that extensionWrap and extensionEmbedded are not both present."""
+
+    extensionWrap: Optional[ExtensionWrap] = None
+    extensionEmbedded: Optional[ExtensionEmbedded] = None
 
 
 class InstantiationIdentifier(PBCoreBaseModel):
@@ -180,37 +324,6 @@ class PBCoreInstantiation(PBCoreBaseModel):
     instantiationAnnotation: Optional[List[InstantiationAnnotation]] = None
 
 
-class PBCoreAnnotation(PBCoreBaseModel):
-    annotationType: Optional[str] = None
-    text: str
-
-
-class PBCoreRelationType(PBCoreElement):
-    """PBCoreRelationType element."""
-
-
-class PBCoreRelationIdentifier(PBCoreElement):
-    """PBCoreRelationIdentifier element."""
-
-
-class PBCoreRelation(PBCoreBaseModel):
-    pbcoreRelationType: PBCoreRelationType
-    pbcoreRelationIdentifier: PBCoreRelationIdentifier
-
-
-class Coverage(PBCoreBaseModel):
-    text: str
-
-
-class CoverageType(PBCoreBaseModel):
-    text: str
-
-
-class PBCoreCoverage(PBCoreBaseModel):
-    coverage: Coverage
-    coverageType: Optional[CoverageType] = None
-
-
 class PBCoreDescriptionDocument(PBCoreBaseModel):
     xsi_schemaLocation: str = Field(..., alias='xsi:schemaLocation')
     pbcoreAssetType: Optional[List[PBCoreAssetType]] = None
@@ -219,12 +332,19 @@ class PBCoreDescriptionDocument(PBCoreBaseModel):
     pbcoreTitle: List[PBCoreTitle] = Field(..., min_items=1)
     pbcoreSubject: Optional[List[PBCoreSubject]] = None
     pbcoreDescription: List[PBCoreDescription] = Field(..., min_items=1)
-    pbcoreCreator: Optional[List[PBCoreCreator]] = None
-    pbcoreInstantiation: Optional[List[PBCoreInstantiation]] = None
-    pbcoreAnnotation: Optional[List[PBCoreAnnotation]] = None
+    pbcoreGenre: Optional[List[PBCoreGenre]] = None
     pbcoreRelation: Optional[List[PBCoreRelation]] = None
     pbcoreCoverage: Optional[List[PBCoreCoverage]] = None
-    pbcoreAudienceLevel: Optional[List[PBCoreElement]] = None
+    pbcoreAudienceLevel: Optional[List[PBCoreAudienceLevel]] = None
+    pbcoreAudienceRating: Optional[List[PBCoreAudienceRating]] = None
+    pbcoreCreator: Optional[List[PBCoreCreator]] = None
+    pbcoreContributor: Optional[List[PBCoreContributor]] = None
+    pbcorePublisher: Optional[List[PBCorePublisher]] = None
+    pbcoreRightsSummary: Optional[List[PBCoreRightsSummary]] = None
+    pbcoreInstantiation: Optional[List[PBCoreInstantiation]] = None
+    pbcoreAnnotation: Optional[List[PBCoreAnnotation]] = None
+    pbcorePart: Optional[List[PBCorePart]] = None
+    pbcoreExtension: Optional[List[PBCoreExtension]] = None
 
 
 class PBCore(PBCoreBaseModel):
