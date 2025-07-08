@@ -1,419 +1,339 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "PBCore JSON Schema",
-  "type": "object",
   "$defs": {
-    "pbcoreElementText": {
-      "type": "object",
-      "properties": {
-        "text": {
-          "type": "string"
-        }
-      },
-      "required": ["text"]
+    "Coverage": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "Coverage",
+      "type": "object"
     },
-    "pbcoreAttributeSource": {
-      "$ref": "#/$defs/pbcoreElementText",
+    "CoverageType": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "CoverageType",
+      "type": "object"
+    },
+    "Creator": {
       "properties": {
         "source": {
-          "type": "string"
-        }
-      }
-    },
-
-    "pbcoreElement": {
-      "$ref": "#/$defs/pbcoreAttributeSource",
-      "properties": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Source"
+        },
         "ref": {
-          "type": "string"
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Ref"
         },
         "version": {
-          "type": "string"
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Version"
         },
         "annotation": {
-          "type": "string"
-        }
-      }
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": { "title": "Text", "type": "string" }
+      },
+      "required": ["text"],
+      "title": "Creator",
+      "type": "object"
     },
-    "pbcoreRepeatableElement": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "$ref": "#/$defs/pbcoreElement",
-        "unevaluatedProperties": false
-      }
-    },
-    "pbcoreAttributesTime": {
-      "type": "object",
+    "CreatorRole": {
       "properties": {
-        "startTime": {
-          "type": "string"
+        "source": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Source"
         },
-        "endTime": {
-          "type": "string"
+        "ref": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Ref"
         },
-        "timeAnnotation": {
-          "type": "string"
+        "version": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": { "title": "Text", "type": "string" }
+      },
+      "required": ["text"],
+      "title": "CreatorRole",
+      "type": "object"
+    },
+    "EssenceTrackAspectRatio": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "EssenceTrackAspectRatio",
+      "type": "object"
+    },
+    "EssenceTrackType": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "EssenceTrackType",
+      "type": "object"
+    },
+    "InstantiationAlternativeModes": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "InstantiationAlternativeModes",
+      "type": "object"
+    },
+    "InstantiationAnnotation": {
+      "properties": {
+        "annotationType": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Annotationtype"
+        },
+        "text": { "title": "Text", "type": "string" }
+      },
+      "required": ["text"],
+      "title": "InstantiationAnnotation",
+      "type": "object"
+    },
+    "InstantiationChannelConfiguration": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "InstantiationChannelConfiguration",
+      "type": "object"
+    },
+    "InstantiationDuration": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "InstantiationDuration",
+      "type": "object"
+    },
+    "InstantiationEssenceTrack": {
+      "properties": {
+        "essenceTrackType": { "$ref": "#/$defs/EssenceTrackType" },
+        "essenceTrackAspectRatio": {
+          "anyOf": [
+            { "$ref": "#/$defs/EssenceTrackAspectRatio" },
+            { "type": "null" }
+          ],
+          "default": null
         }
-      }
-    }
-  },
-  "properties": {
-    "pbcoreDescriptionDocument": {
-      "type": "object",
+      },
+      "required": ["essenceTrackType"],
+      "title": "InstantiationEssenceTrack",
+      "type": "object"
+    },
+    "InstantiationGeneration": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "InstantiationGeneration",
+      "type": "object"
+    },
+    "InstantiationIdentifier": {
+      "properties": {
+        "source": { "title": "Source", "type": "string" },
+        "text": { "title": "Text", "type": "string" }
+      },
+      "required": ["source", "text"],
+      "title": "InstantiationIdentifier",
+      "type": "object"
+    },
+    "InstantiationLocation": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "InstantiationLocation",
+      "type": "object"
+    },
+    "InstantiationMediaType": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "InstantiationMediaType",
+      "type": "object"
+    },
+    "InstantiationPhysical": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "InstantiationPhysical",
+      "type": "object"
+    },
+    "InstantiationTracks": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "InstantiationTracks",
+      "type": "object"
+    },
+    "PBCoreAnnotation": {
+      "properties": {
+        "annotationType": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Annotationtype"
+        },
+        "text": { "title": "Text", "type": "string" }
+      },
+      "required": ["text"],
+      "title": "PBCoreAnnotation",
+      "type": "object"
+    },
+    "PBCoreCoverage": {
+      "properties": {
+        "coverage": { "$ref": "#/$defs/Coverage" },
+        "coverageType": {
+          "anyOf": [{ "$ref": "#/$defs/CoverageType" }, { "type": "null" }],
+          "default": null
+        }
+      },
+      "required": ["coverage"],
+      "title": "PBCoreCoverage",
+      "type": "object"
+    },
+    "PBCoreCreator": {
+      "items": {
+        "anyOf": [
+          { "$ref": "#/$defs/Creator" },
+          { "$ref": "#/$defs/CreatorRole" }
+        ]
+      },
+      "minItems": 1,
+      "title": "PBCoreCreator",
+      "type": "array"
+    },
+    "PBCoreDescription": {
+      "properties": {
+        "source": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": { "title": "Text", "type": "string" }
+      },
+      "required": ["text"],
+      "title": "PBCoreDescription",
+      "type": "object"
+    },
+    "PBCoreDescriptionDocument": {
       "properties": {
         "xsi:schemaLocation": {
+          "title": "Xsi:Schemalocation",
           "type": "string"
         },
         "pbcoreAssetType": {
-          "$ref": "#/$defs/pbcoreRepeatableElement"
+          "anyOf": [
+            { "items": { "$ref": "#/$defs/PBCoreElement" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Pbcoreassettype"
         },
         "pbcoreAssetDate": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/$defs/pbcoreElement",
-            "unevaluatedProperties": {
-              "$ref": "#/$defs/pbcoreElement"
+          "anyOf": [
+            {
+              "items": { "$ref": "#/$defs/PBCoreElement" },
+              "minItems": 1,
+              "type": "array"
             },
-            "properties": {
-              "dateType": {
-                "type": "string"
-              }
-            }
-          }
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Pbcoreassetdate"
         },
         "pbcoreIdentifier": {
-          "type": "array",
+          "items": { "$ref": "#/$defs/PBCoreIdentifier" },
           "minItems": 1,
-          "items": {
-            "$ref": "#/$defs/pbcoreElement",
-            "unevaluatedProperties": false,
-            "required": ["source"]
-          }
+          "title": "Pbcoreidentifier",
+          "type": "array"
         },
         "pbcoreTitle": {
-          "type": "array",
+          "items": { "$ref": "#/$defs/PBCoreTitle" },
           "minItems": 1,
-          "items": {
-            "type": "object",
-            "allOf": [
-              { "$ref": "#/$defs/pbcoreElement" },
-              { "$ref": "#/$defs/pbcoreAttributesTime" }
-            ],
-            "properties": {
-              "titleType": {
-                "type": "string"
-              },
-              "titleTypeSource": {
-                "type": "string"
-              },
-              "titleTypeRef": {
-                "type": "string"
-              },
-              "titleTypeVersion": {
-                "type": "string"
-              },
-              "titleTypeAnnotation": {
-                "type": "string"
-              }
-            },
-            "unevaluatedProperties": false
-          }
+          "title": "Pbcoretitle",
+          "type": "array"
         },
         "pbcoreSubject": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "$ref": "#/$defs/pbcoreElement"
-              },
-              {
-                "$ref": "#/$defs/pbcoreAttributesTime"
-              }
-            ],
-            "properties": {
-              "subjectType": {
-                "type": "string"
-              },
-              "subjectTypeSource": {
-                "type": "string"
-              },
-              "subjectTypeRef": {
-                "type": "string"
-              },
-              "subjectTypeVersion": {
-                "type": "string"
-              },
-              "subjectTypeAnnotation": {
-                "type": "string"
-              }
-            },
-            "unevaluatedProperties": false
-          }
+          "anyOf": [
+            { "items": { "$ref": "#/$defs/PBCoreSubject" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Pbcoresubject"
         },
         "pbcoreDescription": {
-          "type": "array",
+          "items": { "$ref": "#/$defs/PBCoreDescription" },
           "minItems": 1,
-          "items": {
-            "type": "object",
-            "properties": {
-              "text": {
-                "type": "string"
-              }
-            },
-            "required": ["text"]
-          }
+          "title": "Pbcoredescription",
+          "type": "array"
         },
         "pbcoreCreator": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "creator": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  },
-                  "ref": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              },
-              "creatorRole": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "text": {
-                      "type": "string"
-                    }
-                  },
-                  "required": ["text"]
-                }
-              }
-            },
-            "required": ["creator"]
-          }
+          "anyOf": [
+            { "items": { "$ref": "#/$defs/PBCoreCreator" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Pbcorecreator"
         },
         "pbcoreInstantiation": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "instantiationIdentifier": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "source": {
-                      "type": "string"
-                    },
-                    "text": {
-                      "type": "string"
-                    }
-                  },
-                  "required": ["source", "text"]
-                }
-              },
-              "instantiationPhysical": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              },
-              "instantiationLocation": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              },
-              "instantiationMediaType": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              },
-              "instantiationGenerations": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "text": {
-                      "type": "string"
-                    }
-                  },
-                  "required": ["text"]
-                }
-              },
-              "instantiationDuration": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              },
-              "instantiationTracks": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              },
-              "instantiationChannelConfiguration": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              },
-              "instantiationAlternativeModes": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              },
-              "instantiationEssenceTrack": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "essenceTrackType": {
-                      "type": "object",
-                      "properties": {
-                        "text": {
-                          "type": "string"
-                        }
-                      },
-                      "required": ["text"]
-                    },
-                    "essenceTrackAspectRatio": {
-                      "type": "object",
-                      "properties": {
-                        "text": {
-                          "type": "string"
-                        }
-                      },
-                      "required": ["text"]
-                    }
-                  },
-                  "required": ["essenceTrackType"]
-                }
-              },
-              "instantiationAnnotation": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "annotationType": {
-                      "type": "string"
-                    },
-                    "text": {
-                      "type": "string"
-                    }
-                  },
-                  "required": ["text"]
-                }
-              }
+          "anyOf": [
+            {
+              "items": { "$ref": "#/$defs/PBCoreInstantiation" },
+              "type": "array"
             },
-            "required": ["instantiationIdentifier", "instantiationLocation"]
-          }
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Pbcoreinstantiation"
         },
         "pbcoreAnnotation": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "annotationType": {
-                "type": "string"
-              },
-              "text": {
-                "type": "string"
-              }
+          "anyOf": [
+            {
+              "items": { "$ref": "#/$defs/PBCoreAnnotation" },
+              "type": "array"
             },
-            "required": ["text"]
-          }
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Pbcoreannotation"
         },
         "pbcoreRelation": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "pbcoreRelationType": {
-                "type": "object",
-                "properties": {
-                  "source": {
-                    "type": "string"
-                  },
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              },
-              "pbcoreRelationIdentifier": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              }
-            },
-            "required": ["pbcoreRelationType", "pbcoreRelationIdentifier"]
-          }
+          "anyOf": [
+            { "items": { "$ref": "#/$defs/PBCoreRelation" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Pbcorerelation"
         },
         "pbcoreCoverage": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "coverage": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              },
-              "coverageType": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  }
-                },
-                "required": ["text"]
-              }
-            },
-            "required": ["coverage"]
-          }
+          "anyOf": [
+            { "items": { "$ref": "#/$defs/PBCoreCoverage" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Pbcorecoverage"
         },
         "pbcoreAudienceLevel": {
-          "$ref": "#/$defs/pbcoreRepeatableElement"
+          "anyOf": [
+            { "items": { "$ref": "#/$defs/PBCoreElement" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Pbcoreaudiencelevel"
         }
       },
       "required": [
@@ -421,8 +341,327 @@
         "pbcoreIdentifier",
         "pbcoreTitle",
         "pbcoreDescription"
-      ]
+      ],
+      "title": "PBCoreDescriptionDocument",
+      "type": "object"
+    },
+    "PBCoreElement": {
+      "description": "Base class for PBCore elements with required text and optional attributes.",
+      "properties": {
+        "source": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": { "title": "Text", "type": "string" }
+      },
+      "required": ["text"],
+      "title": "PBCoreElement",
+      "type": "object"
+    },
+    "PBCoreIdentifier": {
+      "description": "PBCore identifier element.",
+      "properties": {
+        "source": {
+          "description": "Source of the identifier (required)",
+          "title": "Source",
+          "type": "string"
+        },
+        "ref": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": { "title": "Text", "type": "string" }
+      },
+      "required": ["source", "text"],
+      "title": "PBCoreIdentifier",
+      "type": "object"
+    },
+    "PBCoreInstantiation": {
+      "properties": {
+        "instantiationIdentifier": {
+          "items": { "$ref": "#/$defs/InstantiationIdentifier" },
+          "title": "Instantiationidentifier",
+          "type": "array"
+        },
+        "instantiationPhysical": {
+          "anyOf": [
+            { "$ref": "#/$defs/InstantiationPhysical" },
+            { "type": "null" }
+          ],
+          "default": null
+        },
+        "instantiationLocation": { "$ref": "#/$defs/InstantiationLocation" },
+        "instantiationMediaType": {
+          "anyOf": [
+            { "$ref": "#/$defs/InstantiationMediaType" },
+            { "type": "null" }
+          ],
+          "default": null
+        },
+        "instantiationGenerations": {
+          "anyOf": [
+            {
+              "items": { "$ref": "#/$defs/InstantiationGeneration" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Instantiationgenerations"
+        },
+        "instantiationDuration": {
+          "anyOf": [
+            { "$ref": "#/$defs/InstantiationDuration" },
+            { "type": "null" }
+          ],
+          "default": null
+        },
+        "instantiationTracks": {
+          "anyOf": [
+            { "$ref": "#/$defs/InstantiationTracks" },
+            { "type": "null" }
+          ],
+          "default": null
+        },
+        "instantiationChannelConfiguration": {
+          "anyOf": [
+            { "$ref": "#/$defs/InstantiationChannelConfiguration" },
+            { "type": "null" }
+          ],
+          "default": null
+        },
+        "instantiationAlternativeModes": {
+          "anyOf": [
+            { "$ref": "#/$defs/InstantiationAlternativeModes" },
+            { "type": "null" }
+          ],
+          "default": null
+        },
+        "instantiationEssenceTrack": {
+          "anyOf": [
+            {
+              "items": { "$ref": "#/$defs/InstantiationEssenceTrack" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Instantiationessencetrack"
+        },
+        "instantiationAnnotation": {
+          "anyOf": [
+            {
+              "items": { "$ref": "#/$defs/InstantiationAnnotation" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Instantiationannotation"
+        }
+      },
+      "required": ["instantiationIdentifier", "instantiationLocation"],
+      "title": "PBCoreInstantiation",
+      "type": "object"
+    },
+    "PBCoreRelation": {
+      "properties": {
+        "pbcoreRelationType": { "$ref": "#/$defs/PBCoreRelationType" },
+        "pbcoreRelationIdentifier": {
+          "$ref": "#/$defs/PBCoreRelationIdentifier"
+        }
+      },
+      "required": ["pbcoreRelationType", "pbcoreRelationIdentifier"],
+      "title": "PBCoreRelation",
+      "type": "object"
+    },
+    "PBCoreRelationIdentifier": {
+      "properties": { "text": { "title": "Text", "type": "string" } },
+      "required": ["text"],
+      "title": "PBCoreRelationIdentifier",
+      "type": "object"
+    },
+    "PBCoreRelationType": {
+      "properties": {
+        "source": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Source"
+        },
+        "text": { "title": "Text", "type": "string" }
+      },
+      "required": ["text"],
+      "title": "PBCoreRelationType",
+      "type": "object"
+    },
+    "PBCoreSubject": {
+      "properties": {
+        "startTime": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Starttime"
+        },
+        "endTime": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Endtime"
+        },
+        "timeAnnotation": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Timeannotation"
+        },
+        "source": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": { "title": "Text", "type": "string" },
+        "subjectType": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Subjecttype"
+        },
+        "subjectTypeSource": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Subjecttypesource"
+        },
+        "subjectTypeRef": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Subjecttyperef"
+        },
+        "subjectTypeVersion": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Subjecttypeversion"
+        },
+        "subjectTypeAnnotation": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Subjecttypeannotation"
+        }
+      },
+      "required": ["text"],
+      "title": "PBCoreSubject",
+      "type": "object"
+    },
+    "PBCoreTitle": {
+      "properties": {
+        "startTime": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Starttime"
+        },
+        "endTime": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Endtime"
+        },
+        "timeAnnotation": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Timeannotation"
+        },
+        "source": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": { "title": "Text", "type": "string" },
+        "titleType": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Titletype"
+        },
+        "titleTypeSource": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Titletypesource"
+        },
+        "titleTypeRef": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Titletyperef"
+        },
+        "titleTypeVersion": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Titletypeversion"
+        },
+        "titleTypeAnnotation": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "title": "Titletypeannotation"
+        }
+      },
+      "required": ["text"],
+      "title": "PBCoreTitle",
+      "type": "object"
     }
   },
-  "required": ["pbcoreDescriptionDocument"]
+  "properties": {
+    "pbcoreDescriptionDocument": { "$ref": "#/$defs/PBCoreDescriptionDocument" }
+  },
+  "required": ["pbcoreDescriptionDocument"],
+  "title": "PBCore",
+  "type": "object"
 }

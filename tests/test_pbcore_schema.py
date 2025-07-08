@@ -3,12 +3,15 @@ from pydantic import ValidationError
 from pytest import raises, mark
 from pbcore import PBCore
 
-invalid_text_elements = [
+invalid_element_types = [
     3,
     3.14,
     None,
-    {},
     [],
+    "",
+]
+invalid_text_elements = [
+    {},
     {"text": 3},
     {"text": 3.14},
     {"text": None},
@@ -16,6 +19,8 @@ invalid_text_elements = [
     {"text": []},
     # {"text": "v"},
 ]
+
+# def check_invalid_text_elements(element, ):
 
 
 def test_mvpbcore(mvp):
@@ -25,33 +30,35 @@ def test_mvpbcore(mvp):
 
 def test_pbcore_empty_document():
     """Test empty document. This should fail."""
-    try:
-        pbcore = PBCore()
-    except ValidationError as error:
-        errors = error.errors()
-        assert len(errors) == 1
-        assert errors[0]['type'] == 'missing'
-        assert errors[0]['loc'] == ('pbcoreDescriptionDocument',)
-        assert errors[0]['msg'] == 'Field required'
+    with raises(ValidationError) as error:
+        PBCore()
+    assert 'pbcoreDescriptionDocument' in str(error.value)
+    assert 'Field required [type=missing, input_value={}, input_type=dict]' in str(
+        error.value
+    )
 
 
-def test_pbcoreDescriptionDocument_invalid_types(validator):
-    """Test pbcoreDescriptionDocument invalid types."""
-    with raises(ValidationError) as error:
-        validator({"pbcoreDescriptionDocument": "Test description"})
-    assert error.value.message == '"Test description" is not of type "object"'
-    with raises(ValidationError) as error:
-        validator({"pbcoreDescriptionDocument": 3})
-    assert error.value.message == '3 is not of type "object"'
-    with raises(ValidationError) as error:
-        validator({"pbcoreDescriptionDocument": 3.14})
-    assert error.value.message == '3.14 is not of type "object"'
-    with raises(ValidationError) as error:
-        validator({"pbcoreDescriptionDocument": []})
-    assert error.value.message == '[] is not of type "object"'
-    with raises(ValidationError) as error:
-        validator({"pbcoreDescriptionDocument": None})
-    assert error.value.message == 'null is not of type "object"'
+def test_invalid_pbcoreDescriptionDocument_types():
+    """Test invalid types."""
+
+    for bad_value in invalid_element_types:
+        with raises(ValidationError) as error:
+            PBCore(pbcoreDescriptionDocument=bad_value)
+        assert (
+            f'''Input should be a valid dictionary or instance of PBCoreDescriptionDocument [type=model_type, input_value={bad_value if bad_value is not "" else "''"}, input_type={type(bad_value).__name__}]'''
+            in str(error.value)
+        )
+
+
+def test_invalid_pbcoreDescriptionDocument_elements():
+    for bad_value in invalid_text_elements:
+        with raises(ValidationError) as error:
+            PBCore(pbcoreDescriptionDocument=bad_value)
+        assert '4 validation errors for PBCore' in str(error.value)
+        # assert (
+        #     "Field required [type=missing, input_value={'pbcoreTitle': [{}]}, input_type=dict]"
+        #     in str(error.value)
+        # )
 
 
 def test_xsi_schemaLocation_missing(validator):

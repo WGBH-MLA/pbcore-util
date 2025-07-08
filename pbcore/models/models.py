@@ -6,8 +6,6 @@ from pydantic import BaseModel, Field, RootModel
 class PBCoreBaseModel(BaseModel):
     """Base class for all PBCore elements."""
 
-    pass
-
 
 class PBCoreTextElement(PBCoreBaseModel):
     """Base class for a required text elements in PBCore."""
@@ -38,74 +36,74 @@ class PBCoreDescription(PBCoreElement):
     text: str
 
 
+class Creator(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
+    """PBCore creator element."""
+
+
 class CreatorRole(PBCoreElement):
-    pass
-
-
-class Creator(PBCoreElement):
-    pass
+    """PBCore creator role element."""
 
 
 class PBCoreCreator(RootModel, PBCoreBaseModel):
     root: List[Creator | CreatorRole] = Field(..., min_items=1)
 
 
-class InstantiationIdentifier(BaseModel):
+class InstantiationIdentifier(PBCoreBaseModel):
     source: str
     text: str
 
 
-class InstantiationPhysical(BaseModel):
+class InstantiationPhysical(PBCoreBaseModel):
     text: str
 
 
-class InstantiationLocation(BaseModel):
+class InstantiationLocation(PBCoreBaseModel):
     text: str
 
 
-class InstantiationMediaType(BaseModel):
+class InstantiationMediaType(PBCoreBaseModel):
     text: str
 
 
-class InstantiationGeneration(BaseModel):
+class InstantiationGeneration(PBCoreBaseModel):
     text: str
 
 
-class InstantiationDuration(BaseModel):
+class InstantiationDuration(PBCoreBaseModel):
     text: str
 
 
-class InstantiationTracks(BaseModel):
+class InstantiationTracks(PBCoreBaseModel):
     text: str
 
 
-class InstantiationChannelConfiguration(BaseModel):
+class InstantiationChannelConfiguration(PBCoreBaseModel):
     text: str
 
 
-class InstantiationAlternativeModes(BaseModel):
+class InstantiationAlternativeModes(PBCoreBaseModel):
     text: str
 
 
-class EssenceTrackType(BaseModel):
+class EssenceTrackType(PBCoreBaseModel):
     text: str
 
 
-class EssenceTrackAspectRatio(BaseModel):
+class EssenceTrackAspectRatio(PBCoreBaseModel):
     text: str
 
 
-class InstantiationEssenceTrack(BaseModel):
+class InstantiationEssenceTrack(PBCoreBaseModel):
     essenceTrackType: EssenceTrackType
     essenceTrackAspectRatio: Optional[EssenceTrackAspectRatio] = None
 
 
-class InstantiationAnnotation(BaseModel):
+class InstantiationAnnotation(PBCoreBaseModel):
     annotationType: Optional[str] = None
     text: str
 
 
-class PBCoreInstantiation(BaseModel):
+class PBCoreInstantiation(PBCoreBaseModel):
     instantiationIdentifier: List[InstantiationIdentifier]
     instantiationPhysical: Optional[InstantiationPhysical] = None
     instantiationLocation: InstantiationLocation
@@ -121,42 +119,49 @@ class PBCoreInstantiation(BaseModel):
     instantiationAnnotation: Optional[List[InstantiationAnnotation]] = None
 
 
-class PBCoreAnnotation(BaseModel):
+class PBCoreAnnotation(PBCoreBaseModel):
     annotationType: Optional[str] = None
     text: str
 
 
-class PBCoreRelationType(BaseModel):
+class PBCoreRelationType(PBCoreBaseModel):
     source: Optional[str] = None
     text: str
 
 
-class PBCoreRelationIdentifier(BaseModel):
+class PBCoreRelationIdentifier(PBCoreBaseModel):
     text: str
 
 
-class PBCoreRelation(BaseModel):
+class PBCoreRelation(PBCoreBaseModel):
     pbcoreRelationType: PBCoreRelationType
     pbcoreRelationIdentifier: PBCoreRelationIdentifier
 
 
-class Coverage(BaseModel):
+class Coverage(PBCoreBaseModel):
     text: str
 
 
-class CoverageType(BaseModel):
+class CoverageType(PBCoreBaseModel):
     text: str
 
 
-class PBCoreCoverage(BaseModel):
+class PBCoreCoverage(PBCoreBaseModel):
     coverage: Coverage
     coverageType: Optional[CoverageType] = None
 
 
-class PBCoreAttributesTime(BaseModel):
+class PBCoreAttributesTime(PBCoreBaseModel):
     startTime: Optional[str] = None
     endTime: Optional[str] = None
     timeAnnotation: Optional[str] = None
+
+
+class PBCoreAttributesAffiliation(PBCoreBaseModel):
+    affiliation: Optional[str] = None
+    affiliationSource: Optional[str] = None
+    affiliationRef: Optional[str] = None
+    affiliationVersion: Optional[str] = None
 
 
 class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
@@ -175,7 +180,7 @@ class PBCoreSubject(PBCoreElement, PBCoreAttributesTime):
     subjectTypeAnnotation: Optional[str] = None
 
 
-class PBCoreDescriptionDocument(BaseModel):
+class PBCoreDescriptionDocument(PBCoreBaseModel):
     xsi_schemaLocation: str = Field(..., alias='xsi:schemaLocation')
     pbcoreAssetType: Optional[List[PBCoreElement]] = None
     pbcoreAssetDate: Optional[List[PBCoreElement]] = Field(None, min_items=1)
@@ -191,5 +196,5 @@ class PBCoreDescriptionDocument(BaseModel):
     pbcoreAudienceLevel: Optional[List[PBCoreElement]] = None
 
 
-class PBCore(BaseModel):
+class PBCore(PBCoreBaseModel):
     pbcoreDescriptionDocument: PBCoreDescriptionDocument
