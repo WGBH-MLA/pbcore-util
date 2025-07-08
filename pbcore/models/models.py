@@ -2,6 +2,8 @@ from typing import List, Optional
 
 from pydantic import BaseModel, Field, RootModel
 
+# Base classes for PBCore elements
+
 
 class PBCoreBaseModel(BaseModel):
     """Base class for all PBCore elements."""
@@ -22,6 +24,10 @@ class PBCoreBaseAttributes(PBCoreBaseModel):
     annotation: Optional[str] = None
 
 
+class PBCoreAttributesDateType(PBCoreBaseModel):
+    dateType: Optional[str] = None
+
+
 class PBCoreAttributesTime(PBCoreBaseModel):
     startTime: Optional[str] = None
     endTime: Optional[str] = None
@@ -39,22 +45,63 @@ class PBCoreElement(PBCoreTextElement, PBCoreBaseAttributes):
     """Base class for PBCore elements with required text and optional attributes."""
 
 
+# PBCore Assets
+
+
+class PBCoreAssetType(PBCoreElement):
+    """PBCoreAssetType element."""
+
+
+class PBCoreAssetDate(PBCoreElement, PBCoreAttributesDateType):
+    """PBCoreAssetDate element."""
+
+
+class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
+    titleType: Optional[str] = None
+    titleTypeSource: Optional[str] = None
+    titleTypeRef: Optional[str] = None
+    titleTypeVersion: Optional[str] = None
+    titleTypeAnnotation: Optional[str] = None
+
+
+class PBCoreSubject(PBCoreElement, PBCoreAttributesTime):
+    subjectType: Optional[str] = None
+    subjectTypeSource: Optional[str] = None
+    subjectTypeRef: Optional[str] = None
+    subjectTypeVersion: Optional[str] = None
+    subjectTypeAnnotation: Optional[str] = None
+
+
+class PBCoreDescription(PBCoreElement, PBCoreAttributesTime):
+    descriptionType: Optional[str] = None
+    descriptionTypeSource: Optional[str] = None
+    descriptionTypeRef: Optional[str] = None
+    descriptionTypeVersion: Optional[str] = None
+    descriptionTypeAnnotation: Optional[str] = None
+
+    segmentType: Optional[str] = None
+    segmentTypeSource: Optional[str] = None
+    segmentTypeRef: Optional[str] = None
+    segmentTypeVersion: Optional[str] = None
+    segmentTypeAnnotation: Optional[str] = None
+
+
+class PBCoreGenre(PBCoreElement, PBCoreAttributesTime):
+    """PBCore Genre element."""
+
+
 class PBCoreIdentifier(PBCoreElement):
-    """PBCore identifier element."""
+    """PBCoreIdentifier element."""
 
     source: str = Field(..., description="Source of the identifier (required)")
 
 
-class PBCoreDescription(PBCoreElement):
-    text: str
-
-
 class Creator(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
-    """PBCore creator element."""
+    """PBCore Creator element."""
 
 
 class CreatorRole(PBCoreElement):
-    """PBCore creator role element."""
+    """PBCore CreatorRole element."""
 
 
 class PBCoreCreator(PBCoreBaseModel):
@@ -165,26 +212,10 @@ class PBCoreCoverage(PBCoreBaseModel):
     coverageType: Optional[CoverageType] = None
 
 
-class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
-    titleType: Optional[str] = None
-    titleTypeSource: Optional[str] = None
-    titleTypeRef: Optional[str] = None
-    titleTypeVersion: Optional[str] = None
-    titleTypeAnnotation: Optional[str] = None
-
-
-class PBCoreSubject(PBCoreElement, PBCoreAttributesTime):
-    subjectType: Optional[str] = None
-    subjectTypeSource: Optional[str] = None
-    subjectTypeRef: Optional[str] = None
-    subjectTypeVersion: Optional[str] = None
-    subjectTypeAnnotation: Optional[str] = None
-
-
 class PBCoreDescriptionDocument(PBCoreBaseModel):
     xsi_schemaLocation: str = Field(..., alias='xsi:schemaLocation')
-    pbcoreAssetType: Optional[List[PBCoreElement]] = None
-    pbcoreAssetDate: Optional[List[PBCoreElement]] = Field(None, min_items=1)
+    pbcoreAssetType: Optional[List[PBCoreAssetType]] = None
+    pbcoreAssetDate: Optional[List[PBCoreAssetDate]] = Field(None, min_items=1)
     pbcoreIdentifier: List[PBCoreIdentifier] = Field(..., min_items=1)
     pbcoreTitle: List[PBCoreTitle] = Field(..., min_items=1)
     pbcoreSubject: Optional[List[PBCoreSubject]] = None

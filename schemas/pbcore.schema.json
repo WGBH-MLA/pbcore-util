@@ -27,7 +27,7 @@
       "type": "object"
     },
     "Creator": {
-      "description": "PBCore creator element.",
+      "description": "PBCore Creator element.",
       "properties": {
         "startTime": {
           "anyOf": [
@@ -173,7 +173,7 @@
       "type": "object"
     },
     "CreatorRole": {
-      "description": "PBCore creator role element.",
+      "description": "PBCore CreatorRole element.",
       "properties": {
         "source": {
           "anyOf": [
@@ -455,57 +455,82 @@
       "title": "PBCoreAnnotation",
       "type": "object"
     },
-    "PBCoreCoverage": {
+    "PBCoreAssetDate": {
+      "description": "PBCoreAssetDate element.",
       "properties": {
-        "coverage": {
-          "$ref": "#/$defs/Coverage"
-        },
-        "coverageType": {
+        "dateType": {
           "anyOf": [
             {
-              "$ref": "#/$defs/CoverageType"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null
-        }
-      },
-      "required": [
-        "coverage"
-      ],
-      "title": "PBCoreCoverage",
-      "type": "object"
-    },
-    "PBCoreCreator": {
-      "properties": {
-        "creator": {
-          "$ref": "#/$defs/Creator"
-        },
-        "creatorRole": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/CreatorRole"
-              },
-              "type": "array"
+              "type": "string"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Creatorrole"
+          "title": "Datetype"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
         }
       },
       "required": [
-        "creator"
+        "text"
       ],
-      "title": "PBCoreCreator",
+      "title": "PBCoreAssetDate",
       "type": "object"
     },
-    "PBCoreDescription": {
+    "PBCoreAssetType": {
+      "description": "PBCoreAssetType element.",
       "properties": {
         "source": {
           "anyOf": [
@@ -563,6 +588,273 @@
       "required": [
         "text"
       ],
+      "title": "PBCoreAssetType",
+      "type": "object"
+    },
+    "PBCoreCoverage": {
+      "properties": {
+        "coverage": {
+          "$ref": "#/$defs/Coverage"
+        },
+        "coverageType": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CoverageType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "coverage"
+      ],
+      "title": "PBCoreCoverage",
+      "type": "object"
+    },
+    "PBCoreCreator": {
+      "properties": {
+        "creator": {
+          "$ref": "#/$defs/Creator"
+        },
+        "creatorRole": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/CreatorRole"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Creatorrole"
+        }
+      },
+      "required": [
+        "creator"
+      ],
+      "title": "PBCoreCreator",
+      "type": "object"
+    },
+    "PBCoreDescription": {
+      "properties": {
+        "startTime": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Starttime"
+        },
+        "endTime": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Endtime"
+        },
+        "timeAnnotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timeannotation"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "descriptionType": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Descriptiontype"
+        },
+        "descriptionTypeSource": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Descriptiontypesource"
+        },
+        "descriptionTypeRef": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Descriptiontyperef"
+        },
+        "descriptionTypeVersion": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Descriptiontypeversion"
+        },
+        "descriptionTypeAnnotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Descriptiontypeannotation"
+        },
+        "segmentType": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Segmenttype"
+        },
+        "segmentTypeSource": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Segmenttypesource"
+        },
+        "segmentTypeRef": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Segmenttyperef"
+        },
+        "segmentTypeVersion": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Segmenttypeversion"
+        },
+        "segmentTypeAnnotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Segmenttypeannotation"
+        }
+      },
+      "required": [
+        "text"
+      ],
       "title": "PBCoreDescription",
       "type": "object"
     },
@@ -576,7 +868,7 @@
           "anyOf": [
             {
               "items": {
-                "$ref": "#/$defs/PBCoreElement"
+                "$ref": "#/$defs/PBCoreAssetType"
               },
               "type": "array"
             },
@@ -591,7 +883,7 @@
           "anyOf": [
             {
               "items": {
-                "$ref": "#/$defs/PBCoreElement"
+                "$ref": "#/$defs/PBCoreAssetDate"
               },
               "minItems": 1,
               "type": "array"
@@ -805,7 +1097,7 @@
       "type": "object"
     },
     "PBCoreIdentifier": {
-      "description": "PBCore identifier element.",
+      "description": "PBCoreIdentifier element.",
       "properties": {
         "source": {
           "description": "Source of the identifier (required)",
