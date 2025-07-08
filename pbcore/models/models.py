@@ -22,6 +22,19 @@ class PBCoreBaseAttributes(PBCoreBaseModel):
     annotation: Optional[str] = None
 
 
+class PBCoreAttributesTime(PBCoreBaseModel):
+    startTime: Optional[str] = None
+    endTime: Optional[str] = None
+    timeAnnotation: Optional[str] = None
+
+
+class PBCoreAttributesAffiliation(PBCoreBaseModel):
+    affiliation: Optional[str] = None
+    affiliationSource: Optional[str] = None
+    affiliationRef: Optional[str] = None
+    affiliationVersion: Optional[str] = None
+
+
 class PBCoreElement(PBCoreTextElement, PBCoreBaseAttributes):
     """Base class for PBCore elements with required text and optional attributes."""
 
@@ -44,8 +57,9 @@ class CreatorRole(PBCoreElement):
     """PBCore creator role element."""
 
 
-class PBCoreCreator(RootModel, PBCoreBaseModel):
-    root: List[Creator | CreatorRole] = Field(..., min_items=1)
+class PBCoreCreator(PBCoreBaseModel):
+    creator: Creator
+    creatorRole: Optional[List[CreatorRole]] = None
 
 
 class InstantiationIdentifier(PBCoreBaseModel):
@@ -149,19 +163,6 @@ class CoverageType(PBCoreBaseModel):
 class PBCoreCoverage(PBCoreBaseModel):
     coverage: Coverage
     coverageType: Optional[CoverageType] = None
-
-
-class PBCoreAttributesTime(PBCoreBaseModel):
-    startTime: Optional[str] = None
-    endTime: Optional[str] = None
-    timeAnnotation: Optional[str] = None
-
-
-class PBCoreAttributesAffiliation(PBCoreBaseModel):
-    affiliation: Optional[str] = None
-    affiliationSource: Optional[str] = None
-    affiliationRef: Optional[str] = None
-    affiliationVersion: Optional[str] = None
 
 
 class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
