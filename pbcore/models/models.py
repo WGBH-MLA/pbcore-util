@@ -56,6 +56,12 @@ class PBCoreAssetDate(PBCoreElement, PBCoreAttributesDateType):
     """PBCoreAssetDate element."""
 
 
+class PBCoreIdentifier(PBCoreElement):
+    """PBCoreIdentifier element."""
+
+    source: str = Field(..., description="Source of the identifier (required)")
+
+
 class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
     titleType: Optional[str] = None
     titleTypeSource: Optional[str] = None
@@ -88,12 +94,6 @@ class PBCoreDescription(PBCoreElement, PBCoreAttributesTime):
 
 class PBCoreGenre(PBCoreElement, PBCoreAttributesTime):
     """PBCore Genre element."""
-
-
-class PBCoreIdentifier(PBCoreElement):
-    """PBCoreIdentifier element."""
-
-    source: str = Field(..., description="Source of the identifier (required)")
 
 
 class Creator(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
@@ -185,13 +185,12 @@ class PBCoreAnnotation(PBCoreBaseModel):
     text: str
 
 
-class PBCoreRelationType(PBCoreBaseModel):
-    source: Optional[str] = None
-    text: str
+class PBCoreRelationType(PBCoreElement):
+    """PBCoreRelationType element."""
 
 
-class PBCoreRelationIdentifier(PBCoreBaseModel):
-    text: str
+class PBCoreRelationIdentifier(PBCoreElement):
+    """PBCoreRelationIdentifier element."""
 
 
 class PBCoreRelation(PBCoreBaseModel):
