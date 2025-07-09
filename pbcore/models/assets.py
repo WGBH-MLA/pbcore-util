@@ -1,0 +1,240 @@
+from typing import List, Optional
+
+from pydantic import Field
+from pbcore.models.base import (
+    PBCoreElement,
+    PBCoreAttributesDateType,
+    PBCoreAttributesTime,
+    PBCoreAttributesAffiliation,
+    PBCoreBaseModel,
+    PBCoreTextElement,
+    PBCoreBaseAttributes,
+)
+
+# PBCore Assets
+
+
+class PBCoreAssetType(PBCoreElement):
+    """PBCoreAssetType element."""
+
+
+class PBCoreAssetDate(PBCoreElement, PBCoreAttributesDateType):
+    """PBCoreAssetDate element."""
+
+
+class PBCoreIdentifier(PBCoreElement):
+    """PBCoreIdentifier element."""
+
+    source: str = Field(..., description="Source of the identifier (required)")
+
+
+class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
+    titleType: Optional[str] = None
+    titleTypeSource: Optional[str] = None
+    titleTypeRef: Optional[str] = None
+    titleTypeVersion: Optional[str] = None
+    titleTypeAnnotation: Optional[str] = None
+
+
+class PBCoreSubject(PBCoreElement, PBCoreAttributesTime):
+    subjectType: Optional[str] = None
+    subjectTypeSource: Optional[str] = None
+    subjectTypeRef: Optional[str] = None
+    subjectTypeVersion: Optional[str] = None
+    subjectTypeAnnotation: Optional[str] = None
+
+
+class PBCoreDescription(PBCoreElement, PBCoreAttributesTime):
+    descriptionType: Optional[str] = None
+    descriptionTypeSource: Optional[str] = None
+    descriptionTypeRef: Optional[str] = None
+    descriptionTypeVersion: Optional[str] = None
+    descriptionTypeAnnotation: Optional[str] = None
+
+    segmentType: Optional[str] = None
+    segmentTypeSource: Optional[str] = None
+    segmentTypeRef: Optional[str] = None
+    segmentTypeVersion: Optional[str] = None
+    segmentTypeAnnotation: Optional[str] = None
+
+
+class PBCoreGenre(PBCoreElement, PBCoreAttributesTime):
+    """PBCore Genre element."""
+
+
+class PBCoreRelationType(PBCoreElement):
+    """PBCoreRelationType element."""
+
+
+class PBCoreRelationIdentifier(PBCoreElement):
+    """PBCoreRelationIdentifier element."""
+
+
+class PBCoreRelation(PBCoreBaseModel):
+    """PBCore Relation element."""
+
+    pbcoreRelationType: PBCoreRelationType
+    pbcoreRelationIdentifier: PBCoreRelationIdentifier
+
+
+class Coverage(PBCoreElement, PBCoreAttributesTime):
+    """Coverage element."""
+
+
+class CoverageType(PBCoreElement):
+    """CoverageType element."""
+
+
+class PBCoreCoverage(PBCoreBaseModel):
+    """PBCoreCoverage element."""
+
+    coverage: Coverage
+    coverageType: Optional[CoverageType] = None
+
+
+class PBCoreAudienceLevel(PBCoreElement):
+    """PBCoreAudienceLevel element."""
+
+
+class PBCoreAudienceRating(PBCoreElement):
+    """PBCoreAudienceRating element."""
+
+
+class Creator(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
+    """Creator element."""
+
+
+class CreatorRole(PBCoreElement):
+    """CreatorRole element."""
+
+
+class PBCoreCreator(PBCoreBaseModel):
+    """PBCoreCreator element."""
+
+    creator: Creator
+    creatorRole: Optional[List[CreatorRole]] = None
+
+
+class Contributor(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
+    """Contributor element."""
+
+
+class ContributorRole(PBCoreElement):
+    """ContributorRole element."""
+
+    portrayal: Optional[str] = None
+
+
+class PBCoreContributor(PBCoreBaseModel):
+    """PBCoreContributor element."""
+
+    contributor: Contributor
+    contributorRole: Optional[List[ContributorRole]] = None
+
+
+class Publisher(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
+    """Publisher element."""
+
+
+class PublisherRole(PBCoreElement):
+    """PublisherRole element."""
+
+
+class PBCorePublisher(PBCoreBaseModel):
+    """PBCorePublisher element."""
+
+    publisher: Publisher
+    publisherRole: Optional[List[PublisherRole]] = None
+
+
+class RightsSummary(PBCoreElement):
+    """RightsSummary element."""
+
+
+class RightsLink(PBCoreElement):
+    """RightsLink element."""
+
+
+class RightsEmbedded(PBCoreElement):
+    """RightsEmbedded element."""
+
+
+class PBCoreRightsSummary(PBCoreAttributesTime):
+    """PBCoreRightsSummary element.
+
+    TODO: Validate that only one type of rightsSummary, rightsLink, or rightsEmbedded are present.
+    """
+
+    rightsSummary: Optional[List[RightsSummary]] = None
+    rightsLink: Optional[List[RightsLink]] = None
+    rightsEmbedded: Optional[List[RightsEmbedded]] = None
+
+
+class PBCorePart(PBCoreBaseModel):
+    """PBCorePart element.
+
+    TODO: Fixme
+    """
+
+    pass
+
+
+class PBCoreAnnotation(PBCoreElement):
+    """PBCoreAnnotation element."""
+
+    annotationType: Optional[str] = None
+
+
+class ExtensionElement(PBCoreTextElement):
+    """ExtensionElement element."""
+
+
+class ExtensionValue(PBCoreTextElement):
+    """ExtensionValue element."""
+
+
+class ExtensionAuthorityUsed(PBCoreTextElement):
+    """ExtensionAuthorityUsed element."""
+
+
+class ExtensionWrap(PBCoreBaseAttributes):
+    """ExtensionWrap element."""
+
+    extensionElement: ExtensionElement
+    extensionValue: ExtensionValue
+    extensionAuthorityUsed: Optional[ExtensionAuthorityUsed] = None
+
+
+class ExtensionEmbedded(PBCoreBaseAttributes):
+    """ExtensionEmbedded element."""
+
+
+class PBCoreExtension(PBCoreBaseModel):
+    """PBCoreExtension element.
+
+    TODO: Validate that extensionWrap and extensionEmbedded are not both present."""
+
+    extensionWrap: Optional[ExtensionWrap] = None
+    extensionEmbedded: Optional[ExtensionEmbedded] = None
+
+
+__all__ = [
+    "PBCoreAssetType",
+    "PBCoreAssetDate",
+    "PBCoreIdentifier",
+    "PBCoreTitle",
+    "PBCoreSubject",
+    "PBCoreDescription",
+    "PBCoreGenre",
+    "PBCoreRelation",
+    "PBCoreCoverage",
+    "PBCoreAudienceLevel",
+    "PBCoreAudienceRating",
+    "PBCoreCreator",
+    "PBCoreContributor",
+    "PBCorePublisher",
+    "PBCoreRightsSummary",
+    "PBCorePart",
+    "PBCoreAnnotation",
+    "PBCoreExtension",
+]

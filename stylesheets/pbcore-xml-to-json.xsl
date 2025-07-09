@@ -8,11 +8,11 @@
 
   <!-- Hardcoded list of repeatable elements -->
   <xsl:variable name="repeatable"
-    select="' pbcoreAssetType pbcoreAssetDate pbcoreIdentifier pbcoreTitle pbcoreSubject pbcoreDescription pbcoreGenre pbcoreRelation pbcoreCoverage pbcoreAudienceLevel pbcoreAudienceRating pbcoreCreator creatorRole pbcoreContributor contributorRole pbcorePublisher publisherRole pbcoreInstantiation pbcoreAnnotation pbcorePart pbcoreExtension instantiationIdentifier instantiationDate instantiationDimensions instantiationGenerations instantiationEssenceTrack instantiationRelation instantiationAnnotation instantiationExtension essenceTrackIdentifier essenceTrackLanguage essenceTrackAnnotation essenceTrackExtension extensionWrap extensionEmbedded '" />
+    select="' pbcoreAssetType pbcoreAssetDate pbcoreIdentifier pbcoreTitle pbcoreSubject pbcoreDescription pbcoreGenre pbcoreRelation pbcoreCoverage pbcoreAudienceLevel pbcoreAudienceRating pbcoreCreator creatorRole pbcoreContributor contributorRole pbcorePublisher publisherRole pbcoreRightsSummary rightsSummary rightLink rightsEmbedded pbcorePart pbcoreAnnotation pbcoreExtension extensionWrap pbcoreInstantiation instantiationIdentifier instantiationDate instantiationDimensions instantiationGenerations instantiationEssenceTrack instantiationRelation instantiationAnnotation instantiationExtension essenceTrackIdentifier essenceTrackLanguage essenceTrackAnnotation essenceTrackExtension extensionWrap extensionEmbedded '" />
 
   <!-- Hardcoded list of repeatable elements that have sub-elements -->
   <xsl:variable name="with-sub-elements"
-    select="' pbcoreDescriptionDocument pbcoreRelation pbcoreCoverage pbcoreCreator pbcoreContributor pbcorePublisher pbcoreRightsSummary pbcoreExtension pbcoreInstantiation instantiationEssenceTrack instantiationRelation instantiationRights instantiationExtension '" />
+    select="' pbcoreDescriptionDocument pbcoreRelation pbcoreCoverage pbcoreCreator pbcoreContributor pbcorePublisher pbcoreRightsSummary pbcorePart pbcoreExtension extensionWrap pbcoreInstantiation instantiationEssenceTrack instantiationRelation instantiationRights instantiationExtension '" />
 
   <xsl:template match="/">
     <xsl:text>{"pbcoreDescriptionDocument":</xsl:text>
