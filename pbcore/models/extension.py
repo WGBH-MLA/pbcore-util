@@ -1,5 +1,6 @@
 from typing import List, Optional
 from pbcore.models import PBCoreTextElement, PBCoreBaseAttributes, PBCoreBaseModel
+from pydantic import Field
 
 
 class ExtensionElement(PBCoreTextElement):
@@ -31,5 +32,5 @@ class PBCoreExtension(PBCoreBaseModel):
 
     TODO: Validate that extensionWrap and extensionEmbedded are not both present."""
 
-    extensionWrap: Optional[List[ExtensionWrap]] = None
-    extensionEmbedded: Optional[List[ExtensionEmbedded]] = None
+    extensionWrap: Optional[List[ExtensionWrap]] = Field(None, min_length=1)
+    extensionEmbedded: Optional[List[ExtensionEmbedded]] = Field(None, min_length=1)

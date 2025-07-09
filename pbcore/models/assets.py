@@ -87,7 +87,7 @@ class PBCoreCoverage(PBCoreBaseModel):
     """PBCoreCoverage element."""
 
     coverage: Coverage
-    coverageType: Optional[CoverageType] = None
+    coverageType: Optional[CoverageType] = Field(None, min_length=1)
 
 
 class PBCoreAudienceLevel(PBCoreElement):
@@ -110,7 +110,7 @@ class PBCoreCreator(PBCoreBaseModel):
     """PBCoreCreator element."""
 
     creator: Creator
-    creatorRole: Optional[List[CreatorRole]] = None
+    creatorRole: Optional[List[CreatorRole]] = Field(None, min_length=1)
 
 
 class Contributor(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
@@ -127,7 +127,7 @@ class PBCoreContributor(PBCoreBaseModel):
     """PBCoreContributor element."""
 
     contributor: Contributor
-    contributorRole: Optional[List[ContributorRole]] = None
+    contributorRole: Optional[List[ContributorRole]] = Field(None, min_length=1)
 
 
 class Publisher(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
@@ -142,30 +142,7 @@ class PBCorePublisher(PBCoreBaseModel):
     """PBCorePublisher element."""
 
     publisher: Publisher
-    publisherRole: Optional[List[PublisherRole]] = None
-
-
-class RightsSummary(PBCoreElement):
-    """RightsSummary element."""
-
-
-class RightsLink(PBCoreElement):
-    """RightsLink element."""
-
-
-class RightsEmbedded(PBCoreElement):
-    """RightsEmbedded element."""
-
-
-class PBCoreRightsSummary(PBCoreAttributesTime):
-    """PBCoreRightsSummary element.
-
-    TODO: Validate that only one type of rightsSummary, rightsLink, or rightsEmbedded are present.
-    """
-
-    rightsSummary: Optional[List[RightsSummary]] = None
-    rightsLink: Optional[List[RightsLink]] = None
-    rightsEmbedded: Optional[List[RightsEmbedded]] = None
+    publisherRole: Optional[List[PublisherRole]] = Field(None, min_length=1)
 
 
 class PBCorePart(PBCoreBaseModel):
@@ -192,6 +169,5 @@ __all__ = [
     "PBCoreCreator",
     "PBCoreContributor",
     "PBCorePublisher",
-    "PBCoreRightsSummary",
     "PBCorePart",
 ]

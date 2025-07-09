@@ -1041,6 +1041,7 @@
               "items": {
                 "$ref": "#/$defs/ExtensionWrap"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -1056,6 +1057,7 @@
               "items": {
                 "$ref": "#/$defs/ExtensionEmbedded"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -2046,6 +2048,352 @@
       "title": "InstantiationChannelConfiguration",
       "type": "object"
     },
+    "InstantiationColors": {
+      "description": "PBCore Instantiation Colors element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "InstantiationColors",
+      "type": "object"
+    },
+    "InstantiationDataRate": {
+      "description": "PBCore Instantiation Data Rate element.",
+      "properties": {
+        "unitsOfMeasure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unitsofmeasure"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "InstantiationDataRate",
+      "type": "object"
+    },
+    "InstantiationDate": {
+      "description": "PBCore Instantiation Date element.",
+      "properties": {
+        "dateType": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Datetype"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "InstantiationDate",
+      "type": "object"
+    },
+    "InstantiationDigital": {
+      "description": "PBCore Instantiation Digital element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "InstantiationDigital",
+      "type": "object"
+    },
+    "InstantiationDimensions": {
+      "description": "PBCore Instantiation Dimensions element.",
+      "properties": {
+        "unitsOfMeasure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unitsofmeasure"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "InstantiationDimensions",
+      "type": "object"
+    },
     "InstantiationDuration": {
       "description": "PBCore Instantiation Duration element.",
       "properties": {
@@ -2128,6 +2476,7 @@
               "items": {
                 "$ref": "#/$defs/EssenceTrackIdentifier"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -2264,6 +2613,7 @@
               "items": {
                 "$ref": "#/$defs/EssenceTrackLanguage"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -2279,6 +2629,7 @@
               "items": {
                 "$ref": "#/$defs/EssenceTrackAnnotation"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -2294,6 +2645,7 @@
               "items": {
                 "$ref": "#/$defs/EssenceTrackExtension"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -2305,6 +2657,80 @@
         }
       },
       "title": "InstantiationEssenceTrack",
+      "type": "object"
+    },
+    "InstantiationFileSize": {
+      "description": "PBCore Instantiation File Size element.",
+      "properties": {
+        "unitsOfMeasure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unitsofmeasure"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "InstantiationFileSize",
       "type": "object"
     },
     "InstantiationGenerations": {
@@ -2423,6 +2849,68 @@
         "text"
       ],
       "title": "InstantiationIdentifier",
+      "type": "object"
+    },
+    "InstantiationLanguage": {
+      "description": "PBCore Instantiation Language element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "InstantiationLanguage",
       "type": "object"
     },
     "InstantiationLocation": {
@@ -2609,6 +3097,427 @@
         "text"
       ],
       "title": "InstantiationPhysical",
+      "type": "object"
+    },
+    "InstantiationRelation": {
+      "description": "PBCore Instantiation Relation element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "instantiationRelationIdentifier": {
+          "$ref": "#/$defs/InstantiationRelationIdentifier"
+        },
+        "instantiationRelationType": {
+          "$ref": "#/$defs/InstantiationRelationType"
+        }
+      },
+      "required": [
+        "text",
+        "instantiationRelationIdentifier",
+        "instantiationRelationType"
+      ],
+      "title": "InstantiationRelation",
+      "type": "object"
+    },
+    "InstantiationRelationIdentifier": {
+      "description": "PBCore Instantiation Relation Identifier element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "InstantiationRelationIdentifier",
+      "type": "object"
+    },
+    "InstantiationRelationType": {
+      "description": "PBCore Instantiation Relation Type element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "InstantiationRelationType",
+      "type": "object"
+    },
+    "InstantiationRights": {
+      "description": "PBCore Instantiation Rights element.",
+      "properties": {
+        "startTime": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Starttime"
+        },
+        "endTime": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Endtime"
+        },
+        "timeAnnotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timeannotation"
+        },
+        "rightsSummary": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/RightsSummary"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rightssummary"
+        },
+        "rightsLink": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/RightsLink"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rightslink"
+        },
+        "rightsEmbedded": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/RightsEmbedded"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rightsembedded"
+        }
+      },
+      "title": "InstantiationRights",
+      "type": "object"
+    },
+    "InstantiationStandard": {
+      "description": "PBCore Instantiation Standard element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "profile": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Profile"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "InstantiationStandard",
+      "type": "object"
+    },
+    "InstantiationTimeStart": {
+      "description": "PBCore Instantiation Time Start element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "InstantiationTimeStart",
       "type": "object"
     },
     "InstantiationTracks": {
@@ -3019,6 +3928,7 @@
               "items": {
                 "$ref": "#/$defs/ContributorRole"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3044,7 +3954,8 @@
         "coverageType": {
           "anyOf": [
             {
-              "$ref": "#/$defs/CoverageType"
+              "$ref": "#/$defs/CoverageType",
+              "minLength": 1
             },
             {
               "type": "null"
@@ -3071,6 +3982,7 @@
               "items": {
                 "$ref": "#/$defs/CreatorRole"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3316,6 +4228,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreAssetType"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3363,6 +4276,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreSubject"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3386,6 +4300,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreGenre"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3401,6 +4316,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreRelation"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3416,6 +4332,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreCoverage"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3431,6 +4348,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreAudienceLevel"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3446,6 +4364,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreAudienceRating"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3461,6 +4380,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreCreator"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3476,6 +4396,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreContributor"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3491,6 +4412,7 @@
               "items": {
                 "$ref": "#/$defs/PBCorePublisher"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3506,6 +4428,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreRightsSummary"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3521,6 +4444,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreInstantiation"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3536,6 +4460,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreAnnotation"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3551,6 +4476,7 @@
               "items": {
                 "$ref": "#/$defs/PBCorePart"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3566,6 +4492,7 @@
               "items": {
                 "$ref": "#/$defs/PBCoreExtension"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3594,6 +4521,7 @@
               "items": {
                 "$ref": "#/$defs/ExtensionWrap"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3609,6 +4537,7 @@
               "items": {
                 "$ref": "#/$defs/ExtensionEmbedded"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3818,13 +4747,68 @@
           "items": {
             "$ref": "#/$defs/InstantiationIdentifier"
           },
+          "minItems": 1,
           "title": "Instantiationidentifier",
           "type": "array"
+        },
+        "instantiationDate": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationDate"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationdate"
+        },
+        "instantiationDimensions": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationDimensions"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationdimensions"
         },
         "instantiationPhysical": {
           "anyOf": [
             {
               "$ref": "#/$defs/InstantiationPhysical"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationDigital": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationDigital"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationStandard": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationStandard"
             },
             {
               "type": "null"
@@ -3852,6 +4836,7 @@
               "items": {
                 "$ref": "#/$defs/InstantiationGenerations"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3861,10 +4846,59 @@
           "default": null,
           "title": "Instantiationgenerations"
         },
+        "instantiationFileSize": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationFileSize"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationTimeStart": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationTimeStart"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationtimestart"
+        },
         "instantiationDuration": {
           "anyOf": [
             {
               "$ref": "#/$defs/InstantiationDuration"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationDataRate": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationDataRate"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationColors": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationColors"
             },
             {
               "type": "null"
@@ -3894,6 +4928,22 @@
           ],
           "default": null
         },
+        "instantiationLanguage": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationLanguage"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationlanguage"
+        },
         "instantiationAlternativeModes": {
           "anyOf": [
             {
@@ -3911,6 +4961,7 @@
               "items": {
                 "$ref": "#/$defs/InstantiationEssenceTrack"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3920,12 +4971,45 @@
           "default": null,
           "title": "Instantiationessencetrack"
         },
+        "instantiationRelation": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationRelation"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationrelation"
+        },
+        "instantiationRights": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationRights"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationrights"
+        },
         "instantiationAnnotation": {
           "anyOf": [
             {
               "items": {
                 "$ref": "#/$defs/InstantiationAnnotation"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -3961,6 +5045,7 @@
               "items": {
                 "$ref": "#/$defs/PublisherRole"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -4163,6 +5248,7 @@
               "items": {
                 "$ref": "#/$defs/RightsSummary"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -4178,6 +5264,7 @@
               "items": {
                 "$ref": "#/$defs/RightsLink"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -4193,6 +5280,7 @@
               "items": {
                 "$ref": "#/$defs/RightsEmbedded"
               },
+              "minItems": 1,
               "type": "array"
             },
             {
@@ -4927,7 +6015,7 @@
       "type": "object"
     }
   },
-  "description": "Root model for PBCore documents.",
+  "description": "Root model for PBCore documents.\n\nTODO: Allow pbcoreCollection and pbcoreInstantiationDocument,\nbut only allow one document of any kind",
   "properties": {
     "pbcoreDescriptionDocument": {
       "$ref": "#/$defs/PBCoreDescriptionDocument"
