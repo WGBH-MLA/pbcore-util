@@ -1,56 +1,92 @@
 from typing import List, Optional
 
-from pbcore.models.base import PBCoreBaseModel
+from pbcore.models import (
+    PBCoreAttributesTime,
+    PBCoreAttributesUnits,
+    PBCoreBaseModel,
+    PBCoreElement,
+    PBCoreIdentifier,
+    PBCoreAssetDate,
+)
+from pbcore.models.essence import (
+    EssenceTrackType,
+    EssenceTrackAspectRatio,
+    InstantiationEssenceTrack,
+)
 
 
-class InstantiationIdentifier(PBCoreBaseModel):
-    source: str
-    text: str
+class InstantiationIdentifier(PBCoreIdentifier):
+    """PBCore Instantiation Identifier element."""
 
 
-class InstantiationPhysical(PBCoreBaseModel):
-    text: str
+class InstantiationDate(PBCoreAssetDate):
+    """PBCore Instantiation Date element."""
 
 
-class InstantiationLocation(PBCoreBaseModel):
-    text: str
+class InstantiationDimensions(PBCoreElement, PBCoreAttributesUnits):
+    """PBCore Instantiation Dimensions element."""
 
 
-class InstantiationMediaType(PBCoreBaseModel):
-    text: str
+class InstantiationPhysical(PBCoreElement):
+    """PBCore Instantiation Physical element."""
 
 
-class InstantiationGeneration(PBCoreBaseModel):
-    text: str
+class InstantiationDigital(PBCoreElement):
+    """PBCore Instantiation Digital element."""
 
 
-class InstantiationDuration(PBCoreBaseModel):
-    text: str
+class InstantiationStandard(PBCoreElement):
+    """PBCore Instantiation Standard element."""
+
+    profile: Optional[str] = None
 
 
-class InstantiationTracks(PBCoreBaseModel):
-    text: str
+class InstantiationLocation(PBCoreElement):
+    """PBCore Instantiation Location element."""
 
 
-class InstantiationChannelConfiguration(PBCoreBaseModel):
-    text: str
+class InstantiationMediaType(PBCoreElement):
+    """PBCore Instantiation Media Type element."""
 
 
-class InstantiationAlternativeModes(PBCoreBaseModel):
-    text: str
+class InstantiationGenerations(PBCoreElement):
+    """PBCore Instantiation Generations element."""
 
 
-class EssenceTrackType(PBCoreBaseModel):
-    text: str
+class InstantiationFileSize(PBCoreElement, PBCoreAttributesUnits):
+    """PBCore Instantiation File Size element."""
 
 
-class EssenceTrackAspectRatio(PBCoreBaseModel):
-    text: str
+class InstantiationTimeStart(PBCoreElement):
+    """PBCore Instantiation Time Start element."""
 
 
-class InstantiationEssenceTrack(PBCoreBaseModel):
-    essenceTrackType: EssenceTrackType
-    essenceTrackAspectRatio: Optional[EssenceTrackAspectRatio] = None
+class InstantiationDuration(PBCoreElement):
+    """PBCore Instantiation Duration element."""
+
+
+class InstantiationDataRate(PBCoreElement, PBCoreAttributesUnits):
+    """PBCore Instantiation Data Rate element."""
+
+
+class InstantiationColors(PBCoreElement):
+    """PBCore Instantiation Colors element."""
+
+
+class InstantiationTracks(PBCoreElement):
+    """PBCore Instantiation Tracks element."""
+
+
+class InstantiationChannelConfiguration(PBCoreElement):
+    """PBCore Instantiation Channel Configuration element."""
+
+
+class InstantiationLanguage(PBCoreElement):
+    """PBCore Instantiation Language element."""
+
+
+class InstantiationAlternativeModes(PBCoreElement):
+    """PBCore Instantiation Alternative Modes element."""
 
 
 class InstantiationAnnotation(PBCoreBaseModel):
@@ -58,12 +94,12 @@ class InstantiationAnnotation(PBCoreBaseModel):
     text: str
 
 
-class PBCoreInstantiation(PBCoreBaseModel):
+class PBCoreInstantiation(PBCoreAttributesTime):
     instantiationIdentifier: List[InstantiationIdentifier]
     instantiationPhysical: Optional[InstantiationPhysical] = None
     instantiationLocation: InstantiationLocation
     instantiationMediaType: Optional[InstantiationMediaType] = None
-    instantiationGenerations: Optional[List[InstantiationGeneration]] = None
+    instantiationGenerations: Optional[List[InstantiationGenerations]] = None
     instantiationDuration: Optional[InstantiationDuration] = None
     instantiationTracks: Optional[InstantiationTracks] = None
     instantiationChannelConfiguration: Optional[InstantiationChannelConfiguration] = (
@@ -79,7 +115,7 @@ __all__ = [
     "InstantiationPhysical",
     "InstantiationLocation",
     "InstantiationMediaType",
-    "InstantiationGeneration",
+    "InstantiationGenerations",
     "InstantiationDuration",
     "InstantiationTracks",
     "InstantiationChannelConfiguration",

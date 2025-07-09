@@ -49,6 +49,12 @@ class PBCoreAttributesAffiliation(PBCoreBaseModel):
     affiliationAnnotation: Optional[str] = None
 
 
+class PBCoreAttributesUnits(PBCoreBaseModel):
+    """Base class for units of measure attributes in PBCore."""
+
+    unitsOfMeasure: Optional[str] = None
+
+
 class PBCoreElement(PBCoreTextElement, PBCoreBaseAttributes):
     """Base class for PBCore elements with required text and optional attributes."""
 
@@ -60,5 +66,6 @@ __all__ = [
     "PBCoreAttributesDateType",
     "PBCoreAttributesTime",
     "PBCoreAttributesAffiliation",
+    "PBCoreAttributesUnits",
     "PBCoreElement",
 ]
