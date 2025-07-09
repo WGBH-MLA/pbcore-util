@@ -18,7 +18,6 @@ from pbcore.models.assets import (
     PBCoreCreator,
     PBCoreContributor,
     PBCorePublisher,
-    PBCorePart,
 )
 from pbcore.models.rights import PBCoreRightsSummary
 from pbcore.models.extension import PBCoreExtension
@@ -33,7 +32,7 @@ class XsiSchemaLocation(PBCoreBaseModel):
     xsi_schemaLocation: str = Field(..., alias='xsi:schemaLocation')
 
 
-class PBCoreDescriptionDocument(XsiSchemaLocation):
+class PBCoreDescriptionDocumentSubelements(PBCoreBaseModel):
     pbcoreAssetType: Optional[List[PBCoreAssetType]] = Field(None, min_length=1)
     pbcoreAssetDate: Optional[List[PBCoreAssetDate]] = Field(None, min_length=1)
     pbcoreIdentifier: List[PBCoreIdentifier] = Field(..., min_length=1)
@@ -53,8 +52,29 @@ class PBCoreDescriptionDocument(XsiSchemaLocation):
     pbcoreRightsSummary: Optional[List[PBCoreRightsSummary]] = Field(None, min_length=1)
     pbcoreInstantiation: Optional[List[PBCoreInstantiation]] = Field(None, min_length=1)
     pbcoreAnnotation: Optional[List[PBCoreAnnotation]] = Field(None, min_length=1)
-    pbcorePart: Optional[List[PBCorePart]] = Field(None, min_length=1)
+    pbcorePart: Optional[List['PBCorePart']] = Field(None, min_length=1)
     pbcoreExtension: Optional[List[PBCoreExtension]] = Field(None, min_length=1)
+
+
+class PBCorePart(PBCoreAttributesTime, PBCoreDescriptionDocumentSubelements):
+    """PBCorePart element."""
+
+    partType: Optional[str] = None
+    partTypeSource: Optional[str] = None
+    partTypeRef: Optional[str] = None
+    partTypeVersion: Optional[str] = None
+    partTypeAnnotation: Optional[str] = None
+
+
+# Rebuild the Description Document model to ensure the recursive PBCorePart is recognized
+
+PBCoreDescriptionDocumentSubelements.model_rebuild()
+
+
+class PBCoreDescriptionDocument(
+    XsiSchemaLocation, PBCoreDescriptionDocumentSubelements
+):
+    """Model for PBCoreDescriptionDocument subelements."""
 
 
 class PBCoreCollection(XsiSchemaLocation):

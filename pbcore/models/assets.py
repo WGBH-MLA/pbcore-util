@@ -145,15 +145,6 @@ class PBCorePublisher(PBCoreBaseModel):
     publisherRole: Optional[List[PublisherRole]] = Field(None, min_length=1)
 
 
-class PBCorePart(PBCoreBaseModel):
-    """PBCorePart element.
-
-    TODO: Fixme
-    """
-
-    pass
-
-
 __all__ = [
     "PBCoreAssetType",
     "PBCoreAssetDate",
@@ -169,5 +160,4 @@ __all__ = [
     "PBCoreCreator",
     "PBCoreContributor",
     "PBCorePublisher",
-    "PBCorePart",
 ]
