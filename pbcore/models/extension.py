@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import List, Optional
 from pbcore.models import PBCoreTextElement, PBCoreBaseAttributes, PBCoreBaseModel
 
 
@@ -31,5 +31,5 @@ class PBCoreExtension(PBCoreBaseModel):
 
     TODO: Validate that extensionWrap and extensionEmbedded are not both present."""
 
-    extensionWrap: Optional[ExtensionWrap] = None
-    extensionEmbedded: Optional[ExtensionEmbedded] = None
+    extensionWrap: Optional[List[ExtensionWrap]] = None
+    extensionEmbedded: Optional[List[ExtensionEmbedded]] = None

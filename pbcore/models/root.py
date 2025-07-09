@@ -1,7 +1,7 @@
 from typing import List, Optional
 
 from pydantic import Field
-from pbcore.models.base import PBCoreBaseModel
+from pbcore.models.base import PBCoreBaseModel, PBCoreAnnotation
 
 from pbcore.models.assets import (
     PBCoreAssetType,
@@ -19,7 +19,6 @@ from pbcore.models.assets import (
     PBCoreContributor,
     PBCorePublisher,
     PBCoreRightsSummary,
-    PBCoreAnnotation,
     PBCorePart,
 )
 from pbcore.models.extension import PBCoreExtension

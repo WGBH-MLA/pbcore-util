@@ -177,13 +177,6 @@ class PBCorePart(PBCoreBaseModel):
     pass
 
 
-class PBCoreAnnotation(PBCoreElement):
-    """PBCoreAnnotation element."""
-
-    annotationType: Optional[str] = None
-    annotation: Optional[str] = None
-
-
 __all__ = [
     "PBCoreAssetType",
     "PBCoreAssetDate",
@@ -201,5 +194,4 @@ __all__ = [
     "PBCorePublisher",
     "PBCoreRightsSummary",
     "PBCorePart",
-    "PBCoreAnnotation",
 ]

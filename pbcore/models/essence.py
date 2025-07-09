@@ -68,18 +68,26 @@ class EssenceTrackAnnotation(PBCoreAnnotation):
     """PBCore Essence Track Annotation element."""
 
 
-class EssenceTrackExtension(PBCoreElement):
-    """PBCore Essence Track Extension element.
-
-    TODO: Validate that only one type of extensionWrap or extensionEmbedded is present.
-    """
-
-    extensionWrap: Optional[ExtensionWrap] = None
-    extensionEmbedded: Optional[ExtensionEmbedded] = None
+class EssenceTrackExtension(PBCoreExtension):
+    """PBCore Essence Track Extension element."""
 
 
 class InstantiationEssenceTrack(PBCoreBaseModel):
     """Instantiation of a PBCore Essence Track element."""
 
-    essenceTrackType: EssenceTrackType
+    essenceTrackType: Optional[EssenceTrackType] = None
+    essenceTrackIdentifier: Optional[List[EssenceTrackIdentifier]] = None
+    essenceTrackStandard: Optional[EssenceTrackStandard] = None
+    essenceTrackEncoding: Optional[EssenceTrackEncoding] = None
+    essenceTrackDataRate: Optional[EssenceTrackDataRate] = None
+    essenceTrackFrameRate: Optional[EssenceTrackFrameRate] = None
+    essenceTrackPlaybackSpeed: Optional[EssenceTrackPlaybackSpeed] = None
+    essenceTrackSamplingRate: Optional[EssenceTrackSamplingRate] = None
+    essenceTrackBitDepth: Optional[EssenceTrackBitDepth] = None
+    essenceTrackFrameSize: Optional[EssenceTrackFrameSize] = None
     essenceTrackAspectRatio: Optional[EssenceTrackAspectRatio] = None
+    essenceTrackTimeStart: Optional[EssenceTrackTimeStart] = None
+    essenceTrackDuration: Optional[EssenceTrackDuration] = None
+    essenceTrackLanguage: Optional[List[EssenceTrackLanguage]] = None
+    essenceTrackAnnotation: Optional[List[EssenceTrackAnnotation]] = None
+    essenceTrackExtension: Optional[List[EssenceTrackExtension]] = None

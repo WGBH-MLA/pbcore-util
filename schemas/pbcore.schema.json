@@ -612,6 +612,80 @@
       "title": "CreatorRole",
       "type": "object"
     },
+    "EssenceTrackAnnotation": {
+      "description": "PBCore Essence Track Annotation element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "annotationType": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotationtype"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackAnnotation",
+      "type": "object"
+    },
     "EssenceTrackAspectRatio": {
       "description": "PBCore Essence Track Aspect Ratio element.",
       "properties": {
@@ -684,6 +758,859 @@
         "text"
       ],
       "title": "EssenceTrackAspectRatio",
+      "type": "object"
+    },
+    "EssenceTrackBitDepth": {
+      "description": "PBCore Essence Track Bit Depth element.",
+      "properties": {
+        "unitsOfMeasure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unitsofmeasure"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackBitDepth",
+      "type": "object"
+    },
+    "EssenceTrackDataRate": {
+      "description": "PBCore Essence Track Data Rate element.",
+      "properties": {
+        "unitsOfMeasure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unitsofmeasure"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackDataRate",
+      "type": "object"
+    },
+    "EssenceTrackDuration": {
+      "description": "PBCore Essence Track Duration element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackDuration",
+      "type": "object"
+    },
+    "EssenceTrackEncoding": {
+      "description": "PBCore Essence Track Encoding element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackEncoding",
+      "type": "object"
+    },
+    "EssenceTrackExtension": {
+      "description": "PBCore Essence Track Extension element.",
+      "properties": {
+        "extensionWrap": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/ExtensionWrap"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Extensionwrap"
+        },
+        "extensionEmbedded": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/ExtensionEmbedded"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Extensionembedded"
+        }
+      },
+      "title": "EssenceTrackExtension",
+      "type": "object"
+    },
+    "EssenceTrackFrameRate": {
+      "description": "PBCore Essence Track Frame Rate element.",
+      "properties": {
+        "unitsOfMeasure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unitsofmeasure"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackFrameRate",
+      "type": "object"
+    },
+    "EssenceTrackFrameSize": {
+      "description": "PBCore Essence Track Frame Size element.",
+      "properties": {
+        "unitsOfMeasure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unitsofmeasure"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackFrameSize",
+      "type": "object"
+    },
+    "EssenceTrackIdentifier": {
+      "description": "PBCore Essence Track Identifier element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackIdentifier",
+      "type": "object"
+    },
+    "EssenceTrackLanguage": {
+      "description": "PBCore Essence Track Language element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackLanguage",
+      "type": "object"
+    },
+    "EssenceTrackPlaybackSpeed": {
+      "description": "PBCore Essence Track Playback Speed element.",
+      "properties": {
+        "unitsOfMeasure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unitsofmeasure"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackPlaybackSpeed",
+      "type": "object"
+    },
+    "EssenceTrackSamplingRate": {
+      "description": "PBCore Essence Track Sampling Rate element.",
+      "properties": {
+        "unitsOfMeasure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unitsofmeasure"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackSamplingRate",
+      "type": "object"
+    },
+    "EssenceTrackStandard": {
+      "description": "PBCore Essence Track Standard element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackStandard",
+      "type": "object"
+    },
+    "EssenceTrackTimeStart": {
+      "description": "PBCore Essence Track Time Start element.",
+      "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackTimeStart",
       "type": "object"
     },
     "EssenceTrackType": {
@@ -984,7 +1911,60 @@
       "type": "object"
     },
     "InstantiationAnnotation": {
+      "description": "PBCore Instantiation Annotation element.",
       "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "annotationType": {
           "anyOf": [
             {
@@ -996,10 +1976,6 @@
           ],
           "default": null,
           "title": "Annotationtype"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -1136,7 +2112,118 @@
       "description": "Instantiation of a PBCore Essence Track element.",
       "properties": {
         "essenceTrackType": {
-          "$ref": "#/$defs/EssenceTrackType"
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EssenceTrackType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "essenceTrackIdentifier": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/EssenceTrackIdentifier"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Essencetrackidentifier"
+        },
+        "essenceTrackStandard": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EssenceTrackStandard"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "essenceTrackEncoding": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EssenceTrackEncoding"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "essenceTrackDataRate": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EssenceTrackDataRate"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "essenceTrackFrameRate": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EssenceTrackFrameRate"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "essenceTrackPlaybackSpeed": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EssenceTrackPlaybackSpeed"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "essenceTrackSamplingRate": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EssenceTrackSamplingRate"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "essenceTrackBitDepth": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EssenceTrackBitDepth"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "essenceTrackFrameSize": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EssenceTrackFrameSize"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
         },
         "essenceTrackAspectRatio": {
           "anyOf": [
@@ -1148,11 +2235,75 @@
             }
           ],
           "default": null
+        },
+        "essenceTrackTimeStart": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EssenceTrackTimeStart"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "essenceTrackDuration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EssenceTrackDuration"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "essenceTrackLanguage": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/EssenceTrackLanguage"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Essencetracklanguage"
+        },
+        "essenceTrackAnnotation": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/EssenceTrackAnnotation"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Essencetrackannotation"
+        },
+        "essenceTrackExtension": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/EssenceTrackExtension"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Essencetrackextension"
         }
       },
-      "required": [
-        "essenceTrackType"
-      ],
       "title": "InstantiationEssenceTrack",
       "type": "object"
     },
@@ -2440,24 +3591,32 @@
         "extensionWrap": {
           "anyOf": [
             {
-              "$ref": "#/$defs/ExtensionWrap"
+              "items": {
+                "$ref": "#/$defs/ExtensionWrap"
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ],
-          "default": null
+          "default": null,
+          "title": "Extensionwrap"
         },
         "extensionEmbedded": {
           "anyOf": [
             {
-              "$ref": "#/$defs/ExtensionEmbedded"
+              "items": {
+                "$ref": "#/$defs/ExtensionEmbedded"
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ],
-          "default": null
+          "default": null,
+          "title": "Extensionembedded"
         }
       },
       "title": "PBCoreExtension",

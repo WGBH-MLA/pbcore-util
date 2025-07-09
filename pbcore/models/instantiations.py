@@ -3,10 +3,10 @@ from typing import List, Optional
 from pbcore.models import (
     PBCoreAttributesTime,
     PBCoreAttributesUnits,
-    PBCoreBaseModel,
     PBCoreElement,
     PBCoreIdentifier,
     PBCoreAssetDate,
+    PBCoreAnnotation,
 )
 from pbcore.models.essence import (
     EssenceTrackType,
@@ -89,9 +89,8 @@ class InstantiationAlternativeModes(PBCoreElement):
     """PBCore Instantiation Alternative Modes element."""
 
 
-class InstantiationAnnotation(PBCoreBaseModel):
-    annotationType: Optional[str] = None
-    text: str
+class InstantiationAnnotation(PBCoreAnnotation):
+    """PBCore Instantiation Annotation element."""
 
 
 class PBCoreInstantiation(PBCoreAttributesTime):

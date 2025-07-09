@@ -59,6 +59,12 @@ class PBCoreElement(PBCoreTextElement, PBCoreBaseAttributes):
     """Base class for PBCore elements with required text and optional attributes."""
 
 
+class PBCoreAnnotation(PBCoreElement):
+    """PBCoreAnnotation element."""
+
+    annotationType: Optional[str] = None
+
+
 __all__ = [
     "PBCoreBaseModel",
     "PBCoreTextElement",
@@ -68,4 +74,5 @@ __all__ = [
     "PBCoreAttributesAffiliation",
     "PBCoreAttributesUnits",
     "PBCoreElement",
+    "PBCoreAnnotation",
 ]
