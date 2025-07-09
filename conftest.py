@@ -2,7 +2,7 @@ from jsonschema_rs import validator_for
 from json import load
 from pytest import fixture
 
-from pbcore.models.models import PBCore
+from pbcore import PBCore
 
 
 @fixture

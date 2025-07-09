@@ -1,15 +1,4 @@
-from .models import (
-    PBCore,
-    PBCoreDescriptionDocument,
-    PBCoreIdentifier,
-    PBCoreTitle,
-    PBCoreDescription,
-)
-
-__all__ = [
-    "PBCore",
-    "PBCoreDescriptionDocument",
-    "PBCoreIdentifier",
-    "PBCoreTitle",
-    "PBCoreDescription",
-]
+from .assets import *
+from .base import *
+from .instantiations import *
+from .root import *
