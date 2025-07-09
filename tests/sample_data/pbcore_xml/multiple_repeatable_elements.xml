@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html http://www.pbcore.org/xsd/pbcore-2.0.xsd">
+    <pbcoreAssetType>Test Asset Type 1</pbcoreAssetType>
+    <pbcoreAssetType>Test Asset Type 2</pbcoreAssetType>
+    <pbcoreAssetDate>2023-10-01</pbcoreAssetDate>
+    <pbcoreAssetDate>2023-10-02</pbcoreAssetDate> 
+    <pbcoreIdentifier source="http://example.org">example-id-123</pbcoreIdentifier>
+    <pbcoreIdentifier>example-id-456</pbcoreIdentifier>
+    <pbcoreTitle titleType="Program">Test Program</pbcoreTitle>
+    <pbcoreTitle titleType="Episode">Test Episode</pbcoreTitle>
+    <pbcoreSubject>Test subject 1</pbcoreSubject>
+    <pbcoreSubject>Test subject 2</pbcoreSubject>
+    <pbcoreDescription>Test description 1</pbcoreDescription>
+    <pbcoreDescription>Test description 2</pbcoreDescription>
+    <pbcoreGenre source="Test Genre Source">Test Genre 1</pbcoreGenre>
+    <pbcoreGenre>Test Genre 2</pbcoreGenre>
+    <pbcoreRelation>
+        <pbcoreRelationType>Test relationt type one</pbcoreRelationType>
+         <pbcoreRelationIdentifier>test-relation-id-1</pbcoreRelationIdentifier>
+    </pbcoreRelation>
+    <pbcoreRelation>
+        <pbcoreRelationType>Test relationt type two</pbcoreRelationType>
+         <pbcoreRelationIdentifier>test-relation-id-2</pbcoreRelationIdentifier>
+    </pbcoreRelation>
+    <pbcoreCoverage>
+        <coverage>Test Location</coverage>
+        <coverageType>Spatial</coverageType>
+    </pbcoreCoverage>
+    <pbcoreCoverage>
+        <coverage>Test Time</coverage>
+        <coverageType>Temporal</coverageType>
+    </pbcoreCoverage>
+    <pbcoreAudienceLevel>test audience level 1</pbcoreAudienceLevel>
+    <pbcoreAudienceLevel>test audience level 2</pbcoreAudienceLevel>
+    <pbcoreAudienceRating>test audience rating 1</pbcoreAudienceRating>
+    <pbcoreAudienceRating>test audience rating 2</pbcoreAudienceRating>
+    <pbcoreCreator>
+        <creator>Test Creator 1</creator>
+        <creatorRole>Test Role 1</creatorRole>
+        <creatorRole>Test Role 1.2</creatorRole>
+    </pbcoreCreator>
+    <pbcoreCreator>
+        <creator>Test Creator 2</creator>
+        <creatorRole>Test Role 2.1</creatorRole>
+        <creatorRole>Test Role 2.2</creatorRole>
+    </pbcoreCreator>
+    <pbcoreContributor>
+        <contributor>Test Contributor 1</contributor>
+        <contributorRole>Test Contributor Role 1</contributorRole>
+        <contributorRole>Test Contributor Role 1.2</contributorRole>
+    </pbcoreContributor>
+    <pbcoreContributor>
+        <contributor>Test Contributor 2</contributor>
+        <contributorRole>Test Contributor Role 2.1</contributorRole>
+        <contributorRole>Test Contributor Role 2.2</contributorRole>
+    </pbcoreContributor>
+    <pbcorePublisher>
+        <publisher>Test Publisher 1</publisher>
+        <publisherRole>Test Publisher Role 1.1</publisherRole>
+        <publisherRole>Test Publisher Role 1.2</publisherRole>
+    </pbcorePublisher>
+    <pbcorePublisher>
+        <publisher>Test Publisher 1</publisher>
+        <publisherRole>Test Publisher Role 1</publisherRole>
+        <publisherRole>Test Publisher Role 1.1</publisherRole>
+        <publisherRole>Test Publisher Role 1.2</publisherRole>
+    </pbcorePublisher>
+    <pbcoreAnnotation annotationType="organization">Test Annotation 1</pbcoreAnnotation>
+    <pbcoreAnnotation>Test Annotation 2</pbcoreAnnotation>
+    <pbcoreInstantiation>
+        <instantiationIdentifier source="Test Source">test-instantiation-id</instantiationIdentifier>
+        <instantiationDate>2023-10-01</instantiationDate>
+        <instantiationDigital>audio/mpeg</instantiationDigital>
+        <instantiationLocation>Test Location</instantiationLocation>
+        <instantiationMediaType>Sound</instantiationMediaType>
+        <instantiationGenerations>Master</instantiationGenerations>
+        <instantiationDuration>00:05:00</instantiationDuration>
+        <instantiationLanguage>eng</instantiationLanguage>
+        <instantiationEssenceTrack>
+            <essenceTrackType>General</essenceTrackType>
+            <essenceTrackEncoding source="mp3 file">mp3 file</essenceTrackEncoding>
+        </instantiationEssenceTrack>
+        <instantiationEssenceTrack>
+            <essenceTrackType>General</essenceTrackType>
+            <essenceTrackEncoding source="mp3 file">mp3 file</essenceTrackEncoding>
+        </instantiationEssenceTrack>
+        <instantiationAnnotation annotationType="organization">Test Organization</instantiationAnnotation>
+    </pbcoreInstantiation>
+    <pbcoreInstantiation>
+        <instantiationIdentifier source="Test Source">test-instantiation-id-2</instantiationIdentifier>
+        <instantiationDate>2023-10-01</instantiationDate>
+        <instantiationDigital>audio/mpeg</instantiationDigital>
+        <instantiationLocation>Test Location</instantiationLocation>
+        <instantiationMediaType>Sound</instantiationMediaType>
+        <instantiationGenerations>Master</instantiationGenerations>
+        <instantiationDuration>00:05:00</instantiationDuration>
+        <instantiationLanguage>eng</instantiationLanguage>
+        <instantiationEssenceTrack>
+            <essenceTrackType>General</essenceTrackType>
+            <essenceTrackEncoding source="mp3 file">mp3 file</essenceTrackEncoding>
+        </instantiationEssenceTrack>
+        <instantiationEssenceTrack>
+            <essenceTrackType>General</essenceTrackType>
+            <essenceTrackEncoding source="mp3 file">mp3 file</essenceTrackEncoding>
+        </instantiationEssenceTrack>
+        <instantiationAnnotation annotationType="organization">Test Organization</instantiationAnnotation>
+    </pbcoreInstantiation>
+    <pbcoreExtension>
+        <someOtherSchema>Test other schema 1</someOtherSchema>
+    </pbcoreExtension>
+    <pbcoreExtension>
+        <someOtherSchema>Test other schema 2</someOtherSchema>
+    </pbcoreExtension>
+</pbcoreDescriptionDocument>
