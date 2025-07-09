@@ -21,8 +21,8 @@ from pbcore.models.assets import (
     PBCoreRightsSummary,
     PBCoreAnnotation,
     PBCorePart,
-    PBCoreExtension,
 )
+from pbcore.models.extension import PBCoreExtension
 from pbcore.models.instantiations import PBCoreInstantiation
 
 

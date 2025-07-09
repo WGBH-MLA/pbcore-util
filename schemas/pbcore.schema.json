@@ -613,7 +613,68 @@
       "type": "object"
     },
     "EssenceTrackAspectRatio": {
+      "description": "PBCore Essence Track Aspect Ratio element.",
       "properties": {
+        "unitsOfMeasure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unitsofmeasure"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annotation"
+        },
         "text": {
           "title": "Text",
           "type": "string"
@@ -1072,6 +1133,7 @@
       "type": "object"
     },
     "InstantiationEssenceTrack": {
+      "description": "Instantiation of a PBCore Essence Track element.",
       "properties": {
         "essenceTrackType": {
           "$ref": "#/$defs/EssenceTrackType"
