@@ -3954,8 +3954,7 @@
         "coverageType": {
           "anyOf": [
             {
-              "$ref": "#/$defs/CoverageType",
-              "minLength": 1
+              "$ref": "#/$defs/CoverageType"
             },
             {
               "type": "null"

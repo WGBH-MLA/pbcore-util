@@ -87,7 +87,7 @@ class PBCoreCoverage(PBCoreBaseModel):
     """PBCoreCoverage element."""
 
     coverage: Coverage
-    coverageType: Optional[CoverageType] = Field(None, min_length=1)
+    coverageType: Optional[CoverageType] = None
 
 
 class PBCoreAudienceLevel(PBCoreElement):
