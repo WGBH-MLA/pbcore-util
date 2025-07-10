@@ -1,6 +1,6 @@
-from typing import List, Optional
+from typing import Optional
 from pbcore.models import PBCoreTextElement, PBCoreBaseAttributes, PBCoreBaseModel
-from pydantic import Field
+from pydantic import Field, model_validator
 
 
 class ExtensionElement(PBCoreTextElement):
@@ -28,9 +28,20 @@ class ExtensionEmbedded(PBCoreBaseAttributes):
 
 
 class PBCoreExtension(PBCoreBaseModel):
-    """PBCoreExtension element.
+    """PBCoreExtension element."""
 
-    TODO: Validate that extensionWrap and extensionEmbedded are not both present."""
+    @model_validator(mode='after')
+    def validate_extensions(cls, values):
+        # Ensure exclusively one of extensionWrap or extensionEmbedded is provided
+        if values.extensionWrap and values.extensionEmbedded:
+            raise ValueError(
+                "PBCoreExtension can have either extensionWrap or extensionEmbedded, not both."
+            )
+        if not values.extensionWrap and not values.extensionEmbedded:
+            raise ValueError(
+                "PBCoreExtension must have either extensionWrap or extensionEmbedded."
+            )
+        return values
 
-    extensionWrap: Optional[List[ExtensionWrap]] = Field(None, min_length=1)
-    extensionEmbedded: Optional[List[ExtensionEmbedded]] = Field(None, min_length=1)
+    extensionWrap: Optional[list[ExtensionWrap]] = Field(None, min_length=1)
+    extensionEmbedded: Optional[list[ExtensionEmbedded]] = Field(None, min_length=1)

@@ -5,7 +5,7 @@ from pbcore.models import (
     PBCoreAnnotation,
 )
 from pbcore.models.extension import PBCoreExtension, ExtensionWrap, ExtensionEmbedded
-from typing import List, Optional
+from typing import Optional
 from pydantic import Field
 
 
@@ -77,7 +77,7 @@ class InstantiationEssenceTrack(PBCoreBaseModel):
     """Instantiation of a PBCore Essence Track element."""
 
     essenceTrackType: Optional[EssenceTrackType] = None
-    essenceTrackIdentifier: Optional[List[EssenceTrackIdentifier]] = Field(
+    essenceTrackIdentifier: Optional[list[EssenceTrackIdentifier]] = Field(
         None, min_length=1
     )
     essenceTrackStandard: Optional[EssenceTrackStandard] = None
@@ -91,12 +91,12 @@ class InstantiationEssenceTrack(PBCoreBaseModel):
     essenceTrackAspectRatio: Optional[EssenceTrackAspectRatio] = None
     essenceTrackTimeStart: Optional[EssenceTrackTimeStart] = None
     essenceTrackDuration: Optional[EssenceTrackDuration] = None
-    essenceTrackLanguage: Optional[List[EssenceTrackLanguage]] = Field(
+    essenceTrackLanguage: Optional[list[EssenceTrackLanguage]] = Field(
         None, min_length=1
     )
-    essenceTrackAnnotation: Optional[List[EssenceTrackAnnotation]] = Field(
+    essenceTrackAnnotation: Optional[list[EssenceTrackAnnotation]] = Field(
         None, min_length=1
     )
-    essenceTrackExtension: Optional[List[EssenceTrackExtension]] = Field(
+    essenceTrackExtension: Optional[list[EssenceTrackExtension]] = Field(
         None, min_length=1
     )

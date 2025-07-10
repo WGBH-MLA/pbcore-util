@@ -3916,6 +3916,89 @@
       "title": "PBCoreAudienceRating",
       "type": "object"
     },
+    "PBCoreCollection": {
+      "description": "Collection of PBCoreDescriptionDocument elements.",
+      "properties": {
+        "xsi:schemaLocation": {
+          "title": "Xsi:Schemalocation",
+          "type": "string"
+        },
+        "collecttionTitle": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Collecttiontitle"
+        },
+        "collectionDescription": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Collectiondescription"
+        },
+        "collectionSource": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Collectionsource"
+        },
+        "collectionRef": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Collectionref"
+        },
+        "collectionDate": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Collectiondate"
+        },
+        "pbcoreDescriptionDocument": {
+          "items": {
+            "$ref": "#/$defs/PBCoreDescriptionDocument"
+          },
+          "minItems": 1,
+          "title": "Pbcoredescriptiondocument",
+          "type": "array"
+        }
+      },
+      "required": [
+        "xsi:schemaLocation",
+        "pbcoreDescriptionDocument"
+      ],
+      "title": "PBCoreCollection",
+      "type": "object"
+    },
     "PBCoreContributor": {
       "description": "PBCoreContributor element.",
       "properties": {
@@ -4513,7 +4596,7 @@
       "type": "object"
     },
     "PBCoreExtension": {
-      "description": "PBCoreExtension element.\n\nTODO: Validate that extensionWrap and extensionEmbedded are not both present.",
+      "description": "PBCoreExtension element.",
       "properties": {
         "extensionWrap": {
           "anyOf": [
@@ -5025,6 +5108,334 @@
         "instantiationLocation"
       ],
       "title": "PBCoreInstantiation",
+      "type": "object"
+    },
+    "PBCoreInstantiationDocument": {
+      "description": "Model for PBCoreInstantiationDocument elements.",
+      "properties": {
+        "pbcoreAssetType": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreAssetType"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcoreassettype"
+        },
+        "pbcoreAssetDate": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreAssetDate"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcoreassetdate"
+        },
+        "pbcoreIdentifier": {
+          "items": {
+            "$ref": "#/$defs/PBCoreIdentifier"
+          },
+          "minItems": 1,
+          "title": "Pbcoreidentifier",
+          "type": "array"
+        },
+        "pbcoreTitle": {
+          "items": {
+            "$ref": "#/$defs/PBCoreTitle"
+          },
+          "minItems": 1,
+          "title": "Pbcoretitle",
+          "type": "array"
+        },
+        "pbcoreSubject": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreSubject"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcoresubject"
+        },
+        "pbcoreDescription": {
+          "items": {
+            "$ref": "#/$defs/PBCoreDescription"
+          },
+          "minItems": 1,
+          "title": "Pbcoredescription",
+          "type": "array"
+        },
+        "pbcoreGenre": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreGenre"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcoregenre"
+        },
+        "pbcoreRelation": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreRelation"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcorerelation"
+        },
+        "pbcoreCoverage": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreCoverage"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcorecoverage"
+        },
+        "pbcoreAudienceLevel": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreAudienceLevel"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcoreaudiencelevel"
+        },
+        "pbcoreAudienceRating": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreAudienceRating"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcoreaudiencerating"
+        },
+        "pbcoreCreator": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreCreator"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcorecreator"
+        },
+        "pbcoreContributor": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreContributor"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcorecontributor"
+        },
+        "pbcorePublisher": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCorePublisher"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcorepublisher"
+        },
+        "pbcoreRightsSummary": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreRightsSummary"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcorerightssummary"
+        },
+        "pbcoreInstantiation": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreInstantiation"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcoreinstantiation"
+        },
+        "pbcoreAnnotation": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreAnnotation"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcoreannotation"
+        },
+        "pbcorePart": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCorePart"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcorepart"
+        },
+        "pbcoreExtension": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PBCoreExtension"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pbcoreextension"
+        },
+        "startTime": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Starttime"
+        },
+        "endTime": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Endtime"
+        },
+        "timeAnnotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timeannotation"
+        }
+      },
+      "required": [
+        "pbcoreIdentifier",
+        "pbcoreTitle",
+        "pbcoreDescription"
+      ],
+      "title": "PBCoreInstantiationDocument",
       "type": "object"
     },
     "PBCorePart": {
@@ -5586,7 +5997,7 @@
       "type": "object"
     },
     "PBCoreRightsSummary": {
-      "description": "PBCoreRightsSummary element.\n\nTODO: Validate that only one type of rightsSummary, rightsLink, or rightsEmbedded are present.",
+      "description": "PBCoreRightsSummary element.",
       "properties": {
         "startTime": {
           "anyOf": [
@@ -6397,15 +6808,42 @@
       "type": "object"
     }
   },
-  "description": "Root model for PBCore documents.\n\nTODO: Allow pbcoreCollection and pbcoreInstantiationDocument,\nbut only allow one document of any kind",
+  "description": "Root model for PBCore documents.",
   "properties": {
     "pbcoreDescriptionDocument": {
-      "$ref": "#/$defs/PBCoreDescriptionDocument"
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PBCoreDescriptionDocument"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "pbcoreCollection": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PBCoreCollection"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "pbcoreInstantiationDocument": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PBCoreInstantiationDocument"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     }
   },
-  "required": [
-    "pbcoreDescriptionDocument"
-  ],
   "title": "PBCore",
   "type": "object"
 }

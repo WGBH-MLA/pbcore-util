@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 
 from pydantic import Field
 from pbcore.models.base import (
@@ -110,7 +110,7 @@ class PBCoreCreator(PBCoreBaseModel):
     """PBCoreCreator element."""
 
     creator: Creator
-    creatorRole: Optional[List[CreatorRole]] = Field(None, min_length=1)
+    creatorRole: Optional[list[CreatorRole]] = Field(None, min_length=1)
 
 
 class Contributor(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
@@ -127,7 +127,7 @@ class PBCoreContributor(PBCoreBaseModel):
     """PBCoreContributor element."""
 
     contributor: Contributor
-    contributorRole: Optional[List[ContributorRole]] = Field(None, min_length=1)
+    contributorRole: Optional[list[ContributorRole]] = Field(None, min_length=1)
 
 
 class Publisher(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
@@ -142,7 +142,7 @@ class PBCorePublisher(PBCoreBaseModel):
     """PBCorePublisher element."""
 
     publisher: Publisher
-    publisherRole: Optional[List[PublisherRole]] = Field(None, min_length=1)
+    publisherRole: Optional[list[PublisherRole]] = Field(None, min_length=1)
 
 
 __all__ = [
