@@ -633,7 +633,7 @@ def test_convert_xml_to_json_handles_special_characters(
     )
     assert (
         response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][2]["text"]
-        == r'\"previously escaped quoted string\"'
+        == r"\"previously escaped quoted string\""
     )
     assert (
         response_json["pbcoreDescriptionDocument"]["pbcoreTitle"][3]["text"]

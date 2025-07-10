@@ -101,15 +101,24 @@ async def convert_xml_to_json_from_url(
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.post("/convert/json-to-xml", tags=["JSON to XML Conversion"])
-async def convert_json_to_xml(file: UploadFile = File(...)):
+@app.post("/convert/json-to-xml-file", tags=["JSON to XML Conversion"])
+async def convert_json_to_xml_from_file(file: UploadFile = File(...)):
     raise HTTPException(
         status_code=400, detail="PBCore JSON to XML Conversion not yet implemented"
     )
 
 
-@app.post("/convert/roundtrip/xml-json/file", tags=["JSON to XML Conversion"])
-async def validate_roundtrip(file: UploadFile = File(...)):
+@app.post("/convert/json-to-xml-url", tags=["JSON to XML Conversion"])
+async def convert_json_to_xml_from_url(
+    url: str = Query(..., description="URL pointing to a PBCore JSON document")
+):
+    raise HTTPException(
+        status_code=400, detail="PBCore JSON to XML Conversion not yet implemented"
+    )
+
+
+@app.post("/convert/roundtrip/xml-json/file", tags=["Roundtrip Conversion"])
+async def convert_roundtrip(file: UploadFile = File(...)):
     raise HTTPException(
         status_code=400,
         detail="PBCore XML-to-JSON round-trip validation not yet implemented",
