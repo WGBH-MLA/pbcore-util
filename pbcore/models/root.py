@@ -101,20 +101,20 @@ class PBCore(PBCoreBaseModel):
     """Root model for PBCore documents."""
 
     @model_validator(mode='after')
-    def validate_document(cls, values):
+    def validate_document(self):
         # Ensure only one document of any type is present
         doc_count = 0
-        if values.pbcoreDescriptionDocument:
+        if self.pbcoreDescriptionDocument:
             doc_count += 1
-        if values.pbcoreCollection:
+        if self.pbcoreCollection:
             doc_count += 1
-        if values.pbcoreInstantiationDocument:
+        if self.pbcoreInstantiationDocument:
             doc_count += 1
         if doc_count == 0:
             raise ValueError("At least one PBCore document type must be provided.")
         if doc_count != 1:
             raise ValueError(f"THERE CAN BE ONLY ONE!!! (PBCore Document type)")
-        return values
+        return self
 
     pbcoreDescriptionDocument: Optional[PBCoreDescriptionDocument] = None
     pbcoreCollection: Optional[PBCoreCollection] = None

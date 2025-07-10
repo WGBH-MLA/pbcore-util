@@ -31,17 +31,17 @@ class PBCoreExtension(PBCoreBaseModel):
     """PBCoreExtension element."""
 
     @model_validator(mode='after')
-    def validate_extensions(cls, values):
-        # Ensure exclusively one of extensionWrap or extensionEmbedded is provided
-        if values.extensionWrap and values.extensionEmbedded:
+    def validate_extensions(self):
+        """Ensure exclusively one of extensionWrap or extensionEmbedded is provided"""
+        if self.extensionWrap and self.extensionEmbedded:
             raise ValueError(
                 "PBCoreExtension can have either extensionWrap or extensionEmbedded, not both."
             )
-        if not values.extensionWrap and not values.extensionEmbedded:
+        if not self.extensionWrap and not self.extensionEmbedded:
             raise ValueError(
                 "PBCoreExtension must have either extensionWrap or extensionEmbedded."
             )
-        return values
+        return self
 
     extensionWrap: Optional[list[ExtensionWrap]] = Field(None, min_length=1)
     extensionEmbedded: Optional[list[ExtensionEmbedded]] = Field(None, min_length=1)

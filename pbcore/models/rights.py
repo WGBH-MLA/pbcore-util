@@ -22,23 +22,19 @@ class PBCoreRightsSummary(PBCoreAttributesTime):
     """PBCoreRightsSummary element."""
 
     @model_validator(mode='after')
-    def validate_rights(cls, values):
+    def validate_rights(self):
         types = 0
-        if values.rightsSummary:
+        if self.rightsSummary:
             types += 1
-        if values.rightsLink:
+        if self.rightsLink:
             types += 1
-        if values.rightsEmbedded:
+        if self.rightsEmbedded:
             types += 1
-        if types == 0:
-            raise ValueError(
-                'At least one of rightsSummary, rightsLink, or rightsEmbedded must be present.'
-            )
         if types > 1:
             raise ValueError(
                 'Only one of rightsSummary, rightsLink, or rightsEmbedded may be present.'
             )
-        return values
+        return self
 
     rightsSummary: Optional[list[RightsSummary]] = Field(None, min_length=1)
     rightsLink: Optional[list[RightsLink]] = Field(None, min_length=1)
