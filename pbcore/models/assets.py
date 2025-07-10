@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pydantic import Field
 from pbcore.models.base import (
     PBCoreElement,
@@ -27,33 +25,33 @@ class PBCoreIdentifier(PBCoreElement):
 
 
 class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
-    titleType: Optional[str] = None
-    titleTypeSource: Optional[str] = None
-    titleTypeRef: Optional[str] = None
-    titleTypeVersion: Optional[str] = None
-    titleTypeAnnotation: Optional[str] = None
+    titleType: str | None = None
+    titleTypeSource: str | None = None
+    titleTypeRef: str | None = None
+    titleTypeVersion: str | None = None
+    titleTypeAnnotation: str | None = None
 
 
 class PBCoreSubject(PBCoreElement, PBCoreAttributesTime):
-    subjectType: Optional[str] = None
-    subjectTypeSource: Optional[str] = None
-    subjectTypeRef: Optional[str] = None
-    subjectTypeVersion: Optional[str] = None
-    subjectTypeAnnotation: Optional[str] = None
+    subjectType: str | None = None
+    subjectTypeSource: str | None = None
+    subjectTypeRef: str | None = None
+    subjectTypeVersion: str | None = None
+    subjectTypeAnnotation: str | None = None
 
 
 class PBCoreDescription(PBCoreElement, PBCoreAttributesTime):
-    descriptionType: Optional[str] = None
-    descriptionTypeSource: Optional[str] = None
-    descriptionTypeRef: Optional[str] = None
-    descriptionTypeVersion: Optional[str] = None
-    descriptionTypeAnnotation: Optional[str] = None
+    descriptionType: str | None = None
+    descriptionTypeSource: str | None = None
+    descriptionTypeRef: str | None = None
+    descriptionTypeVersion: str | None = None
+    descriptionTypeAnnotation: str | None = None
 
-    segmentType: Optional[str] = None
-    segmentTypeSource: Optional[str] = None
-    segmentTypeRef: Optional[str] = None
-    segmentTypeVersion: Optional[str] = None
-    segmentTypeAnnotation: Optional[str] = None
+    segmentType: str | None = None
+    segmentTypeSource: str | None = None
+    segmentTypeRef: str | None = None
+    segmentTypeVersion: str | None = None
+    segmentTypeAnnotation: str | None = None
 
 
 class PBCoreGenre(PBCoreElement, PBCoreAttributesTime):
@@ -87,7 +85,7 @@ class PBCoreCoverage(PBCoreBaseModel):
     """PBCoreCoverage element."""
 
     coverage: Coverage
-    coverageType: Optional[CoverageType] = None
+    coverageType: CoverageType | None = None
 
 
 class PBCoreAudienceLevel(PBCoreElement):
@@ -110,7 +108,7 @@ class PBCoreCreator(PBCoreBaseModel):
     """PBCoreCreator element."""
 
     creator: Creator
-    creatorRole: Optional[list[CreatorRole]] = Field(None, min_length=1)
+    creatorRole: list[CreatorRole] | None = Field(None, min_length=1)
 
 
 class Contributor(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
@@ -120,14 +118,14 @@ class Contributor(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTi
 class ContributorRole(PBCoreElement):
     """ContributorRole element."""
 
-    portrayal: Optional[str] = None
+    portrayal: str | None = None
 
 
 class PBCoreContributor(PBCoreBaseModel):
     """PBCoreContributor element."""
 
     contributor: Contributor
-    contributorRole: Optional[list[ContributorRole]] = Field(None, min_length=1)
+    contributorRole: list[ContributorRole] | None = Field(None, min_length=1)
 
 
 class Publisher(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
@@ -142,7 +140,7 @@ class PBCorePublisher(PBCoreBaseModel):
     """PBCorePublisher element."""
 
     publisher: Publisher
-    publisherRole: Optional[list[PublisherRole]] = Field(None, min_length=1)
+    publisherRole: list[PublisherRole] | None = Field(None, min_length=1)
 
 
 __all__ = [

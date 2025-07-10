@@ -3923,7 +3923,7 @@
           "title": "Xsi:Schemalocation",
           "type": "string"
         },
-        "collecttionTitle": {
+        "collectionTitle": {
           "anyOf": [
             {
               "type": "string"
@@ -3933,7 +3933,7 @@
             }
           ],
           "default": null,
-          "title": "Collecttiontitle"
+          "title": "Collectiontitle"
         },
         "collectionDescription": {
           "anyOf": [

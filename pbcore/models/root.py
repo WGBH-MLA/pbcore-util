@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pydantic import Field, model_validator
 from pbcore.models.base import PBCoreAttributesTime, PBCoreBaseModel, PBCoreAnnotation
 
@@ -33,37 +31,35 @@ class XsiSchemaLocation(PBCoreBaseModel):
 
 
 class PBCoreDescriptionDocumentSubelements(PBCoreBaseModel):
-    pbcoreAssetType: Optional[list[PBCoreAssetType]] = Field(None, min_length=1)
-    pbcoreAssetDate: Optional[list[PBCoreAssetDate]] = Field(None, min_length=1)
+    pbcoreAssetType: list[PBCoreAssetType] | None = Field(None, min_length=1)
+    pbcoreAssetDate: list[PBCoreAssetDate] | None = Field(None, min_length=1)
     pbcoreIdentifier: list[PBCoreIdentifier] = Field(..., min_length=1)
     pbcoreTitle: list[PBCoreTitle] = Field(..., min_length=1)
-    pbcoreSubject: Optional[list[PBCoreSubject]] = Field(None, min_length=1)
+    pbcoreSubject: list[PBCoreSubject] | None = Field(None, min_length=1)
     pbcoreDescription: list[PBCoreDescription] = Field(..., min_length=1)
-    pbcoreGenre: Optional[list[PBCoreGenre]] = Field(None, min_length=1)
-    pbcoreRelation: Optional[list[PBCoreRelation]] = Field(None, min_length=1)
-    pbcoreCoverage: Optional[list[PBCoreCoverage]] = Field(None, min_length=1)
-    pbcoreAudienceLevel: Optional[list[PBCoreAudienceLevel]] = Field(None, min_length=1)
-    pbcoreAudienceRating: Optional[list[PBCoreAudienceRating]] = Field(
-        None, min_length=1
-    )
-    pbcoreCreator: Optional[list[PBCoreCreator]] = Field(None, min_length=1)
-    pbcoreContributor: Optional[list[PBCoreContributor]] = Field(None, min_length=1)
-    pbcorePublisher: Optional[list[PBCorePublisher]] = Field(None, min_length=1)
-    pbcoreRightsSummary: Optional[list[PBCoreRightsSummary]] = Field(None, min_length=1)
-    pbcoreInstantiation: Optional[list[PBCoreInstantiation]] = Field(None, min_length=1)
-    pbcoreAnnotation: Optional[list[PBCoreAnnotation]] = Field(None, min_length=1)
-    pbcorePart: Optional[list['PBCorePart']] = Field(None, min_length=1)
-    pbcoreExtension: Optional[list[PBCoreExtension]] = Field(None, min_length=1)
+    pbcoreGenre: list[PBCoreGenre] | None = Field(None, min_length=1)
+    pbcoreRelation: list[PBCoreRelation] | None = Field(None, min_length=1)
+    pbcoreCoverage: list[PBCoreCoverage] | None = Field(None, min_length=1)
+    pbcoreAudienceLevel: list[PBCoreAudienceLevel] | None = Field(None, min_length=1)
+    pbcoreAudienceRating: list[PBCoreAudienceRating] | None = Field(None, min_length=1)
+    pbcoreCreator: list[PBCoreCreator] | None = Field(None, min_length=1)
+    pbcoreContributor: list[PBCoreContributor] | None = Field(None, min_length=1)
+    pbcorePublisher: list[PBCorePublisher] | None = Field(None, min_length=1)
+    pbcoreRightsSummary: list[PBCoreRightsSummary] | None = Field(None, min_length=1)
+    pbcoreInstantiation: list[PBCoreInstantiation] | None = Field(None, min_length=1)
+    pbcoreAnnotation: list[PBCoreAnnotation] | None = Field(None, min_length=1)
+    pbcorePart: list['PBCorePart'] | None = Field(None, min_length=1)
+    pbcoreExtension: list[PBCoreExtension] | None = Field(None, min_length=1)
 
 
 class PBCorePart(PBCoreAttributesTime, PBCoreDescriptionDocumentSubelements):
     """PBCorePart element."""
 
-    partType: Optional[str] = None
-    partTypeSource: Optional[str] = None
-    partTypeRef: Optional[str] = None
-    partTypeVersion: Optional[str] = None
-    partTypeAnnotation: Optional[str] = None
+    partType: str | None = None
+    partTypeSource: str | None = None
+    partTypeRef: str | None = None
+    partTypeVersion: str | None = None
+    partTypeAnnotation: str | None = None
 
 
 # Rebuild the Description Document model to ensure the recursive PBCorePart is recognized
@@ -80,11 +76,11 @@ class PBCoreDescriptionDocument(
 class PBCoreCollection(XsiSchemaLocation):
     """Collection of PBCoreDescriptionDocument elements."""
 
-    collecttionTitle: Optional[str] = None
-    collectionDescription: Optional[str] = None
-    collectionSource: Optional[str] = None
-    collectionRef: Optional[str] = None
-    collectionDate: Optional[str] = None
+    collectionTitle: str | None = None
+    collectionDescription: str | None = None
+    collectionSource: str | None = None
+    collectionRef: str | None = None
+    collectionDate: str | None = None
 
     pbcoreDescriptionDocument: list[PBCoreDescriptionDocument] = Field(
         ..., min_length=1
@@ -116,9 +112,9 @@ class PBCore(PBCoreBaseModel):
             raise ValueError(f"THERE CAN BE ONLY ONE!!! (PBCore Document type)")
         return self
 
-    pbcoreDescriptionDocument: Optional[PBCoreDescriptionDocument] = None
-    pbcoreCollection: Optional[PBCoreCollection] = None
-    pbcoreInstantiationDocument: Optional[PBCoreInstantiationDocument] = None
+    pbcoreDescriptionDocument: PBCoreDescriptionDocument | None = None
+    pbcoreCollection: PBCoreCollection | None = None
+    pbcoreInstantiationDocument: PBCoreInstantiationDocument | None = None
 
 
 """Minimal Viable PBCore Description Document structure."""

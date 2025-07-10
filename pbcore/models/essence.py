@@ -5,7 +5,6 @@ from pbcore.models import (
     PBCoreAnnotation,
 )
 from pbcore.models.extension import PBCoreExtension, ExtensionWrap, ExtensionEmbedded
-from typing import Optional
 from pydantic import Field
 
 
@@ -76,27 +75,25 @@ class EssenceTrackExtension(PBCoreExtension):
 class InstantiationEssenceTrack(PBCoreBaseModel):
     """Instantiation of a PBCore Essence Track element."""
 
-    essenceTrackType: Optional[EssenceTrackType] = None
-    essenceTrackIdentifier: Optional[list[EssenceTrackIdentifier]] = Field(
+    essenceTrackType: EssenceTrackType | None = None
+    essenceTrackIdentifier: list[EssenceTrackIdentifier] | None = Field(
         None, min_length=1
     )
-    essenceTrackStandard: Optional[EssenceTrackStandard] = None
-    essenceTrackEncoding: Optional[EssenceTrackEncoding] = None
-    essenceTrackDataRate: Optional[EssenceTrackDataRate] = None
-    essenceTrackFrameRate: Optional[EssenceTrackFrameRate] = None
-    essenceTrackPlaybackSpeed: Optional[EssenceTrackPlaybackSpeed] = None
-    essenceTrackSamplingRate: Optional[EssenceTrackSamplingRate] = None
-    essenceTrackBitDepth: Optional[EssenceTrackBitDepth] = None
-    essenceTrackFrameSize: Optional[EssenceTrackFrameSize] = None
-    essenceTrackAspectRatio: Optional[EssenceTrackAspectRatio] = None
-    essenceTrackTimeStart: Optional[EssenceTrackTimeStart] = None
-    essenceTrackDuration: Optional[EssenceTrackDuration] = None
-    essenceTrackLanguage: Optional[list[EssenceTrackLanguage]] = Field(
+    essenceTrackStandard: EssenceTrackStandard | None = None
+    essenceTrackEncoding: EssenceTrackEncoding | None = None
+    essenceTrackDataRate: EssenceTrackDataRate | None = None
+    essenceTrackFrameRate: EssenceTrackFrameRate | None = None
+    essenceTrackPlaybackSpeed: EssenceTrackPlaybackSpeed | None = None
+    essenceTrackSamplingRate: EssenceTrackSamplingRate | None = None
+    essenceTrackBitDepth: EssenceTrackBitDepth | None = None
+    essenceTrackFrameSize: EssenceTrackFrameSize | None = None
+    essenceTrackAspectRatio: EssenceTrackAspectRatio | None = None
+    essenceTrackTimeStart: EssenceTrackTimeStart | None = None
+    essenceTrackDuration: EssenceTrackDuration | None = None
+    essenceTrackLanguage: list[EssenceTrackLanguage] | None = Field(None, min_length=1)
+    essenceTrackAnnotation: list[EssenceTrackAnnotation] | None = Field(
         None, min_length=1
     )
-    essenceTrackAnnotation: Optional[list[EssenceTrackAnnotation]] = Field(
-        None, min_length=1
-    )
-    essenceTrackExtension: Optional[list[EssenceTrackExtension]] = Field(
+    essenceTrackExtension: list[EssenceTrackExtension] | None = Field(
         None, min_length=1
     )

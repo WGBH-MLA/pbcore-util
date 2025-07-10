@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pydantic import Field
 
 from pbcore.models import (
@@ -42,7 +40,7 @@ class InstantiationDigital(PBCoreElement):
 class InstantiationStandard(PBCoreElement):
     """PBCore Instantiation Standard element."""
 
-    profile: Optional[str] = None
+    profile: str | None = None
 
 
 class InstantiationLocation(PBCoreElement):
@@ -118,42 +116,40 @@ class InstantiationRights(PBCoreRightsSummary):
 
 class PBCoreInstantiation(PBCoreAttributesTime):
     instantiationIdentifier: list[InstantiationIdentifier] = Field(..., min_length=1)
-    instantiationDate: Optional[list[InstantiationDate]] = Field(None, min_length=1)
-    instantiationDimensions: Optional[list[InstantiationDimensions]] = Field(
+    instantiationDate: list[InstantiationDate] | None = Field(None, min_length=1)
+    instantiationDimensions: list[InstantiationDimensions] | None = Field(
         None, min_length=1
     )
-    instantiationPhysical: Optional[InstantiationPhysical] = None
-    instantiationDigital: Optional[InstantiationDigital] = None
-    instantiationStandard: Optional[InstantiationStandard] = None
+    instantiationPhysical: InstantiationPhysical | None = None
+    instantiationDigital: InstantiationDigital | None = None
+    instantiationStandard: InstantiationStandard | None = None
     instantiationLocation: InstantiationLocation
-    instantiationMediaType: Optional[InstantiationMediaType] = None
-    instantiationGenerations: Optional[list[InstantiationGenerations]] = Field(
+    instantiationMediaType: InstantiationMediaType | None = None
+    instantiationGenerations: list[InstantiationGenerations] | None = Field(
         None, min_length=1
     )
-    instantiationFileSize: Optional[InstantiationFileSize] = None
-    instantiationTimeStart: Optional[list[InstantiationTimeStart]] = Field(
+    instantiationFileSize: InstantiationFileSize | None = None
+    instantiationTimeStart: list[InstantiationTimeStart] | None = Field(
         None, min_length=1
     )
-    instantiationDuration: Optional[InstantiationDuration] = None
-    instantiationDataRate: Optional[InstantiationDataRate] = None
-    instantiationColors: Optional[InstantiationColors] = None
-    instantiationTracks: Optional[InstantiationTracks] = None
-    instantiationChannelConfiguration: Optional[InstantiationChannelConfiguration] = (
-        None
-    )
-    instantiationLanguage: Optional[list[InstantiationLanguage]] = Field(
+    instantiationDuration: InstantiationDuration | None = None
+    instantiationDataRate: InstantiationDataRate | None = None
+    instantiationColors: InstantiationColors | None = None
+    instantiationTracks: InstantiationTracks | None = None
+    instantiationChannelConfiguration: InstantiationChannelConfiguration | None = None
+    instantiationLanguage: list[InstantiationLanguage] | None = Field(
         None, min_length=1
     )
-    instantiationAlternativeModes: Optional[InstantiationAlternativeModes] = None
-    instantiationEssenceTrack: Optional[list[InstantiationEssenceTrack]] = Field(
+    instantiationAlternativeModes: InstantiationAlternativeModes | None = None
+    instantiationEssenceTrack: list[InstantiationEssenceTrack] | None = Field(
         None, min_length=1
     )
-    instantiationRelation: Optional[list[InstantiationRelation]] = Field(
+    instantiationRelation: list[InstantiationRelation] | None = Field(
         None, min_length=1
     )
-    instantiationRights: Optional[list[InstantiationRights]] = Field(None, min_length=1)
+    instantiationRights: list[InstantiationRights] | None = Field(None, min_length=1)
 
-    instantiationAnnotation: Optional[list[InstantiationAnnotation]] = Field(
+    instantiationAnnotation: list[InstantiationAnnotation] | None = Field(
         None, min_length=1
     )
 

@@ -1,4 +1,3 @@
-from typing import Optional
 from pbcore.models import PBCoreTextElement, PBCoreBaseAttributes, PBCoreBaseModel
 from pydantic import Field, model_validator
 
@@ -20,7 +19,7 @@ class ExtensionWrap(PBCoreBaseAttributes):
 
     extensionElement: ExtensionElement
     extensionValue: ExtensionValue
-    extensionAuthorityUsed: Optional[ExtensionAuthorityUsed] = None
+    extensionAuthorityUsed: ExtensionAuthorityUsed | None = None
 
 
 class ExtensionEmbedded(PBCoreBaseAttributes):
@@ -43,5 +42,5 @@ class PBCoreExtension(PBCoreBaseModel):
             )
         return self
 
-    extensionWrap: Optional[list[ExtensionWrap]] = Field(None, min_length=1)
-    extensionEmbedded: Optional[list[ExtensionEmbedded]] = Field(None, min_length=1)
+    extensionWrap: list[ExtensionWrap] | None = Field(None, min_length=1)
+    extensionEmbedded: list[ExtensionEmbedded] | None = Field(None, min_length=1)

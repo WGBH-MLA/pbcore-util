@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pydantic import BaseModel
 
 
@@ -19,40 +17,40 @@ class PBCoreTextElement(PBCoreBaseModel):
 class PBCoreBaseAttributes(PBCoreBaseModel):
     """Base class for attributes in PBCore."""
 
-    source: Optional[str] = None
-    ref: Optional[str] = None
-    version: Optional[str] = None
-    annotation: Optional[str] = None
+    source: str | None = None
+    ref: str | None = None
+    version: str | None = None
+    annotation: str | None = None
 
 
 class PBCoreAttributesDateType(PBCoreBaseModel):
     """Base class for date type attributes in PBCore."""
 
-    dateType: Optional[str] = None
+    dateType: str | None = None
 
 
 class PBCoreAttributesTime(PBCoreBaseModel):
     """Base class for time attributes in PBCore."""
 
-    startTime: Optional[str] = None
-    endTime: Optional[str] = None
-    timeAnnotation: Optional[str] = None
+    startTime: str | None = None
+    endTime: str | None = None
+    timeAnnotation: str | None = None
 
 
 class PBCoreAttributesAffiliation(PBCoreBaseModel):
     """Base class for affiliation attributes in PBCore."""
 
-    affiliation: Optional[str] = None
-    affiliationSource: Optional[str] = None
-    affiliationRef: Optional[str] = None
-    affiliationVersion: Optional[str] = None
-    affiliationAnnotation: Optional[str] = None
+    affiliation: str | None = None
+    affiliationSource: str | None = None
+    affiliationRef: str | None = None
+    affiliationVersion: str | None = None
+    affiliationAnnotation: str | None = None
 
 
 class PBCoreAttributesUnits(PBCoreBaseModel):
     """Base class for units of measure attributes in PBCore."""
 
-    unitsOfMeasure: Optional[str] = None
+    unitsOfMeasure: str | None = None
 
 
 class PBCoreElement(PBCoreTextElement, PBCoreBaseAttributes):
@@ -62,7 +60,7 @@ class PBCoreElement(PBCoreTextElement, PBCoreBaseAttributes):
 class PBCoreAnnotation(PBCoreElement):
     """PBCoreAnnotation element."""
 
-    annotationType: Optional[str] = None
+    annotationType: str | None = None
 
 
 __all__ = [

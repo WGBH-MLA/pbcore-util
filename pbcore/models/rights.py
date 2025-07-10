@@ -1,4 +1,3 @@
-from typing import Optional
 from pydantic import Field, model_validator
 from pbcore.models.base import (
     PBCoreElement,
@@ -36,6 +35,6 @@ class PBCoreRightsSummary(PBCoreAttributesTime):
             )
         return self
 
-    rightsSummary: Optional[list[RightsSummary]] = Field(None, min_length=1)
-    rightsLink: Optional[list[RightsLink]] = Field(None, min_length=1)
-    rightsEmbedded: Optional[list[RightsEmbedded]] = Field(None, min_length=1)
+    rightsSummary: list[RightsSummary] | None = Field(None, min_length=1)
+    rightsLink: list[RightsLink] | None = Field(None, min_length=1)
+    rightsEmbedded: list[RightsEmbedded] | None = Field(None, min_length=1)
