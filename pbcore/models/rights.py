@@ -6,19 +6,31 @@ from pbcore.models.base import (
 
 
 class RightsSummary(PBCoreElement):
-    """RightsSummary element."""
+    """RightsSummary element.
+    
+    Definition: The rightsSummary element allows for a free-text description of rights held in and over the media item.
+    """
 
 
 class RightsLink(PBCoreElement):
-    """RightsLink element."""
+    """RightsLink element.
+    
+    Definition: The rightsLink element allows for the use of a URI that links to rights information for the media item.
+    """
 
 
 class RightsEmbedded(PBCoreElement):
-    """RightsEmbedded element."""
+    """RightsEmbedded element.
+    
+    Definition: The rightsEmbedded element allows for the embedding of other rights schemas within PBCore.
+    """
 
 
 class PBCoreRightsSummary(PBCoreAttributesTime):
-    """PBCoreRightsSummary element."""
+    """PBCoreRightsSummary element.
+    
+    Definition: The pbcoreRightsSummary element allows for the expression of rights information for the media item.
+    """
 
     @model_validator(mode='after')
     def validate_rights(self):
