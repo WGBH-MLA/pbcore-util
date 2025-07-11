@@ -60,12 +60,25 @@ class PBCorePart(PBCoreAttributesTime, PBCoreDescriptionDocumentSubelements):
     Best practice: Splitting up an asset in this way allows for defining and describing segments, stories, episodes or other divisions within the asset, such as individual films in a compilation reel, or distinct segments of a news show when each may have their own titles, creators, publishers, or other specific intellectual content information that does not apply across the whole asset.
     """
 
-    partType: str | None = Field(None, description="The type of part or segment")
-    partTypeSource: str | None = Field(None, description="The source of the part type")
-    partTypeRef: str | None = Field(None, description="Reference URI for the part type")
-    partTypeVersion: str | None = Field(None, description="Version of the part type")
+    partType: str | None = Field(
+        None,
+        description="The partType attribute is used to indicate the nature of the part into which the asset has been divided.",
+    )
+    partTypeSource: str | None = Field(
+        None,
+        description="The partTypeSource attribute provides the name of the authority used to declare data value of the partType attribute. Best practice: This might be the name of a controlled vocabulary, namespace or authority list, such as the official PBCore vocabulary. We recommend a consistent and human readable use.",
+    )
+    partTypeRef: str | None = Field(
+        None,
+        description="The partTypeRef attribute is used to supply a source's URI for the value of the attribute titleTypeSource. Best practice: The partTypeRef attribute can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
+    )
+    partTypeVersion: str | None = Field(
+        None,
+        description="The partTypeVersion attribute identifies any version information about the authority or convention used to express data of this element.",
+    )
     partTypeAnnotation: str | None = Field(
-        None, description="Annotation for the part type"
+        None,
+        description="The partTypeAnnotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
     )
 
 
@@ -99,23 +112,23 @@ class PBCoreCollection(XsiSchemaLocation):
 
     collectionTitle: str | None = Field(
         None,
-        description="The collectionTitle attribute is a string that contains a title for the collection",
+        description="The collectionTitle attribute is a title or label for the group of individual serialized XML records contained within one pbcoreCollection element.",
     )
     collectionDescription: str | None = Field(
         None,
-        description="The collectionDescription attribute is a string that contains a description of the collection",
+        description="The collectionDescription attribute is a description group of individual serialized XML records contained within one pbcoreCollection element.",
     )
     collectionSource: str | None = Field(
         None,
-        description="The collectionSource attribute identifies the authority, standard, or particular controlled vocabulary used when populating the collection",
+        description="The collectionSource attribute indicates an organization, application, or individual for group of individual XML records contained within a pbcoreCollection element.",
     )
     collectionRef: str | None = Field(
         None,
-        description="The collectionRef attribute provides a URI that relates to the collection",
+        description="The collectionRef attribute provides a URL for the source organization, application, or individual for a group of XML records contained within a pbcoreCollection element.",
     )
     collectionDate: str | None = Field(
         None,
-        description="The collectionDate attribute provides the date of the collection",
+        description="The collectionDate attribute provides the date of of creation for a pbcoreCollection XML document.",
     )
 
     pbcoreDescriptionDocument: list[PBCoreDescriptionDocument] = Field(

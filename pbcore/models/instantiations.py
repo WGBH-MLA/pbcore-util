@@ -71,7 +71,8 @@ class InstantiationStandard(PBCoreElement):
     """
 
     profile: str | None = Field(
-        None, description="The profile of the instantiation standard"
+        None,
+        description="The profile attribute is used to further quantify the profile of the container format (e.g. Op1a). Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
     )
 
 

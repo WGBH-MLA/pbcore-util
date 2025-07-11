@@ -36,7 +36,10 @@ class PBCoreIdentifier(PBCoreElement):
     Best practice: Identify the asset by means of a string or number corresponding to an established or formal identification system if one exists. Otherwise, use an identification method that is in use within your agency, station, production company, office, or institution.
     """
 
-    source: str = Field(..., description="Source of the identifier (required)")
+    source: str = Field(
+        ...,
+        description="The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+    )
 
 
 class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
@@ -47,16 +50,25 @@ class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
     Best practice: An asset may have many types of titles, an asset may have, such as a series title, episode title, segment title, or project title; therefore the element is repeatable.
     """
 
-    titleType: str | None = Field(None, description="The type of title")
+    titleType: str | None = Field(
+        None,
+        description="The titleType attribute is used to indicate the type of title being assigned to the asset, such as series title, episode title or project title.",
+    )
     titleTypeSource: str | None = Field(
-        None, description="The source of the title type"
+        None,
+        description="The titleTypeSource attribute is used to provides the name of the authority used to declare data value of the titleType attribute. Best practice: This might be the name of a controlled vocabulary, namespace or authority list, such as the official PBCore vocabulary. We recommend a consistent and human readable use.",
     )
     titleTypeRef: str | None = Field(
-        None, description="Reference URI for the title type"
+        None,
+        description="The titleTypeRef attribute is used to supply a source's URI for the value of the attribute titleTypeSource. Best practice: Attribute titleTypeRef can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
     )
-    titleTypeVersion: str | None = Field(None, description="Version of the title type")
+    titleTypeVersion: str | None = Field(
+        None,
+        description="The titleTypeVersion attribute identifies any version information about the authority or convention used to express data of this element.",
+    )
     titleTypeAnnotation: str | None = Field(
-        None, description="Annotation for the title type"
+        None,
+        description="The titleTypeAnnotation attribute includes narrative information intended to clarify the nature of data used in the element.",
     )
 
 
@@ -66,18 +78,25 @@ class PBCoreSubject(PBCoreElement, PBCoreAttributesTime):
     Definition: The pbcoreSubject element is used to assign topic headings or keywords that portray the intellectual content of the asset. A subject is expressed by keywords, key phrases, or even specific classification codes. Controlled vocabularies, authorities, formal classification codes, as well as folksonomies and user-generated tags, may be employed when assigning descriptive subject terms.
     """
 
-    subjectType: str | None = Field(None, description="The type of subject")
+    subjectType: str | None = Field(
+        None,
+        description="The subjectType attribute is used to indicate the type of subject being assigned to the attribute subjectType, such as 'topic,' 'personal name,' or 'keyword'.",
+    )
     subjectTypeSource: str | None = Field(
-        None, description="The source of the subject type"
+        None,
+        description="The subjectTypeSource attribute provides the name of the authority used to declare the value of the attribute subjectType. Best practice: This might be the name of a controlled vocabulary, namespace or authority list, such as the official PBCore vocabulary. We recommend a consistent and human readable use.",
     )
     subjectTypeRef: str | None = Field(
-        None, description="Reference URI for the subject type"
+        None,
+        description="The subjectTypeRef attribute is used to supply a source's URI for the value of the attribute subjectType. Best practice: Attribute subjectTypeRef can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
     )
     subjectTypeVersion: str | None = Field(
-        None, description="Version of the subject type"
+        None,
+        description="The subjectTypeVersion attribute identifies any version information about the authority or convention used to express data of the attribute subjectType.",
     )
     subjectTypeAnnotation: str | None = Field(
-        None, description="Annotation for the subject type"
+        None,
+        description="The subjectTypeAnnotation attribute includes narrative information intended to clarify the nature of data used in the attribute subjectType. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
     )
 
 
@@ -87,32 +106,46 @@ class PBCoreDescription(PBCoreElement, PBCoreAttributesTime):
     Definition: The pbcoreDescription element uses free-form text or a narrative to report general notes, abstracts, or summaries about the intellectual content of an asset. The information may be in the form of an individual program description, anecdotal interpretations, or brief content reviews. The description may also consist of outlines, lists, bullet points, rundowns, edit decision lists, indexes, or tables of content.
     """
 
-    descriptionType: str | None = Field(None, description="The type of description")
+    descriptionType: str | None = Field(
+        None,
+        description="The descriptionType attribute is used to indicate the type of description being assigned to the element, such as 'abstract,' 'summary,' or 'physical description.'",
+    )
     descriptionTypeSource: str | None = Field(
-        None, description="The source of the description type"
+        None,
+        description="The descriptionTypeSource attribute provides the name of the authority used to declare data value of the attribute descriptionType. Best practice: This might be the name of a controlled vocabulary, namespace or authority list, such as the official PBCore recommended vocabulary. We recommend a consistent and human readable use.",
     )
     descriptionTypeRef: str | None = Field(
-        None, description="Reference URI for the description type"
+        None,
+        description="The descriptionTypeRef attribute is used to supply a source's URI for the value of the attribute descriptionType. Best practice: The descriptionTypeRef attribute can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
     )
     descriptionTypeVersion: str | None = Field(
-        None, description="Version of the description type"
+        None,
+        description="The descriptionTypeVersion attribute identifies any version information about the authority or convention used to express data of the attribute descriptionType.",
     )
     descriptionTypeAnnotation: str | None = Field(
-        None, description="Annotation for the description type"
+        None,
+        description="The descriptionTypeAnnotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
     )
 
-    segmentType: str | None = Field(None, description="The type of segment")
+    segmentType: str | None = Field(
+        None,
+        description="The segmentType attribute is used to define the type of content contained in a segment. Best practice: We recommend using description and descriptionType instead of segmentType.'",
+    )
     segmentTypeSource: str | None = Field(
-        None, description="The source of the segment type"
+        None,
+        description="The segmentTypeSource attribute provides the name of the authority used to declare data value of the attribute segmentType. Best practice: This might be the name of a controlled vocabulary, namespace or authority list, such as the official PBCore recommended vocabulary.",
     )
     segmentTypeRef: str | None = Field(
-        None, description="Reference URI for the segment type"
+        None,
+        description="The segmentTypeRef attribute is used to supply a source's URI for the value of the attribute segmentType. Best practice: Attribute segmentTypeRef can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
     )
     segmentTypeVersion: str | None = Field(
-        None, description="Version of the segment type"
+        None,
+        description="The segmentTypeVersion attribute identifies any version information about the authority or convention used to express data of the attribute segmentType.",
     )
     segmentTypeAnnotation: str | None = Field(
-        None, description="Annotation for the segment type"
+        None,
+        description="The segmentTypeAnnotation attribute includes narrative information intended to clarify the nature of data used in the attribute segmentType. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
     )
 
 
@@ -227,7 +260,8 @@ class ContributorRole(PBCoreElement):
     """
 
     portrayal: str | None = Field(
-        None, description="The portrayal associated with the contributor role"
+        None,
+        description="The portrayal attribute identifies any roles or characters performed by a contributor.",
     )
 
 
