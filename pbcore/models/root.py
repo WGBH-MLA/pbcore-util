@@ -27,7 +27,11 @@ class XsiSchemaLocation(PBCoreBaseModel):
 
     TODO: Add validation for the schema location format."""
 
-    xsi_schemaLocation: str = Field(..., alias='xsi:schemaLocation')
+    xsi_schemaLocation: str = Field(
+        ...,
+        alias='xsi:schemaLocation',
+        description="XML Schema location attribute for validation purposes.",
+    )
 
 
 class PBCoreDescriptionDocumentSubelements(PBCoreBaseModel):
@@ -132,7 +136,9 @@ class PBCoreCollection(XsiSchemaLocation):
     )
 
     pbcoreDescriptionDocument: list[PBCoreDescriptionDocument] = Field(
-        ..., min_length=1
+        ...,
+        min_length=1,
+        description="The pbcoreDescriptionDocument element assembles together all of PBCore knowledge items into a single data record organized in a hierarchical structure. For PBCore these knowledge items are metadata descriptions of media, including all the knowledge items and metadata terms and values associated with its content and containers.",
     )
 
 
