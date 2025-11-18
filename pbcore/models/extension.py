@@ -1,8 +1,8 @@
-from pbcore.models import PBCoreTextElement, PBCoreBaseAttributes, PBCoreBaseModel
+from pbcore.models import PBCoreText, PBCoreElement
 from pydantic import Field, model_validator
 
 
-class ExtensionElement(PBCoreTextElement):
+class ExtensionElement(PBCoreElement, PBCoreText):
     """ExtensionElement element.
 
     Definition: The extensionElement element should contain the name of an element used from another metadata standard, in the case that an element from another + metadata standard is used. While we recommend the usage of an existing standard, this element can also be used to define local elements that may not be part of an existing standard."
@@ -11,14 +11,14 @@ class ExtensionElement(PBCoreTextElement):
     """
 
 
-class ExtensionValue(PBCoreTextElement):
+class ExtensionValue(PBCoreElement, PBCoreText):
     """ExtensionValue element.
 
     Definition: The extensionValue element is used to express the data value of the label indicated by extensionElement.
     """
 
 
-class ExtensionAuthorityUsed(PBCoreTextElement):
+class ExtensionAuthorityUsed(PBCoreElement, PBCoreText):
     """ExtensionAuthorityUsed element.
 
     Definition: The extensionAuthorityUsed element identifies the authority used for the extensionElement.
@@ -27,7 +27,7 @@ class ExtensionAuthorityUsed(PBCoreTextElement):
     """
 
 
-class ExtensionWrap(PBCoreBaseAttributes):
+class ExtensionWrap(PBCoreElement):
     """ExtensionWrap element.
 
     Definition: The extensionWrap element serves as a container for the elements extensionElement, extensionValue, and extensionAuthorityUsed.
@@ -38,14 +38,14 @@ class ExtensionWrap(PBCoreBaseAttributes):
     extensionAuthorityUsed: ExtensionAuthorityUsed | None = None
 
 
-class ExtensionEmbedded(PBCoreBaseAttributes):
+class ExtensionEmbedded(PBCoreElement, PBCoreText):
     """ExtensionEmbedded element.
 
     Definition: The extensionEmbedded element allows the inclusion of xml from another schema, e.g. TEI, METS, etc.
     """
 
 
-class PBCoreExtension(PBCoreBaseModel):
+class PBCoreExtension(PBCoreElement):
     """PBCoreExtension element.
 
     Definition: The pbcoreExtension element can be used as either a wrapper containing a specific element from another standard OR embedded xml containing the extension.
@@ -53,7 +53,7 @@ class PBCoreExtension(PBCoreBaseModel):
     Best practice: Use it to supplement other metadata sub-elements of the PBCore description document in which it appears.
     """
 
-    @model_validator(mode='after')
+    @model_validator(mode="after")
     def validate_extensions(self):
         """Ensure exclusively one of extensionWrap or extensionEmbedded is provided"""
         if self.extensionWrap and self.extensionEmbedded:

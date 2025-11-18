@@ -1,6 +1,7 @@
 from pydantic import Field
 from pbcore.models.base import (
     PBCoreElement,
+    PBCoreText,
     PBCoreAttributesDateType,
     PBCoreAttributesTime,
     PBCoreAttributesAffiliation,
@@ -10,7 +11,7 @@ from pbcore.models.base import (
 # PBCore Assets
 
 
-class PBCoreAssetType(PBCoreElement):
+class PBCoreAssetType(PBCoreElement, PBCoreText):
     """PBCoreAssetType element.
 
     Definition: The pbcoreAssetType element is a broad definition of the type of intellectual content being described. Asset types might include those without associated instantiations (a collection or series), or those with instantiations (programs, episodes, clips, etc.)"
@@ -19,7 +20,7 @@ class PBCoreAssetType(PBCoreElement):
     """
 
 
-class PBCoreAssetDate(PBCoreElement, PBCoreAttributesDateType):
+class PBCoreAssetDate(PBCoreElement, PBCoreText, PBCoreAttributesDateType):
     """PBCoreAssetDate element.
 
     Definition: The pbcoreAssetDate element is intended to reflect dates associated with the Intellectual Content.
@@ -28,7 +29,7 @@ class PBCoreAssetDate(PBCoreElement, PBCoreAttributesDateType):
     """
 
 
-class PBCoreIdentifier(PBCoreElement):
+class PBCoreIdentifier(PBCoreElement, PBCoreText):
     """PBCoreIdentifier element.
 
     Definition: The pbcoreIdentifier element provides an identifier that can apply to the asset. This identifier should not be limited to a specific instantiation, but rather is shared by or common to all instantiations of an asset. It can also hold a URL or URI that points to the asset.
@@ -38,11 +39,11 @@ class PBCoreIdentifier(PBCoreElement):
 
     source: str = Field(
         ...,
-        description="The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+        description='The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as "PBS NOLA Code" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.',
     )
 
 
-class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
+class PBCoreTitle(PBCoreElement, PBCoreText, PBCoreAttributesTime):
     """PBCoreTitle element.
 
     Definition: The pbcoreTitle element is a name or label relevant to the asset.
@@ -72,7 +73,7 @@ class PBCoreTitle(PBCoreElement, PBCoreAttributesTime):
     )
 
 
-class PBCoreSubject(PBCoreElement, PBCoreAttributesTime):
+class PBCoreSubject(PBCoreElement, PBCoreText, PBCoreAttributesTime):
     """PBCoreSubject element.
 
     Definition: The pbcoreSubject element is used to assign topic headings or keywords that portray the intellectual content of the asset. A subject is expressed by keywords, key phrases, or even specific classification codes. Controlled vocabularies, authorities, formal classification codes, as well as folksonomies and user-generated tags, may be employed when assigning descriptive subject terms.
@@ -82,7 +83,7 @@ class PBCoreSubject(PBCoreElement, PBCoreAttributesTime):
         None,
         description="The subjectType attribute is used to indicate the type of subject being assigned to the attribute subjectType, such as 'topic,' 'personal name,' or 'keyword'.",
     )
-    subjectTypeSource: str | None = Field(
+    subjectTypeSource: str = Field(
         None,
         description="The subjectTypeSource attribute provides the name of the authority used to declare the value of the attribute subjectType. Best practice: This might be the name of a controlled vocabulary, namespace or authority list, such as the official PBCore vocabulary. We recommend a consistent and human readable use.",
     )
@@ -100,7 +101,7 @@ class PBCoreSubject(PBCoreElement, PBCoreAttributesTime):
     )
 
 
-class PBCoreDescription(PBCoreElement, PBCoreAttributesTime):
+class PBCoreDescription(PBCoreElement, PBCoreText, PBCoreAttributesTime):
     """PBCoreDescription element.
 
     Definition: The pbcoreDescription element uses free-form text or a narrative to report general notes, abstracts, or summaries about the intellectual content of an asset. The information may be in the form of an individual program description, anecdotal interpretations, or brief content reviews. The description may also consist of outlines, lists, bullet points, rundowns, edit decision lists, indexes, or tables of content.
@@ -149,7 +150,7 @@ class PBCoreDescription(PBCoreElement, PBCoreAttributesTime):
     )
 
 
-class PBCoreGenre(PBCoreElement, PBCoreAttributesTime):
+class PBCoreGenre(PBCoreElement, PBCoreText, PBCoreAttributesTime):
     """PBCore Genre element.
 
     Definition: The pbcoreGenre element describes the Genre of the asset, which can be defined as a categorical description informed by the topical nature or a particular style or form of the content.
@@ -158,7 +159,7 @@ class PBCoreGenre(PBCoreElement, PBCoreAttributesTime):
     """
 
 
-class PBCoreRelationType(PBCoreElement):
+class PBCoreRelationType(PBCoreElement, PBCoreText):
     """PBCoreRelationType element.
 
     Definition: The pbcoreRelationType element describes the relationship between the asset being describe by the pbcore document and any other asset. Ideally it would contain text from a controlled vocabulary for describing relationships. There is some depth to what a relationship could be. The assets can be related as different episodes in a series, different tapes in a box set, or different versions of an original, among others.
@@ -167,7 +168,7 @@ class PBCoreRelationType(PBCoreElement):
     """
 
 
-class PBCoreRelationIdentifier(PBCoreElement):
+class PBCoreRelationIdentifier(PBCoreElement, PBCoreText):
     """PBCoreRelationIdentifier element.
 
     Definition: The pbcoreRelationIdentifier element contains the identifier of the related asset. In the case that the related asset has a PBCore record, this identifier should correspond with the pbcoreIdentifier of the related asset. However, it is possible to use this element with a record that isn't in PBCore, in which case the source attribute should identify the source of the identifier.
@@ -184,14 +185,14 @@ class PBCoreRelation(PBCoreBaseModel):
     pbcoreRelationIdentifier: PBCoreRelationIdentifier
 
 
-class Coverage(PBCoreElement, PBCoreAttributesTime):
+class Coverage(PBCoreElement, PBCoreText, PBCoreAttributesTime):
     """Coverage element.
 
     Definition: The coverage element refers to either the geographic location or the time period covered by the asset's intellectual content. For geographic locations ('spatial' descriptors), it is expressed by keywords such as place names (e.g. 'Alaska' or 'Washington, DC'), numeric coordinates or geo-spatial data. For time-based events ('temporal' descriptors), it is expressed by using a date, period, era, or time-based event that is portrayed or covered in the intellectual content (e.g. '2007' or 'Victorian Era'). The PBCore metadata element coverage houses the actual spatial or temporal keywords. The companion element coverageType is used to identify the type of keywords that are being used.
     """
 
 
-class CoverageType(PBCoreElement):
+class CoverageType(PBCoreElement, PBCoreText):
     """CoverageType element.
 
     Definition: The coverageType element is used to identify the actual type of keywords that are being used by its companion metadata element coverage. coverageType provides a picklist of two possible types - spatial or temporal - because coverage in intellectual content may be expressed spatially by geographic location or it may also be expressed temporally by a date, period, era, or time-based event."
@@ -208,28 +209,30 @@ class PBCoreCoverage(PBCoreBaseModel):
     coverageType: CoverageType | None = None
 
 
-class PBCoreAudienceLevel(PBCoreElement):
+class PBCoreAudienceLevel(PBCoreElement, PBCoreText):
     """PBCoreAudienceLevel element.
 
     Definition: The pbcoreAudienceLevel element identifies a type of audience, viewer, or listener for whom the media item is primarily designed or educationally useful.
     """
 
 
-class PBCoreAudienceRating(PBCoreElement):
+class PBCoreAudienceRating(PBCoreElement, PBCoreText):
     """PBCoreAudienceRating element.
 
     Definition: The pbcoreAudienceRating element designates the type of users for whom the intellectual content of a media item is intended or judged appropriate. This element differs from the element pbcoreAudienceLevel in that it utilizes standard ratings that have been crafted by the broadcast television and film industries and that are used as flags for audience or age-appropriate materials.
     """
 
 
-class Creator(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
+class Creator(
+    PBCoreElement, PBCoreText, PBCoreAttributesAffiliation, PBCoreAttributesTime
+):
     """Creator element.
 
     Definition: The creator element identifies the primary person, people, or organization(s) responsible for creating the asset. Note that non-primary names and roles should be included within the pbcoreContributor container. Best practice: We recommend providing a consistent internal standard for entering proper names and organizational names, such as 'Last name, First name, Middle name,' or 'Main group, subdivision.' We also recommend supplying separate pbcoreCreator containers for each creator to be named for a resource.
     """
 
 
-class CreatorRole(PBCoreElement):
+class CreatorRole(PBCoreElement, PBCoreText):
     """CreatorRole element.
 
     Definition: The creatorRole element is used to identify the role played by the person, people or organization(s) identified in the companion descriptor creator. The PBCore schema allows for creatorRole to be repeated in the pbcoreCreator container element. This can be useful when a single person or organization is associated with multiple roles in an asset.
@@ -246,14 +249,16 @@ class PBCoreCreator(PBCoreBaseModel):
     creatorRole: list[CreatorRole] | None = Field(None, min_length=1)
 
 
-class Contributor(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
+class Contributor(
+    PBCoreElement, PBCoreText, PBCoreAttributesAffiliation, PBCoreAttributesTime
+):
     """Contributor element.
 
     Definition: The contributor element identifies a person, people, or organization that has made substantial creative contributions to the asset. This contribution is considered to be secondary to the primary author(s) (person or organization) identified in the descriptor creator. Best practice: We recommend providing a consistent internal standard for entering proper names and organizational names, such as 'Last name, First name, Middle name,' or 'Main group, subdivision.' We also recommend supplying separate pbcoreCreator containers for each creator to be named for a resource.
     """
 
 
-class ContributorRole(PBCoreElement):
+class ContributorRole(PBCoreElement, PBCoreText):
     """ContributorRole element.
 
     Definition: The contributorRole element is used to identify the role played by the person, people or organizations identified in the companion element contributor. The PBCore schema allows for contributorRole to be repeated in the pbcoreContributor container element. This can be useful when a single person or organization is associated with multiple roles in an asset.
@@ -275,14 +280,16 @@ class PBCoreContributor(PBCoreBaseModel):
     contributorRole: list[ContributorRole] | None = Field(None, min_length=1)
 
 
-class Publisher(PBCoreElement, PBCoreAttributesAffiliation, PBCoreAttributesTime):
+class Publisher(
+    PBCoreElement, PBCoreText, PBCoreAttributesAffiliation, PBCoreAttributesTime
+):
     """Publisher element.
 
     Definition: The publisher element identifies a person, people, or organization primarily responsible for distributing or making the asset available to others. The publisher may be a person, a business, organization, group, project or service. Best practice: We recommend providing a consistent internal standard for entering proper names and organizational names, such as 'Last name, First name, Middle name,' or 'Main group, subdivision.' We also recommend supplying separate pbcoreCreator containers for each creator to be named for a resource.
     """
 
 
-class PublisherRole(PBCoreElement):
+class PublisherRole(PBCoreElement, PBCoreText):
     """PublisherRole element.
 
     Definition: The publisherRole element is used to identify the role played by the specific publisher or publishing entity identified in the companion descriptor publisher. The PBCore schema allows for publisherRole to be repeated in the pbcorePublisher container element. This can be useful when a single person or organization is associated with multiple roles in an asset.
@@ -297,6 +304,18 @@ class PBCorePublisher(PBCoreBaseModel):
 
     publisher: Publisher
     publisherRole: list[PublisherRole] | None = Field(None, min_length=1)
+
+
+class PBCoreAnnotation(PBCoreElement, PBCoreText):
+    """PBCoreAnnotation element.
+
+    Definition: The pbcoreAnnotation element allows the addition of any supplementary information about the metadata used to describe the PBCore record. pbcoreAnnotation clarifies element values, terms, descriptors, and vocabularies that may not be otherwise sufficiently understood.
+    """
+
+    annotationType: str | None = Field(
+        None,
+        description="Use the attribute annotationType to indicate the type of annotation being assigned to the asset, such as a comment, clarification, or cataloging note.",
+    )
 
 
 __all__ = [
@@ -314,4 +333,5 @@ __all__ = [
     "PBCoreCreator",
     "PBCoreContributor",
     "PBCorePublisher",
+    "PBCoreAnnotation",
 ]

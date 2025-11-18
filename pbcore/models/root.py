@@ -1,5 +1,5 @@
 from pydantic import Field, model_validator
-from pbcore.models.base import PBCoreAttributesTime, PBCoreBaseModel, PBCoreAnnotation
+from pbcore.models.base import PBCoreAttributesTime, PBCoreBaseModel, PBCoreElement
 from typing import List
 from pbcore.models.assets import (
     PBCoreAssetType,
@@ -16,6 +16,7 @@ from pbcore.models.assets import (
     PBCoreCreator,
     PBCoreContributor,
     PBCorePublisher,
+    PBCoreAnnotation,
 )
 from pbcore.models.rights import PBCoreRightsSummary
 from pbcore.models.extension import PBCoreExtension
@@ -29,7 +30,7 @@ class XsiSchemaLocation(PBCoreBaseModel):
 
     xsi_schemaLocation: str = Field(
         ...,
-        alias='xsi:schemaLocation',
+        alias="xsi:schemaLocation",
         description="XML Schema location attribute for validation purposes.",
     )
 
@@ -52,7 +53,7 @@ class PBCoreDescriptionDocumentSubelements(PBCoreBaseModel):
     pbcoreRightsSummary: list[PBCoreRightsSummary] | None = Field(None, min_length=1)
     pbcoreInstantiation: list[PBCoreInstantiation] | None = Field(None, min_length=1)
     pbcoreAnnotation: list[PBCoreAnnotation] | None = Field(None, min_length=1)
-    pbcorePart: List['PBCorePart'] | None = Field(None, min_length=1)
+    pbcorePart: List["PBCorePart"] | None = Field(None, min_length=1)
     pbcoreExtension: list[PBCoreExtension] | None = Field(None, min_length=1)
 
 
@@ -92,7 +93,7 @@ PBCoreDescriptionDocumentSubelements.model_rebuild()
 
 
 class PBCoreDescriptionDocument(
-    XsiSchemaLocation, PBCoreDescriptionDocumentSubelements
+    PBCoreElement, XsiSchemaLocation, PBCoreDescriptionDocumentSubelements
 ):
     """Model for PBCoreDescriptionDocument subelements.
 
@@ -103,7 +104,7 @@ class PBCoreDescriptionDocument(
     """
 
 
-class PBCoreCollection(XsiSchemaLocation):
+class PBCoreCollection(PBCoreElement, XsiSchemaLocation):
     """Collection of PBCoreDescriptionDocument elements.
 
     Definition: The pbcoreCollection element groups multiple pbcoreDescriptionDocument XML into one container element to allow for a
@@ -142,9 +143,7 @@ class PBCoreCollection(XsiSchemaLocation):
     )
 
 
-class PBCoreInstantiationDocument(
-    PBCoreAttributesTime, PBCoreDescriptionDocumentSubelements
-):
+class PBCoreInstantiationDocument(XsiSchemaLocation, PBCoreInstantiation):
     """Model for PBCoreInstantiationDocument elements.
 
     Definition: The pbcoreInstantiation element is the equivalent of the instantiation element, but used for the expression of an
@@ -159,7 +158,7 @@ class PBCoreInstantiationDocument(
 class PBCore(PBCoreBaseModel):
     """Root model for PBCore documents."""
 
-    @model_validator(mode='after')
+    @model_validator(mode="after")
     def validate_document(self):
         # Ensure only one document of any type is present
         doc_count = 0
@@ -172,7 +171,7 @@ class PBCore(PBCoreBaseModel):
         if doc_count == 0:
             raise ValueError("At least one PBCore document type must be provided.")
         if doc_count != 1:
-            raise ValueError(f"THERE CAN BE ONLY ONE!!! (PBCore Document type)")
+            raise ValueError("THERE CAN BE ONLY ONE!!! (PBCore Document type)")
         return self
 
     pbcoreDescriptionDocument: PBCoreDescriptionDocument | None = None
@@ -180,21 +179,10 @@ class PBCore(PBCoreBaseModel):
     pbcoreInstantiationDocument: PBCoreInstantiationDocument | None = None
 
 
-"""Minimal Viable PBCore Description Document structure."""
-mvp = {
-    "pbcoreDescriptionDocument": {
-        "xsi:schemaLocation": "http://www.example.com/schema",
-        "pbcoreIdentifier": [{"text": "123", "source": "example"}],
-        "pbcoreTitle": [{"text": "Title"}],
-        "pbcoreDescription": [{"text": ""}],
-    },
-}
-
 __all__ = [
     "PBCore",
     "PBCoreDescriptionDocument",
     "PBCoreCollection",
     "PBCoreInstantiationDocument",
     "PBCorePart",
-    "mvp",
 ]

@@ -4,6 +4,7 @@ from pbcore.models import (
     PBCoreAttributesTime,
     PBCoreAttributesUnits,
     PBCoreElement,
+    PBCoreText,
     PBCoreIdentifier,
     PBCoreAssetDate,
     PBCoreAnnotation,
@@ -35,7 +36,7 @@ class InstantiationDate(PBCoreAssetDate):
     """
 
 
-class InstantiationDimensions(PBCoreElement, PBCoreAttributesUnits):
+class InstantiationDimensions(PBCoreElement, PBCoreText, PBCoreAttributesUnits):
     """PBCore Instantiation Dimensions element.
 
     Definition: The instantiationDimensions element specifies either the dimensions of a physical instantiation, or the high-level visual dimensions of a digital instantiation.
@@ -44,7 +45,7 @@ class InstantiationDimensions(PBCoreElement, PBCoreAttributesUnits):
     """
 
 
-class InstantiationPhysical(PBCoreElement):
+class InstantiationPhysical(PBCoreElement, PBCoreText):
     """PBCore Instantiation Physical element.
 
     Definition: The instantiationPhysical element is used to identify the format of a particular instantiation as it exists in a physical form that occupies physical space (e.g., a tape on a shelf). This includes physical digital media, such as a DV tape, audio CD or authored DVD, as well as analog media.
@@ -53,7 +54,7 @@ class InstantiationPhysical(PBCoreElement):
     """
 
 
-class InstantiationDigital(PBCoreElement):
+class InstantiationDigital(PBCoreElement, PBCoreText):
     """PBCore Instantiation Digital element.
 
     Definition: The instantiationDigital element is used to identify the format of a particular instantiation of an asset as it exists as a digital file on a server, hard drive, or other digital storage medium. Digital instantiations should be expressed as a formal Internet MIME types.
@@ -62,7 +63,7 @@ class InstantiationDigital(PBCoreElement):
     """
 
 
-class InstantiationStandard(PBCoreElement):
+class InstantiationStandard(PBCoreElement, PBCoreText):
     """PBCore Instantiation Standard element.
 
     Definition: The instantiationStandard element + can be used, if the instantiation is a physical item, to refer to the broadcast standard of the video signal (e.g. NTSC, PAL), or the audio encoding (e.g. Dolby A, vertical cut). If the instantiation is a digital item, instantiationStandard should be used to express the container format of the digital file (e.g. MXF).
@@ -76,7 +77,7 @@ class InstantiationStandard(PBCoreElement):
     )
 
 
-class InstantiationLocation(PBCoreElement):
+class InstantiationLocation(PBCoreElement, PBCoreText):
     """PBCore Instantiation Location element.
 
     Definition: The instantiationLocation element may contain information about a specific location for an instantiation, such as an organization's name, departmental name, shelf ID and contact information. The instantiationLocation for a digital file should include domain, path or URI to the file.
@@ -85,56 +86,56 @@ class InstantiationLocation(PBCoreElement):
     """
 
 
-class InstantiationMediaType(PBCoreElement):
+class InstantiationMediaType(PBCoreElement, PBCoreText):
     """PBCore Instantiation Media Type element.
 
     Definition: The instantiationMediaType element identifies the general, high level nature of the content of an instantiation. It uses categories that show how content is presented to an observer, e.g., as a sound, text or moving image.
     """
 
 
-class InstantiationGenerations(PBCoreElement):
+class InstantiationGenerations(PBCoreElement, PBCoreText):
     """PBCore Instantiation Generations element.
 
     Definition: The instantiationGeneration element identifies the use type and provenance of the instantiation. The generation of a video tape may be an "Original Master" or "Dub", the generation of a film reel may be an "Original Negative" or "Composite Positive", an audiotape may be a "Master" or "Mix Element", an image may be a "Photograph" or a "Photocopy.
     """
 
 
-class InstantiationFileSize(PBCoreElement, PBCoreAttributesUnits):
+class InstantiationFileSize(PBCoreElement, PBCoreText, PBCoreAttributesUnits):
     """PBCore Instantiation File Size element.
 
     Definition: The instantiationFileSize element indicates the file size of a digital instantiation. It should contain only numerical values. As a standard, express the file size in bytes. Units of Measure should be declared in the unitsOfMeasure attribute.
     """
 
 
-class InstantiationTimeStart(PBCoreElement):
+class InstantiationTimeStart(PBCoreElement, PBCoreText):
     """PBCore Instantiation Time Start element.
 
     Definition: The instantiationTimeStart element describes the point at which playback begins for a time-based instantiation. It is likely that the content on a tape may begin an arbitrary amount of time after the beginning of the instantiation. Best practice is to use a timestamp format such as HH:MM:SS[:|;]FF or HH:MM:SS.mmm or S.mmm.
     """
 
 
-class InstantiationDuration(PBCoreElement):
+class InstantiationDuration(PBCoreElement, PBCoreText):
     """PBCore Instantiation Duration element.
 
     Definition: The instantiationDuration element provides a timestamp for the overall length or duration of a time-based media item. It represents the playback time. Best practice is to use a timestamp format such as HH:MM:SS[:|;]FF or HH:MM:SS.mmm or S.mmm.
     """
 
 
-class InstantiationDataRate(PBCoreElement, PBCoreAttributesUnits):
+class InstantiationDataRate(PBCoreElement, PBCoreText, PBCoreAttributesUnits):
     """PBCore Instantiation Data Rate element.
 
     Definition: The instantiationDataRate element expresses the amount of data in a digital media file that is encoded, delivered or distributed, for every second of time. This should be expressed as numerical data, with the units of measure declared in the unitsOfMeasure attribute. For example, if the audio file is 56 kilobits/second, then 56 should be the value of instantiationDataRate and the attribute unitsOfMeasure should be kilobits/second.
     """
 
 
-class InstantiationColors(PBCoreElement):
+class InstantiationColors(PBCoreElement, PBCoreText):
     """PBCore Instantiation Colors element.
 
     Definition: The instantiationColors element indicates the overall color, grayscale, or black and white nature of the presentation of an instantiation, as a single occurrence or combination of occurrences in or throughout the instantiation.
     """
 
 
-class InstantiationTracks(PBCoreElement):
+class InstantiationTracks(PBCoreElement, PBCoreText):
     """PBCore Instantiation Tracks element.
 
     Definition: The instantiationTracks element is simply intended to indicate the number and type of tracks that are found in a media item, whether it is analog or digital. (e.g. 1 video track, 2 audio tracks, 1 text track, 1 sprite track, etc.) Other configuration information specific to these identified tracks should be described using instantiationChannelConfiguration.
@@ -143,21 +144,21 @@ class InstantiationTracks(PBCoreElement):
     """
 
 
-class InstantiationChannelConfiguration(PBCoreElement):
+class InstantiationChannelConfiguration(PBCoreElement, PBCoreText):
     """PBCore Instantiation Channel Configuration element.
 
     Definition: The instantiationChannelConfiguration element is designed to indicate, at a general narrative level, the arrangement or configuration of specific channels or layers of information within an instantiation's tracks. Examples are 2-track mono, 8- track stereo, or video track with alpha channel.
     """
 
 
-class InstantiationLanguage(PBCoreElement):
+class InstantiationLanguage(PBCoreElement, PBCoreText):
     """PBCore Instantiation Language element.
 
     Definition: The instantiationLanguage element identifies the primary language of the tracks' audio or text. Languages must be indicated using 3-letter codes standardized in ISO 639-2 or 639-3. If an instantiation includes more than one language, the element can be repeated. Alternately, both languages can be expressed in one element by separating two three-letter codes with a semicolon, i.e. <instantiationLanguage>eng;fre</instantiationLanguage>. + Best practice: Alternative audio or text tracks and their associated languages should be identified using the element instantiationAlternativeModes.
     """
 
 
-class InstantiationAlternativeModes(PBCoreElement):
+class InstantiationAlternativeModes(PBCoreElement, PBCoreText):
     """PBCore Instantiation Alternative Modes element.
 
     Definition: The instantiationAlternativeModes element is a catch-all metadata element that identifies equivalent alternatives to the primary visual, sound or textual information that exists in an instantiation. These are modes that offer alternative ways to see, hear, and read the content of an instantiation. Examples include DVI (Descriptive Video Information), SAP (Supplementary Audio Program), ClosedCaptions, OpenCaptions, Subtitles, Language Dubs, and Transcripts. For each instance of available alternativeModes, the mode and its associated language should be identified together, if applicable. Examples include 'SAP in English,' 'SAP in Spanish,' 'Subtitle in French,' 'OpenCaption in Arabic.'
@@ -208,7 +209,7 @@ class InstantiationRights(PBCoreRightsSummary):
     """
 
 
-class PBCoreInstantiation(PBCoreAttributesTime):
+class PBCoreInstantiation(PBCoreElement, PBCoreAttributesTime):
     """PBCore Instantiation element.
 
     Definition: The pbcoreInstantiation element contains all the details on how the asset is actualized and made available for use.

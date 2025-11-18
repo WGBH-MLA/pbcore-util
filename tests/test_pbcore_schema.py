@@ -1,203 +1,82 @@
-# from jsonschema_rs import ValidationError
+import json
 from pydantic import ValidationError
 from pytest import raises, mark
 from pbcore import PBCore
-
-invalid_element_types = [
-    3,
-    3.14,
-    None,
-    [],
-    "",
-]
-invalid_text_elements = [
-    {},
-    {"text": 3},
-    {"text": 3.14},
-    {"text": None},
-    {"text": {}},
-    {"text": []},
-    # {"text": "v"},
-]
-
-# def check_invalid_text_elements(element, ):
+from tests.helpers import assert_validation_error, list_fields_optional, list_fields_required, pbcore_element_models
+from tests import pbcore_test_data as td
 
 
-def test_mvpbcore(mvp):
-    """Test minimum viable pbcore document. This should pass."""
-    pbcore = PBCore(**mvp)
+def test_schema_unchanged():
+    generated = PBCore.model_json_schema()
+    with open("schemas/pbcore.schema.json") as f:
+        stored = json.load(f)
+
+    assert generated == stored
 
 
-def test_pbcore_empty_document():
-    """Test empty document. This should fail."""
+@mark.parametrize("list_field", list_fields_optional())
+def test_list_fields_optional(list_field):
+    """Optional list fields may be None (empty list will still raise error)."""
+    data = td.pbcoreDescriptionDocument()
+    data[list_field] = None
+    assert isinstance(PBCore(pbcoreDescriptionDocument=data), PBCore)
+
+
+@mark.parametrize("list_field", list_fields_required())
+def test_list_fields_with_invalid_empty(list_field):
+    """Raise error if required list field is empty."""
+    data = td.pbcoreDescriptionDocument()
+    data[list_field] = []
+
     with raises(ValidationError) as error:
-        PBCore()
-    assert 'pbcoreDescriptionDocument' in str(error.value)
-    assert 'Field required [type=missing, input_value={}, input_type=dict]' in str(
-        error.value
+        PBCore(pbcoreDescriptionDocument=data)
+
+    assert_validation_error(
+        error.value,
+        expected_errors=[
+            {"loc": ("pbcoreDescriptionDocument", list_field), "type": "too_short"}
+        ],
     )
 
 
-def test_invalid_pbcoreDescriptionDocument_types():
-    """Test invalid types."""
+@mark.parametrize("list_field", list_fields_required())
+def test_list_fields_with_invalid_value(list_field):
+    """Raise error if required list field is empty."""
+    data = td.pbcoreDescriptionDocument()
+    data[list_field] = "i ain't no list!"
 
-    for bad_value in invalid_element_types:
-        with raises(ValidationError) as error:
-            PBCore(pbcoreDescriptionDocument=bad_value)
-        assert (
-            f'''Input should be a valid dictionary or instance of PBCoreDescriptionDocument [type=model_type, input_value={bad_value if bad_value is not "" else "''"}, input_type={type(bad_value).__name__}]'''
-            in str(error.value)
-        )
-
-
-def test_invalid_pbcoreDescriptionDocument_elements():
-    for bad_value in invalid_text_elements:
-        with raises(ValidationError) as error:
-            PBCore(pbcoreDescriptionDocument=bad_value)
-        assert '4 validation errors for PBCore' in str(error.value)
-        # assert (
-        #     "Field required [type=missing, input_value={'pbcoreTitle': [{}]}, input_type=dict]"
-        #     in str(error.value)
-        # )
-
-
-def test_xsi_schemaLocation_missing(validator):
-    """Test document with an empty description object. This should fail."""
     with raises(ValidationError) as error:
-        validator({"pbcoreDescriptionDocument": {}})
-    assert error.value.message == '"xsi:schemaLocation" is a required property'
+        PBCore(pbcoreDescriptionDocument=data)
 
-
-def test_pbcoreIdentifier_missing(validator, mvp):
-    """Test document with an empty identifier. This should fail."""
-    del mvp['pbcoreDescriptionDocument']['pbcoreIdentifier']
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert error.value.message == '"pbcoreIdentifier" is a required property'
-
-
-def test_pbcoreIdentifier_missing_data(validator, mvp):
-    """Test document with an empty identifier. This should fail."""
-    mvp['pbcoreDescriptionDocument']['pbcoreIdentifier'] = []
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert error.value.message == '[] has less than 1 item'
-
-
-def test_pbcoreIdentifier_missing_text(validator, mvp):
-    """Test document with an empty identifier text. This should fail."""
-    del mvp['pbcoreDescriptionDocument']['pbcoreIdentifier'][0]['text']
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert error.value.message == '"text" is a required property'
-
-
-def test_pbcoreIdentifier_missing_source(validator, mvp):
-    """Test document with an empty identifier source. This should fail."""
-    del mvp['pbcoreDescriptionDocument']['pbcoreIdentifier'][0]['source']
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert error.value.message == '"source" is a required property'
-
-
-def test_pbcoreIdentifier_invalid(validator, mvp):
-    mvp['pbcoreDescriptionDocument']['pbcoreIdentifier'][0][
-        'extra_value'
-    ] = "not allowed"
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert (
-        error.value.message
-        == "Unevaluated properties are not allowed ('extra_value' was unexpected)"
+    assert_validation_error(
+        error.value,
+        expected_errors=[
+            {"loc": ("pbcoreDescriptionDocument", list_field), "type": "list_type"}
+        ],
     )
 
 
-def test_pbcoreIdentifier_multiple(validator, mvp):
-    """Test document with multiple pbcoreIdentifier elements."""
-    mvp['pbcoreDescriptionDocument']['pbcoreIdentifier'].append(
-        {
-            "text": "video-2",
-            "source": "local",
-        }
+@mark.parametrize("list_field", list_fields_required())
+def test_list_fields_required_missing(list_field):
+    """Raise error if required list field is missing."""
+    data = td.pbcoreDescriptionDocument()
+    data.pop(list_field, None)
+
+    with raises(ValidationError) as error:
+        PBCore(pbcoreDescriptionDocument=data)
+
+    assert_validation_error(
+        error.value,
+        expected_errors=[
+            {"loc": ("pbcoreDescriptionDocument", list_field), "type": "missing"}
+        ],
     )
-    validator(mvp)
 
-
-def test_pbcoreTitle_missing(validator, mvp):
-    """Test document without a pbcoreTitle. This should fail."""
-    del mvp['pbcoreDescriptionDocument']['pbcoreTitle']
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert error.value.message == '"pbcoreTitle" is a required property'
-
-
-def test_pbcoreTitle_missing_data(validator, mvp):
-    """Test document with an empty title. This should fail."""
-    mvp['pbcoreDescriptionDocument']['pbcoreTitle'] = []
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert error.value.message == '[] has less than 1 item'
-
-
-def test_pbcoreTitle_missing_text(validator, mvp):
-    """Test document with a missing title text. This should fail."""
-    del mvp['pbcoreDescriptionDocument']['pbcoreTitle'][0]['text']
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert error.value.message == '"text" is a required property'
-
-
-def test_pbcoreTitle_invalid(validator, mvp):
-    """Test pbcore with invalid title attributes."""
-    mvp['pbcoreDescriptionDocument']['pbcoreTitle'][0]['extra_value'] = "not allowed"
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert (
-        error.value.message
-        == "Unevaluated properties are not allowed ('extra_value' was unexpected)"
-    )
-    mvp['pbcoreDescriptionDocument']['pbcoreTitle'][0]
-
-
-def test_pbcoreTitle_multiple(validator, mvp):
-    """Test document with multiple pbcoreTitle elements."""
-    mvp['pbcoreDescriptionDocument']['pbcoreTitle'].append({"text": "Alternate title"})
-    validator(mvp)
-
-
-def test_pbcoreDescription_missing(validator, mvp):
-    """Test document with an empty description. This should fail."""
-    del mvp['pbcoreDescriptionDocument']['pbcoreDescription']
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert error.value.message == '"pbcoreDescription" is a required property'
-
-
-def test_pbcoreDescription_empty(validator, mvp):
-    """Test document with an empty description. This should fail."""
-    mvp['pbcoreDescriptionDocument']['pbcoreDescription'] = []
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert error.value.message == '[] has less than 1 item'
-
-
-def test_pbcoreDescription_multiple(validator, mvp):
-    """Test document with multiple pbcoreDescription elements."""
-    mvp['pbcoreDescriptionDocument']['pbcoreDescription'].append(
-        {"text": "Alternate description"}
-    )
-    validator(mvp)
-
-
-@mark.xfail
-def test_pbcoreDescription_invalid(validator, mvp):
-    """Test document with an invalid description. This should fail."""
-    mvp['pbcoreDescriptionDocument']['pbcoreDescription'][0][
-        'extra_value'
-    ] = "not allowed"
-    with raises(ValidationError) as error:
-        validator(mvp)
-    assert (
-        error.value.message
-        == "Unevaluated properties are not allowed ('extra_value' was unexpected)"
-    )
+@mark.parametrize("model", pbcore_element_models())
+def test_pbcore_element_valid(model_factory, model, ids=lambda m: m.__name__):
+    """
+    Test happy PBCore model validation using a model factory and test data.
+    """
+    # This will raise an error if validation fails.
+    valid_instance = model_factory(model)
+    assert isinstance(valid_instance, model)

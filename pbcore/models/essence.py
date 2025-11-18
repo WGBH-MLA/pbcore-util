@@ -1,35 +1,36 @@
 from pbcore.models import (
     PBCoreBaseModel,
     PBCoreElement,
+    PBCoreText,
     PBCoreAttributesUnits,
     PBCoreAnnotation,
 )
-from pbcore.models.extension import PBCoreExtension, ExtensionWrap, ExtensionEmbedded
+from pbcore.models.extension import PBCoreExtension
 from pydantic import Field
 
 
-class EssenceTrackType(PBCoreElement):
+class EssenceTrackType(PBCoreElement, PBCoreText):
     """PBCore Essence Track Type element.
 
     Definition: The essenceTrackType element refers to the media type of the decoded data. Tracks may possibly be of these types: video, audio, caption, metadata, image, etc.
     """
 
 
-class EssenceTrackIdentifier(PBCoreElement):
+class EssenceTrackIdentifier(PBCoreElement, PBCoreText):
     """PBCore Essence Track Identifier element.
 
     Definition: The essenceTrackIdentifier element is an identifier of the track. Several audiovisual containers include such identifier schema to identify each track, such as MPEG2 PIDs or QuickTime Track IDs.
     """
 
 
-class EssenceTrackStandard(PBCoreElement):
+class EssenceTrackStandard(PBCoreElement, PBCoreText):
     """PBCore Essence Track Standard element.
 
     Definition: The essenceTrackStandard element should be be used with file-based instantiations to describe the broadcast standard of the video signal (e.g. NTSC, PAL) or to further clarify the standard of the essenceTrackEncoding format.
     """
 
 
-class EssenceTrackEncoding(PBCoreElement):
+class EssenceTrackEncoding(PBCoreElement, PBCoreText):
     """PBCore Essence Track Encoding element.
 
     Definition: The essenceTrackEncoding element essenceTrackEncoding identifies how the actual information in an instantiation is compressed, interpreted, or formulated using a particular scheme. Identifying the encoding used is beneficial for a number of reasons, including as a way to achieve reversible compression; for the construction of document indices to facilitate searching and access; or for efficient distribution of the information across data networks with differing bandwidths or pipeline capacities. Human-readable encoding value should be placed here. Use @ref to identify the codec ID.
@@ -38,14 +39,14 @@ class EssenceTrackEncoding(PBCoreElement):
     """
 
 
-class EssenceTrackDataRate(PBCoreElement, PBCoreAttributesUnits):
+class EssenceTrackDataRate(PBCoreElement, PBCoreText, PBCoreAttributesUnits):
     """PBCore Essence Track Data Rate element.
 
     Definition: The essenceTrackDataRate element measures the amount of data used per time interval for encoded data. The data rate can be calculated by dividing the total data size of the track's encoded data by a time unit. By default use bytes per second.
     """
 
 
-class EssenceTrackFrameRate(PBCoreElement, PBCoreAttributesUnits):
+class EssenceTrackFrameRate(PBCoreElement, PBCoreText, PBCoreAttributesUnits):
     """PBCore Essence Track Frame Rate element.
 
     Definition: The essenceTrackFrameRate element is relevant to tracks of video track type only. The frame rate is calculated by dividing the total number of frames by the duration of the video track. By default measure frame rate in frames per second expressed as fps as a unit of measure. e.g., 24 fps.
@@ -54,42 +55,42 @@ class EssenceTrackFrameRate(PBCoreElement, PBCoreAttributesUnits):
     """
 
 
-class EssenceTrackPlaybackSpeed(PBCoreElement, PBCoreAttributesUnits):
+class EssenceTrackPlaybackSpeed(PBCoreElement, PBCoreText, PBCoreAttributesUnits):
     """PBCore Essence Track Playback Speed element.
 
     Definition: The essenceTrackPlaybackSpeed element specifies the rate of units against time at which the media track should be rendered for human consumption. e.g., 15ips (inches per second).
     """
 
 
-class EssenceTrackSamplingRate(PBCoreElement, PBCoreAttributesUnits):
+class EssenceTrackSamplingRate(PBCoreElement, PBCoreText, PBCoreAttributesUnits):
     """PBCore Essence Track Sampling Rate element.
 
     Definition: The essenceTrackSamplingRate element measures how often data is sampled when information from the audio portion from an instantiation is digitized. For a digital audio signal, the sampling rate is measured in kilohertz and is an indicator of the perceived playback quality of the media item (the higher the sampling rate, the greater the fidelity).
     """
 
 
-class EssenceTrackBitDepth(PBCoreElement, PBCoreAttributesUnits):
+class EssenceTrackBitDepth(PBCoreElement, PBCoreText, PBCoreAttributesUnits):
     """PBCore Essence Track Bit Depth element.
 
     Definition: The essenceTrackBitDepth element specifies how much data is sampled when information is digitized, encoded, or converted for an instantiation (specifically, audio, video, or image). Bit depth is measured in bits and generally implies an arbitrary perception of quality during playback of an instantiation (the higher the bit depth, the greater the fidelity).
     """
 
 
-class EssenceTrackFrameSize(PBCoreElement, PBCoreAttributesUnits):
+class EssenceTrackFrameSize(PBCoreElement, PBCoreText, PBCoreAttributesUnits):
     """PBCore Essence Track Frame Size element.
 
     Definition: The essenceTrackFrameSize element measures the width and height of the encoded video or image track. The frame size refers to the size of the encoded pixels and not the size of the displayed image. It may be expressed as combination of pixels measured horizontally vs. the number of pixels of image/resolution data stacked vertically (interlaced and progressive scan).
     """
 
 
-class EssenceTrackAspectRatio(PBCoreElement, PBCoreAttributesUnits):
+class EssenceTrackAspectRatio(PBCoreElement, PBCoreText, PBCoreAttributesUnits):
     """PBCore Essence Track Aspect Ratio element.
 
     Definition: The essenceTrackAspectRatio element indicates the ratio of horizontal to vertical proportions in the display of a static image or moving image.
     """
 
 
-class EssenceTrackTimeStart(PBCoreElement):
+class EssenceTrackTimeStart(PBCoreElement, PBCoreText):
     """PBCore Essence Track Time Start element.
 
     Definition: The essenceTrackTimeStart element provides a time stamp for the beginning point of playback for a time-based essence track. It is likely that the content on a tape may begin an arbitrary amount of time after the beginning of the instantiation.
@@ -98,14 +99,14 @@ class EssenceTrackTimeStart(PBCoreElement):
     """
 
 
-class EssenceTrackDuration(PBCoreElement):
+class EssenceTrackDuration(PBCoreElement, PBCoreText):
     """PBCore Essence Track Duration element.
 
     Definition: The essenceTrackDuration element provides a timestamp for the overall length or duration of a track. It represents the track playback time. Best practice is to use a timestamp format such as HH:MM:SS[:|;]FF or HH:MM:SS.mmm or S.mmm.
     """
 
 
-class EssenceTrackLanguage(PBCoreElement):
+class EssenceTrackLanguage(PBCoreElement, PBCoreText):
     """PBCore Essence Track Language element.
 
     Definition: The essenceTrackLanguage element identifies the primary language of the tracks' audio or text.

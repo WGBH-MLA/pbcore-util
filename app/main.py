@@ -28,7 +28,7 @@ async def validate_xml(file: UploadFile = File(...)):
 
 @app.post("/validate/xml-url", tags=["XML Validation"])
 async def validate_xml_from_url(
-    url: str = Query(..., description="URL pointing to a PBCore XML document")
+    url: str = Query(..., description="URL pointing to a PBCore XML document"),
 ):
     try:
         async with httpx.AsyncClient(timeout=10) as client:
@@ -61,7 +61,7 @@ async def validate_json(file: UploadFile = File(...)):
 
 @app.post("/validate/json-url", tags=["JSON Validation"])
 async def validate_json_from_url(
-    url: str = Query(..., description="URL pointing to a PBCore JSON document")
+    url: str = Query(..., description="URL pointing to a PBCore JSON document"),
 ):
     raise HTTPException(
         status_code=400, detail="PBCore JSON validation not yet implemented"
@@ -82,7 +82,7 @@ async def convert_xml_to_json_from_file(file: UploadFile = File(...)):
 
 @app.post("/convert/xml-to-json-url", tags=["XML to JSON Conversion"])
 async def convert_xml_to_json_from_url(
-    url: str = Query(..., description="URL pointing to a PBCore XML document")
+    url: str = Query(..., description="URL pointing to a PBCore XML document"),
 ):
     try:
         async with httpx.AsyncClient(timeout=10) as client:
@@ -110,7 +110,7 @@ async def convert_json_to_xml_from_file(file: UploadFile = File(...)):
 
 @app.post("/convert/json-to-xml-url", tags=["JSON to XML Conversion"])
 async def convert_json_to_xml_from_url(
-    url: str = Query(..., description="URL pointing to a PBCore JSON document")
+    url: str = Query(..., description="URL pointing to a PBCore JSON document"),
 ):
     raise HTTPException(
         status_code=400, detail="PBCore JSON to XML Conversion not yet implemented"

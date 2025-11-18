@@ -1,6 +1,7 @@
 {
   "$defs": {
     "Contributor": {
+      "additionalProperties": false,
       "description": "Contributor element.\n\nDefinition: The contributor element identifies a person, people, or organization that has made substantial creative contributions to the asset. This contribution is considered to be secondary to the primary author(s) (person or organization) identified in the descriptor creator. Best practice: We recommend providing a consistent internal standard for entering proper names and organizational names, such as 'Last name, First name, Middle name,' or 'Main group, subdivision.' We also recommend supplying separate pbcoreCreator containers for each creator to be named for a resource.",
       "properties": {
         "startTime": {
@@ -107,6 +108,10 @@
           "description": "The affiliationAnnotation attribute includes narrative information intended to clarify the nature of data used in the attribute affiliation. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Affiliationannotation"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -158,10 +163,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -171,8 +172,13 @@
       "type": "object"
     },
     "ContributorRole": {
+      "additionalProperties": false,
       "description": "ContributorRole element.\n\nDefinition: The contributorRole element is used to identify the role played by the person, people or organizations identified in the companion element contributor. The PBCore schema allows for contributorRole to be repeated in the pbcoreContributor container element. This can be useful when a single person or organization is associated with multiple roles in an asset.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -224,10 +230,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         },
         "portrayal": {
           "anyOf": [
@@ -250,6 +252,7 @@
       "type": "object"
     },
     "Coverage": {
+      "additionalProperties": false,
       "description": "Coverage element.\n\nDefinition: The coverage element refers to either the geographic location or the time period covered by the asset's intellectual content. For geographic locations ('spatial' descriptors), it is expressed by keywords such as place names (e.g. 'Alaska' or 'Washington, DC'), numeric coordinates or geo-spatial data. For time-based events ('temporal' descriptors), it is expressed by using a date, period, era, or time-based event that is portrayed or covered in the intellectual content (e.g. '2007' or 'Victorian Era'). The PBCore metadata element coverage houses the actual spatial or temporal keywords. The companion element coverageType is used to identify the type of keywords that are being used.",
       "properties": {
         "startTime": {
@@ -291,6 +294,10 @@
           "description": "The timeAnnotation attribute includes narrative information intended to clarify any time-oriented nature of data used in the element.",
           "title": "Timeannotation"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -342,10 +349,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -355,8 +358,13 @@
       "type": "object"
     },
     "CoverageType": {
+      "additionalProperties": false,
       "description": "CoverageType element.\n\nDefinition: The coverageType element is used to identify the actual type of keywords that are being used by its companion metadata element coverage. coverageType provides a picklist of two possible types - spatial or temporal - because coverage in intellectual content may be expressed spatially by geographic location or it may also be expressed temporally by a date, period, era, or time-based event.\"",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -408,10 +416,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -421,6 +425,7 @@
       "type": "object"
     },
     "Creator": {
+      "additionalProperties": false,
       "description": "Creator element.\n\nDefinition: The creator element identifies the primary person, people, or organization(s) responsible for creating the asset. Note that non-primary names and roles should be included within the pbcoreContributor container. Best practice: We recommend providing a consistent internal standard for entering proper names and organizational names, such as 'Last name, First name, Middle name,' or 'Main group, subdivision.' We also recommend supplying separate pbcoreCreator containers for each creator to be named for a resource.",
       "properties": {
         "startTime": {
@@ -527,6 +532,10 @@
           "description": "The affiliationAnnotation attribute includes narrative information intended to clarify the nature of data used in the attribute affiliation. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Affiliationannotation"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -578,10 +587,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -591,8 +596,13 @@
       "type": "object"
     },
     "CreatorRole": {
+      "additionalProperties": false,
       "description": "CreatorRole element.\n\nDefinition: The creatorRole element is used to identify the role played by the person, people or organization(s) identified in the companion descriptor creator. The PBCore schema allows for creatorRole to be repeated in the pbcoreCreator container element. This can be useful when a single person or organization is associated with multiple roles in an asset.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -644,10 +654,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -657,8 +663,13 @@
       "type": "object"
     },
     "EssenceTrackAnnotation": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Annotation element.\n\nDefinition: The essenceTrackAnnotation element can store any supplementary information about a track or the metadata used to describe it. It clarifies element values, terms, descriptors, and vocabularies that may not be otherwise sufficiently understood.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -710,10 +721,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         },
         "annotationType": {
           "anyOf": [
@@ -736,6 +743,7 @@
       "type": "object"
     },
     "EssenceTrackAspectRatio": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Aspect Ratio element.\n\nDefinition: The essenceTrackAspectRatio element indicates the ratio of horizontal to vertical proportions in the display of a static image or moving image.",
       "properties": {
         "unitsOfMeasure": {
@@ -751,6 +759,10 @@
           "description": "The unitsOfMeasure attribute defines the unit used in the containing element, e.g. pixels, GB, Mb/s, ips, fps, kHz, inches, lines, dpi. Best practice: We recommend standardizing the notation that is most widely recognized in your institution and using with consistency.",
           "title": "Unitsofmeasure"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -802,10 +814,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -815,6 +823,7 @@
       "type": "object"
     },
     "EssenceTrackBitDepth": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Bit Depth element.\n\nDefinition: The essenceTrackBitDepth element specifies how much data is sampled when information is digitized, encoded, or converted for an instantiation (specifically, audio, video, or image). Bit depth is measured in bits and generally implies an arbitrary perception of quality during playback of an instantiation (the higher the bit depth, the greater the fidelity).",
       "properties": {
         "unitsOfMeasure": {
@@ -830,6 +839,10 @@
           "description": "The unitsOfMeasure attribute defines the unit used in the containing element, e.g. pixels, GB, Mb/s, ips, fps, kHz, inches, lines, dpi. Best practice: We recommend standardizing the notation that is most widely recognized in your institution and using with consistency.",
           "title": "Unitsofmeasure"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -881,10 +894,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -894,6 +903,7 @@
       "type": "object"
     },
     "EssenceTrackDataRate": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Data Rate element.\n\nDefinition: The essenceTrackDataRate element measures the amount of data used per time interval for encoded data. The data rate can be calculated by dividing the total data size of the track's encoded data by a time unit. By default use bytes per second.",
       "properties": {
         "unitsOfMeasure": {
@@ -909,6 +919,10 @@
           "description": "The unitsOfMeasure attribute defines the unit used in the containing element, e.g. pixels, GB, Mb/s, ips, fps, kHz, inches, lines, dpi. Best practice: We recommend standardizing the notation that is most widely recognized in your institution and using with consistency.",
           "title": "Unitsofmeasure"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -960,10 +974,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -973,8 +983,13 @@
       "type": "object"
     },
     "EssenceTrackDuration": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Duration element.\n\nDefinition: The essenceTrackDuration element provides a timestamp for the overall length or duration of a track. It represents the track playback time. Best practice is to use a timestamp format such as HH:MM:SS[:|;]FF or HH:MM:SS.mmm or S.mmm.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -1026,10 +1041,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -1039,7 +1050,75 @@
       "type": "object"
     },
     "EssenceTrackEncoding": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Encoding element.\n\nDefinition: The essenceTrackEncoding element essenceTrackEncoding identifies how the actual information in an instantiation is compressed, interpreted, or formulated using a particular scheme. Identifying the encoding used is beneficial for a number of reasons, including as a way to achieve reversible compression; for the construction of document indices to facilitate searching and access; or for efficient distribution of the information across data networks with differing bandwidths or pipeline capacities. Human-readable encoding value should be placed here. Use @ref to identify the codec ID.\n\nBest practice: Use @source to describe the type of encoding reference used, such as fourcc. In @ref, use a URI/URL from the source to identify the codec utilized by its container format.",
+      "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The ref attribute is used to supply a source's URI for the value of the element. Best practice: Attribute ref can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The version attribute identifies any version information about the authority or convention used to express data of this element.",
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
+          "title": "Annotation"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EssenceTrackEncoding",
+      "type": "object"
+    },
+    "EssenceTrackExtension": {
+      "additionalProperties": false,
+      "description": "PBCore Essence Track Extension element.\n\nDefinition: The essenceTrackExtension element can be used as either a wrapper containing a specific element from another standard OR embedded xml containing the extension. The essenceTrackExtension element is a container to accomodate track-level metadata from external systems. Use it to supplement other metadata sub-elements of instantiationEssenceTrack in which it appears.",
       "properties": {
         "source": {
           "anyOf": [
@@ -1093,20 +1172,6 @@
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
         },
-        "text": {
-          "title": "Text",
-          "type": "string"
-        }
-      },
-      "required": [
-        "text"
-      ],
-      "title": "EssenceTrackEncoding",
-      "type": "object"
-    },
-    "EssenceTrackExtension": {
-      "description": "PBCore Essence Track Extension element.\n\nDefinition: The essenceTrackExtension element can be used as either a wrapper containing a specific element from another standard OR embedded xml containing the extension. The essenceTrackExtension element is a container to accomodate track-level metadata from external systems. Use it to supplement other metadata sub-elements of instantiationEssenceTrack in which it appears.",
-      "properties": {
         "extensionWrap": {
           "anyOf": [
             {
@@ -1144,6 +1209,7 @@
       "type": "object"
     },
     "EssenceTrackFrameRate": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Frame Rate element.\n\nDefinition: The essenceTrackFrameRate element is relevant to tracks of video track type only. The frame rate is calculated by dividing the total number of frames by the duration of the video track. By default measure frame rate in frames per second expressed as fps as a unit of measure. e.g., 24 fps.\n\nBest practice: Example: 1920x1080.",
       "properties": {
         "unitsOfMeasure": {
@@ -1159,6 +1225,10 @@
           "description": "The unitsOfMeasure attribute defines the unit used in the containing element, e.g. pixels, GB, Mb/s, ips, fps, kHz, inches, lines, dpi. Best practice: We recommend standardizing the notation that is most widely recognized in your institution and using with consistency.",
           "title": "Unitsofmeasure"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -1210,10 +1280,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -1223,6 +1289,7 @@
       "type": "object"
     },
     "EssenceTrackFrameSize": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Frame Size element.\n\nDefinition: The essenceTrackFrameSize element measures the width and height of the encoded video or image track. The frame size refers to the size of the encoded pixels and not the size of the displayed image. It may be expressed as combination of pixels measured horizontally vs. the number of pixels of image/resolution data stacked vertically (interlaced and progressive scan).",
       "properties": {
         "unitsOfMeasure": {
@@ -1238,6 +1305,10 @@
           "description": "The unitsOfMeasure attribute defines the unit used in the containing element, e.g. pixels, GB, Mb/s, ips, fps, kHz, inches, lines, dpi. Best practice: We recommend standardizing the notation that is most widely recognized in your institution and using with consistency.",
           "title": "Unitsofmeasure"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -1289,10 +1360,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -1302,8 +1369,13 @@
       "type": "object"
     },
     "EssenceTrackIdentifier": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Identifier element.\n\nDefinition: The essenceTrackIdentifier element is an identifier of the track. Several audiovisual containers include such identifier schema to identify each track, such as MPEG2 PIDs or QuickTime Track IDs.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -1355,10 +1427,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -1368,8 +1436,13 @@
       "type": "object"
     },
     "EssenceTrackLanguage": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Language element.\n\nDefinition: The essenceTrackLanguage element identifies the primary language of the tracks' audio or text.\n\nBest practice: Alternative audio or text tracks and their associated languages should be identified using the element alternativeModes.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -1421,10 +1494,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -1434,6 +1503,7 @@
       "type": "object"
     },
     "EssenceTrackPlaybackSpeed": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Playback Speed element.\n\nDefinition: The essenceTrackPlaybackSpeed element specifies the rate of units against time at which the media track should be rendered for human consumption. e.g., 15ips (inches per second).",
       "properties": {
         "unitsOfMeasure": {
@@ -1449,6 +1519,10 @@
           "description": "The unitsOfMeasure attribute defines the unit used in the containing element, e.g. pixels, GB, Mb/s, ips, fps, kHz, inches, lines, dpi. Best practice: We recommend standardizing the notation that is most widely recognized in your institution and using with consistency.",
           "title": "Unitsofmeasure"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -1500,10 +1574,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -1513,6 +1583,7 @@
       "type": "object"
     },
     "EssenceTrackSamplingRate": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Sampling Rate element.\n\nDefinition: The essenceTrackSamplingRate element measures how often data is sampled when information from the audio portion from an instantiation is digitized. For a digital audio signal, the sampling rate is measured in kilohertz and is an indicator of the perceived playback quality of the media item (the higher the sampling rate, the greater the fidelity).",
       "properties": {
         "unitsOfMeasure": {
@@ -1528,6 +1599,10 @@
           "description": "The unitsOfMeasure attribute defines the unit used in the containing element, e.g. pixels, GB, Mb/s, ips, fps, kHz, inches, lines, dpi. Best practice: We recommend standardizing the notation that is most widely recognized in your institution and using with consistency.",
           "title": "Unitsofmeasure"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -1579,10 +1654,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -1592,8 +1663,13 @@
       "type": "object"
     },
     "EssenceTrackStandard": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Standard element.\n\nDefinition: The essenceTrackStandard element should be be used with file-based instantiations to describe the broadcast standard of the video signal (e.g. NTSC, PAL) or to further clarify the standard of the essenceTrackEncoding format.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -1645,10 +1721,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -1658,8 +1730,13 @@
       "type": "object"
     },
     "EssenceTrackTimeStart": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Time Start element.\n\nDefinition: The essenceTrackTimeStart element provides a time stamp for the beginning point of playback for a time-based essence track. It is likely that the content on a tape may begin an arbitrary amount of time after the beginning of the instantiation.\n\nBest practice: Use in combination with essenceTrackDuration to identify a sequence or segment of an essence track that has a fixed start time and end time. Best practice is to use a timestamp format such as HH:MM:SS[:|;]FF or HH:MM:SS.mmm or S.mmm.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -1711,10 +1788,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -1724,8 +1797,13 @@
       "type": "object"
     },
     "EssenceTrackType": {
+      "additionalProperties": false,
       "description": "PBCore Essence Track Type element.\n\nDefinition: The essenceTrackType element refers to the media type of the decoded data. Tracks may possibly be of these types: video, audio, caption, metadata, image, etc.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -1777,10 +1855,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -1790,36 +1864,13 @@
       "type": "object"
     },
     "ExtensionAuthorityUsed": {
+      "additionalProperties": false,
       "description": "ExtensionAuthorityUsed element.\n\nDefinition: The extensionAuthorityUsed element identifies the authority used for the extensionElement.\n\nBest practice: If metadata extensions to PBCore are assigned to a media item with the element extensionElement, and the terms used are derived from a specific authority or metadata scheme, use extensionAuthorityUsed to identify whose metadata extensions are being used.",
       "properties": {
         "text": {
           "title": "Text",
           "type": "string"
-        }
-      },
-      "required": [
-        "text"
-      ],
-      "title": "ExtensionAuthorityUsed",
-      "type": "object"
-    },
-    "ExtensionElement": {
-      "description": "ExtensionElement element.\n\nDefinition: The extensionElement element should contain the name of an element used from another metadata standard, in the case that an element from another + metadata standard is used. While we recommend the usage of an existing standard, this element can also be used to define local elements that may not be part of an existing standard.\"\n\nBest practice: These extensions fulfill the metadata requirements for communities identifying and describing their own types of media with specialized, custom terminologies.",
-      "properties": {
-        "text": {
-          "title": "Text",
-          "type": "string"
-        }
-      },
-      "required": [
-        "text"
-      ],
-      "title": "ExtensionElement",
-      "type": "object"
-    },
-    "ExtensionEmbedded": {
-      "description": "ExtensionEmbedded element.\n\nDefinition: The extensionEmbedded element allows the inclusion of xml from another schema, e.g. TEI, METS, etc.",
-      "properties": {
+        },
         "source": {
           "anyOf": [
             {
@@ -1873,15 +1924,205 @@
           "title": "Annotation"
         }
       },
+      "required": [
+        "text"
+      ],
+      "title": "ExtensionAuthorityUsed",
+      "type": "object"
+    },
+    "ExtensionElement": {
+      "additionalProperties": false,
+      "description": "ExtensionElement element.\n\nDefinition: The extensionElement element should contain the name of an element used from another metadata standard, in the case that an element from another + metadata standard is used. While we recommend the usage of an existing standard, this element can also be used to define local elements that may not be part of an existing standard.\"\n\nBest practice: These extensions fulfill the metadata requirements for communities identifying and describing their own types of media with specialized, custom terminologies.",
+      "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The ref attribute is used to supply a source's URI for the value of the element. Best practice: Attribute ref can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The version attribute identifies any version information about the authority or convention used to express data of this element.",
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
+          "title": "Annotation"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "ExtensionElement",
+      "type": "object"
+    },
+    "ExtensionEmbedded": {
+      "additionalProperties": false,
+      "description": "ExtensionEmbedded element.\n\nDefinition: The extensionEmbedded element allows the inclusion of xml from another schema, e.g. TEI, METS, etc.",
+      "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The ref attribute is used to supply a source's URI for the value of the element. Best practice: Attribute ref can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The version attribute identifies any version information about the authority or convention used to express data of this element.",
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
+          "title": "Annotation"
+        }
+      },
+      "required": [
+        "text"
+      ],
       "title": "ExtensionEmbedded",
       "type": "object"
     },
     "ExtensionValue": {
+      "additionalProperties": false,
       "description": "ExtensionValue element.\n\nDefinition: The extensionValue element is used to express the data value of the label indicated by extensionElement.",
       "properties": {
         "text": {
           "title": "Text",
           "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The ref attribute is used to supply a source's URI for the value of the element. Best practice: Attribute ref can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The version attribute identifies any version information about the authority or convention used to express data of this element.",
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
+          "title": "Annotation"
         }
       },
       "required": [
@@ -1891,6 +2132,7 @@
       "type": "object"
     },
     "ExtensionWrap": {
+      "additionalProperties": false,
       "description": "ExtensionWrap element.\n\nDefinition: The extensionWrap element serves as a container for the elements extensionElement, extensionValue, and extensionAuthorityUsed.",
       "properties": {
         "source": {
@@ -1971,8 +2213,13 @@
       "type": "object"
     },
     "InstantiationAlternativeModes": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Alternative Modes element.\n\nDefinition: The instantiationAlternativeModes element is a catch-all metadata element that identifies equivalent alternatives to the primary visual, sound or textual information that exists in an instantiation. These are modes that offer alternative ways to see, hear, and read the content of an instantiation. Examples include DVI (Descriptive Video Information), SAP (Supplementary Audio Program), ClosedCaptions, OpenCaptions, Subtitles, Language Dubs, and Transcripts. For each instance of available alternativeModes, the mode and its associated language should be identified together, if applicable. Examples include 'SAP in English,' 'SAP in Spanish,' 'Subtitle in French,' 'OpenCaption in Arabic.'",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -2024,10 +2271,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -2037,8 +2280,13 @@
       "type": "object"
     },
     "InstantiationAnnotation": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Annotation element.\n\nDefinition: The instantiationAnnotation element is used to add any supplementary information about an instantiation of the instantiation or the metadata used to describe it. It clarifies element values, terms, descriptors, and vocabularies that may not be otherwise sufficiently understood.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -2090,10 +2338,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         },
         "annotationType": {
           "anyOf": [
@@ -2116,8 +2360,13 @@
       "type": "object"
     },
     "InstantiationChannelConfiguration": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Channel Configuration element.\n\nDefinition: The instantiationChannelConfiguration element is designed to indicate, at a general narrative level, the arrangement or configuration of specific channels or layers of information within an instantiation's tracks. Examples are 2-track mono, 8- track stereo, or video track with alpha channel.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -2169,10 +2418,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -2182,8 +2427,13 @@
       "type": "object"
     },
     "InstantiationColors": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Colors element.\n\nDefinition: The instantiationColors element indicates the overall color, grayscale, or black and white nature of the presentation of an instantiation, as a single occurrence or combination of occurrences in or throughout the instantiation.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -2235,10 +2485,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -2248,6 +2494,7 @@
       "type": "object"
     },
     "InstantiationDataRate": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Data Rate element.\n\nDefinition: The instantiationDataRate element expresses the amount of data in a digital media file that is encoded, delivered or distributed, for every second of time. This should be expressed as numerical data, with the units of measure declared in the unitsOfMeasure attribute. For example, if the audio file is 56 kilobits/second, then 56 should be the value of instantiationDataRate and the attribute unitsOfMeasure should be kilobits/second.",
       "properties": {
         "unitsOfMeasure": {
@@ -2263,6 +2510,10 @@
           "description": "The unitsOfMeasure attribute defines the unit used in the containing element, e.g. pixels, GB, Mb/s, ips, fps, kHz, inches, lines, dpi. Best practice: We recommend standardizing the notation that is most widely recognized in your institution and using with consistency.",
           "title": "Unitsofmeasure"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -2314,10 +2565,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -2327,6 +2574,7 @@
       "type": "object"
     },
     "InstantiationDate": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Date element.\n\nDefinition: The instantiationDate element is a date associated with an instantiation.\n\nBest practice: Use ISO 8601 or some other date/time standard if possible.",
       "properties": {
         "dateType": {
@@ -2342,6 +2590,10 @@
           "description": "The dateType attribute classifies by named type the date-related data of the element e.g., created, broadcast, dateAvailableStart. Best practice: Used to clarify how the date is related to the asset or instantiation. Date Created may be the most common, but the element could also be used to describe the Date Accessioned or Date Deaccessioned, for example.",
           "title": "Datetype"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -2393,10 +2645,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -2406,8 +2654,13 @@
       "type": "object"
     },
     "InstantiationDigital": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Digital element.\n\nDefinition: The instantiationDigital element is used to identify the format of a particular instantiation of an asset as it exists as a digital file on a server, hard drive, or other digital storage medium. Digital instantiations should be expressed as a formal Internet MIME types.\n\nBest practice: instantiationDigital should only be used to describe the MIME type of the digital file itself. There are multiple options to convey more information about the storage medium or location of the digital file, which are discussed in more detail on the PBCore site.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -2459,10 +2712,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -2472,6 +2721,7 @@
       "type": "object"
     },
     "InstantiationDimensions": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Dimensions element.\n\nDefinition: The instantiationDimensions element specifies either the dimensions of a physical instantiation, or the high-level visual dimensions of a digital instantiation.\n\nBest practice: For physical dimensions, usage examples might be 7\" for an audio reel. When describing visual dimensions, use this for high-level descriptors such as 1080p. Use the element frameSize to describe the pixel dimensions of a visual resource.",
       "properties": {
         "unitsOfMeasure": {
@@ -2487,6 +2737,10 @@
           "description": "The unitsOfMeasure attribute defines the unit used in the containing element, e.g. pixels, GB, Mb/s, ips, fps, kHz, inches, lines, dpi. Best practice: We recommend standardizing the notation that is most widely recognized in your institution and using with consistency.",
           "title": "Unitsofmeasure"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -2538,10 +2792,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -2551,8 +2801,13 @@
       "type": "object"
     },
     "InstantiationDuration": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Duration element.\n\nDefinition: The instantiationDuration element provides a timestamp for the overall length or duration of a time-based media item. It represents the playback time. Best practice is to use a timestamp format such as HH:MM:SS[:|;]FF or HH:MM:SS.mmm or S.mmm.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -2604,10 +2859,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -2617,6 +2868,7 @@
       "type": "object"
     },
     "InstantiationEssenceTrack": {
+      "additionalProperties": false,
       "description": "Instantiation of a PBCore Essence Track element.\n\nDefinition: The instantiationEssenceTrack element is an XML container element that allows for grouping of related essenceTrack elements and their repeated use. Use instantiationEssenceTrack element to describe the individual streams that comprise an instantiation, such as audio, video, timecode, etc.\n\nBest practice: Essence tracks can exist in either the digital or physical realm. In the digital realm, they may refer to the separate audio and video tracks within a digital file. In the physical realm, they may refer to the recorded media.",
       "properties": {
         "essenceTrackType": {
@@ -2820,6 +3072,7 @@
       "type": "object"
     },
     "InstantiationFileSize": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation File Size element.\n\nDefinition: The instantiationFileSize element indicates the file size of a digital instantiation. It should contain only numerical values. As a standard, express the file size in bytes. Units of Measure should be declared in the unitsOfMeasure attribute.",
       "properties": {
         "unitsOfMeasure": {
@@ -2835,6 +3088,10 @@
           "description": "The unitsOfMeasure attribute defines the unit used in the containing element, e.g. pixels, GB, Mb/s, ips, fps, kHz, inches, lines, dpi. Best practice: We recommend standardizing the notation that is most widely recognized in your institution and using with consistency.",
           "title": "Unitsofmeasure"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -2886,10 +3143,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -2899,8 +3152,13 @@
       "type": "object"
     },
     "InstantiationGenerations": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Generations element.\n\nDefinition: The instantiationGeneration element identifies the use type and provenance of the instantiation. The generation of a video tape may be an \"Original Master\" or \"Dub\", the generation of a film reel may be an \"Original Negative\" or \"Composite Positive\", an audiotape may be a \"Master\" or \"Mix Element\", an image may be a \"Photograph\" or a \"Photocopy.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -2952,10 +3210,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -2965,8 +3219,13 @@
       "type": "object"
     },
     "InstantiationIdentifier": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Identifier element.\n\nDefinition: The instantiationIdentifier element contains an unambiguous reference or identifier for a particular instantiation of an asset.\n\nBest practice: Identify the media item (whether analog or digital) by means of a string or number corresponding to an established or formal identification system if one exists. Otherwise, use an identification method that is in use within your agency, station, production company, office, or institution.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
           "title": "Source",
@@ -3010,22 +3269,23 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
-        "source",
-        "text"
+        "text",
+        "source"
       ],
       "title": "InstantiationIdentifier",
       "type": "object"
     },
     "InstantiationLanguage": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Language element.\n\nDefinition: The instantiationLanguage element identifies the primary language of the tracks' audio or text. Languages must be indicated using 3-letter codes standardized in ISO 639-2 or 639-3. If an instantiation includes more than one language, the element can be repeated. Alternately, both languages can be expressed in one element by separating two three-letter codes with a semicolon, i.e. <instantiationLanguage>eng;fre</instantiationLanguage>. + Best practice: Alternative audio or text tracks and their associated languages should be identified using the element instantiationAlternativeModes.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -3077,10 +3337,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -3090,8 +3346,13 @@
       "type": "object"
     },
     "InstantiationLocation": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Location element.\n\nDefinition: The instantiationLocation element may contain information about a specific location for an instantiation, such as an organization's name, departmental name, shelf ID and contact information. The instantiationLocation for a digital file should include domain, path or URI to the file.\n\nBest practice: For digital files, instantiationLocation should always include a path or URI to the file. There are multiple ways to convey additional information about the location of a carrier or storage medium of the digital file, which are expressed on the PBCore site.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -3143,10 +3404,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -3156,8 +3413,13 @@
       "type": "object"
     },
     "InstantiationMediaType": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Media Type element.\n\nDefinition: The instantiationMediaType element identifies the general, high level nature of the content of an instantiation. It uses categories that show how content is presented to an observer, e.g., as a sound, text or moving image.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -3209,10 +3471,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -3222,8 +3480,13 @@
       "type": "object"
     },
     "InstantiationPhysical": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Physical element.\n\nDefinition: The instantiationPhysical element is used to identify the format of a particular instantiation as it exists in a physical form that occupies physical space (e.g., a tape on a shelf). This includes physical digital media, such as a DV tape, audio CD or authored DVD, as well as analog media.\n\nBest practice: PBCore provides a controlled vocabulary for media objects, though any controlled vocabulary can be used as long as it is referenced. For digital storage carriers that contain portable file-based media, such as data CDs, LTO tapes or hard drives, use instantiationDigital to convey the mime type of the file instead of describing the carrier.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -3275,10 +3538,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -3288,6 +3547,7 @@
       "type": "object"
     },
     "InstantiationRelation": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Relation element.\n\nDefinition: The instantiationRelation element is a container for sub-elements instantiationRelationType and instantiationRelationIdentifier to describe relationships to other instantiations.",
       "properties": {
         "source": {
@@ -3342,10 +3602,6 @@
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
         },
-        "text": {
-          "title": "Text",
-          "type": "string"
-        },
         "instantiationRelationIdentifier": {
           "$ref": "#/$defs/InstantiationRelationIdentifier"
         },
@@ -3354,7 +3610,6 @@
         }
       },
       "required": [
-        "text",
         "instantiationRelationIdentifier",
         "instantiationRelationType"
       ],
@@ -3362,8 +3617,13 @@
       "type": "object"
     },
     "InstantiationRelationIdentifier": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Relation Identifier element.\n\nDefinition: The instantiationRelationIdentifier element is used to provide a name, locator, accession, identification number or ID where the related item can be obtained or found.\n\nBest practice: We recommend using a unique identifier or global unique ID in this element.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -3415,10 +3675,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -3428,8 +3684,13 @@
       "type": "object"
     },
     "InstantiationRelationType": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Relation Type element.\n\nDefinition: The instantiationRelationType element describes the relation between the instantiation being described and another instantiation.\n\nBest practice: Use to express relationships between instantiations, for example to note that they are different discrete parts of a single intellectual unit, generationally related, derivative of another, or different versions.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -3481,10 +3742,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -3494,6 +3751,7 @@
       "type": "object"
     },
     "InstantiationRights": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Rights element.\n\nDefinition: The instantiationRights element is a container for sub-elements rightsSummary, rightsLink and rightsEmbedded to describe rights particular to this instantiation.\"\n\nBest practice: This element contains rights information that is specific to an instantiation of an asset, such as rights conferred in a donation agreement that apply only to a single donated item.",
       "properties": {
         "startTime": {
@@ -3588,8 +3846,13 @@
       "type": "object"
     },
     "InstantiationStandard": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Standard element.\n\nDefinition: The instantiationStandard element + can be used, if the instantiation is a physical item, to refer to the broadcast standard of the video signal (e.g. NTSC, PAL), or the audio encoding (e.g. Dolby A, vertical cut). If the instantiation is a digital item, instantiationStandard should be used to express the container format of the digital file (e.g. MXF).\n\nBest practice: While the usage described in the definition is best practice for 2.1, this usage is likely to change if new elements are added for PBCore 3.0.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -3641,10 +3904,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         },
         "profile": {
           "anyOf": [
@@ -3667,8 +3926,13 @@
       "type": "object"
     },
     "InstantiationTimeStart": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Time Start element.\n\nDefinition: The instantiationTimeStart element describes the point at which playback begins for a time-based instantiation. It is likely that the content on a tape may begin an arbitrary amount of time after the beginning of the instantiation. Best practice is to use a timestamp format such as HH:MM:SS[:|;]FF or HH:MM:SS.mmm or S.mmm.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -3720,10 +3984,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -3733,8 +3993,13 @@
       "type": "object"
     },
     "InstantiationTracks": {
+      "additionalProperties": false,
       "description": "PBCore Instantiation Tracks element.\n\nDefinition: The instantiationTracks element is simply intended to indicate the number and type of tracks that are found in a media item, whether it is analog or digital. (e.g. 1 video track, 2 audio tracks, 1 text track, 1 sprite track, etc.) Other configuration information specific to these identified tracks should be described using instantiationChannelConfiguration.\n\nBest practice: Best practices is to use essenceTracks, as this element has been deprecated.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -3786,10 +4051,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -3799,8 +4060,13 @@
       "type": "object"
     },
     "PBCoreAnnotation": {
+      "additionalProperties": false,
       "description": "PBCoreAnnotation element.\n\nDefinition: The pbcoreAnnotation element allows the addition of any supplementary information about the metadata used to describe the PBCore record. pbcoreAnnotation clarifies element values, terms, descriptors, and vocabularies that may not be otherwise sufficiently understood.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -3852,10 +4118,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         },
         "annotationType": {
           "anyOf": [
@@ -3878,6 +4140,7 @@
       "type": "object"
     },
     "PBCoreAssetDate": {
+      "additionalProperties": false,
       "description": "PBCoreAssetDate element.\n\nDefinition: The pbcoreAssetDate element is intended to reflect dates associated with the Intellectual Content.\n\nBest practice: By contrast, instantiationDate is intended to reflect date information for the specific instance. For example, if you have a VHS copy of Gone With The Wind, the pbcoreAssetDate would be 1939, while the instantiationDate of the VHS copy could be 1985. pbcoreAssetDate may also be used to reflect availability dates, etc. Date types should be specified using the @dateType attribute. Dates or time-based events related to the content of the asset, on the other hand, would be described in the 'coverage' element -- so, while the storyline of Gone with the Wind takes place in the nineteenth century, this information should be noted in the Coverage field, not the assetDate field. Best practice is to use ISO 8601 or some other date/time standard if possible.",
       "properties": {
         "dateType": {
@@ -3893,6 +4156,10 @@
           "description": "The dateType attribute classifies by named type the date-related data of the element e.g., created, broadcast, dateAvailableStart. Best practice: Used to clarify how the date is related to the asset or instantiation. Date Created may be the most common, but the element could also be used to describe the Date Accessioned or Date Deaccessioned, for example.",
           "title": "Datetype"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -3944,10 +4211,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -3957,8 +4220,13 @@
       "type": "object"
     },
     "PBCoreAssetType": {
+      "additionalProperties": false,
       "description": "PBCoreAssetType element.\n\nDefinition: The pbcoreAssetType element is a broad definition of the type of intellectual content being described. Asset types might include those without associated instantiations (a collection or series), or those with instantiations (programs, episodes, clips, etc.)\"\n\nBest practice: The asset type should broadly describe all related instantiations -- for example, if an asset includes many instantiations representing different generations of a program, the asset type 'program' remains accurate for all of them.\"",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -4010,10 +4278,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -4023,8 +4287,13 @@
       "type": "object"
     },
     "PBCoreAudienceLevel": {
+      "additionalProperties": false,
       "description": "PBCoreAudienceLevel element.\n\nDefinition: The pbcoreAudienceLevel element identifies a type of audience, viewer, or listener for whom the media item is primarily designed or educationally useful.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -4076,10 +4345,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -4089,8 +4354,13 @@
       "type": "object"
     },
     "PBCoreAudienceRating": {
+      "additionalProperties": false,
       "description": "PBCoreAudienceRating element.\n\nDefinition: The pbcoreAudienceRating element designates the type of users for whom the intellectual content of a media item is intended or judged appropriate. This element differs from the element pbcoreAudienceLevel in that it utilizes standard ratings that have been crafted by the broadcast television and film industries and that are used as flags for audience or age-appropriate materials.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -4142,10 +4412,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -4155,12 +4421,65 @@
       "type": "object"
     },
     "PBCoreCollection": {
+      "additionalProperties": false,
       "description": "Collection of PBCoreDescriptionDocument elements.\n\nDefinition: The pbcoreCollection element groups multiple pbcoreDescriptionDocument XML into one container element to allow for a\nserialized output. Uses might include API returns or other web service output.\n\nBest practice: This element is not intended to be equivalent to the archive/library concept of a 'collection.' Please see\npbcoreAssetType for information on how PBCore can be used to express information about collections. The element is only applicable to XML expressions of PBCore. This\ncontainer enables a similar function to RSS; pbcoreCollection would be similar to rss:channel and pbcoreDescription document to rss:item.",
       "properties": {
         "xsi:schemaLocation": {
           "description": "XML Schema location attribute for validation purposes.",
           "title": "Xsi:Schemalocation",
           "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The ref attribute is used to supply a source's URI for the value of the element. Best practice: Attribute ref can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The version attribute identifies any version information about the authority or convention used to express data of this element.",
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
+          "title": "Annotation"
         },
         "collectionTitle": {
           "anyOf": [
@@ -4245,6 +4564,7 @@
       "type": "object"
     },
     "PBCoreContributor": {
+      "additionalProperties": false,
       "description": "PBCoreContributor element.\n\nDefinition: The pbcoreContributor element is a container for sub-elements 'contributor' and 'contributorRole'.",
       "properties": {
         "contributor": {
@@ -4274,6 +4594,7 @@
       "type": "object"
     },
     "PBCoreCoverage": {
+      "additionalProperties": false,
       "description": "PBCoreCoverage element.\n\nDefinition: The pbcoreCoverage element is a container for sub-elements 'coverage' and 'coverageType'.",
       "properties": {
         "coverage": {
@@ -4298,6 +4619,7 @@
       "type": "object"
     },
     "PBCoreCreator": {
+      "additionalProperties": false,
       "description": "PBCoreCreator element.\n\nDefinition: The pbcoreCreator element is a container for sub-elements 'creator' and 'creatorRole'.",
       "properties": {
         "creator": {
@@ -4327,6 +4649,7 @@
       "type": "object"
     },
     "PBCoreDescription": {
+      "additionalProperties": false,
       "description": "PBCoreDescription element.\n\nDefinition: The pbcoreDescription element uses free-form text or a narrative to report general notes, abstracts, or summaries about the intellectual content of an asset. The information may be in the form of an individual program description, anecdotal interpretations, or brief content reviews. The description may also consist of outlines, lists, bullet points, rundowns, edit decision lists, indexes, or tables of content.",
       "properties": {
         "startTime": {
@@ -4367,6 +4690,10 @@
           "default": null,
           "description": "The timeAnnotation attribute includes narrative information intended to clarify any time-oriented nature of data used in the element.",
           "title": "Timeannotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
         },
         "source": {
           "anyOf": [
@@ -4419,10 +4746,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         },
         "descriptionType": {
           "anyOf": [
@@ -4562,6 +4885,7 @@
       "type": "object"
     },
     "PBCoreDescriptionDocument": {
+      "additionalProperties": false,
       "description": "Model for PBCoreDescriptionDocument subelements.\n\nDefinition: the pbcoreDescriptionDocument element is a root XML element for the expression of an individual PBCore record.\npbcoreDescriptionDocument can be used to express intellectual content only (e.g. a series or collection level record with\nno associated instantiations), or intellectual content with one or more instantiations (e.g. an episode of a program with\ncopies/instantiations on videotape and digital file). This element is only applicable to XML expressions of PBCore.",
       "properties": {
         "pbcoreAssetType": {
@@ -4848,6 +5172,58 @@
           "description": "XML Schema location attribute for validation purposes.",
           "title": "Xsi:Schemalocation",
           "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The ref attribute is used to supply a source's URI for the value of the element. Best practice: Attribute ref can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The version attribute identifies any version information about the authority or convention used to express data of this element.",
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
+          "title": "Annotation"
         }
       },
       "required": [
@@ -4860,8 +5236,61 @@
       "type": "object"
     },
     "PBCoreExtension": {
+      "additionalProperties": false,
       "description": "PBCoreExtension element.\n\nDefinition: The pbcoreExtension element can be used as either a wrapper containing a specific element from another standard OR embedded xml containing the extension.\n\nBest practice: Use it to supplement other metadata sub-elements of the PBCore description document in which it appears.",
       "properties": {
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The ref attribute is used to supply a source's URI for the value of the element. Best practice: Attribute ref can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The version attribute identifies any version information about the authority or convention used to express data of this element.",
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
+          "title": "Annotation"
+        },
         "extensionWrap": {
           "anyOf": [
             {
@@ -4899,7 +5328,174 @@
       "type": "object"
     },
     "PBCoreGenre": {
+      "additionalProperties": false,
       "description": "PBCore Genre element.\n\nDefinition: The pbcoreGenre element describes the Genre of the asset, which can be defined as a categorical description informed by the topical nature or a particular style or form of the content.\n\nBest practice: Genre refers to the intellectual content of the asset, whereas the element pbcoreAssetType defines a broader structural category; i.e. an asset might have the Asset Type of Segment, with a Genre of News, together defining a news segment.",
+      "properties": {
+        "startTime": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The startTime attribute combines with the endTime attribute to define a specific media segment within a broader timeline of an asset and/or instantiation. Best practice: This is a free text attribute and can be applied at the asset or instantiation level. When used at the asset level, it may be used to talk generally about the start/end time of a segment (e.g. \"30 minutes\"), or by providing a timestamp to a specific point in an instantiation. If you're doing that for element at the asset level, we suggest referencing the instantiation ID you are referring to in timeAnnotation. One example would be if a six-hour long tape was broken into multiple programs, and each instantiation might have its start time labeled as when the instantiation began in the timeline of the broader tape. Another example for this usage might be a digital file created from a VHS tape that contains multiple segments. In the digital copy, color bars are removed from the beginning, and black from the end of the digital instantiation. Time references referring to the segments on the physical VHS are no longer relevant; therefore it's important to tie start and end time references to a specific instantiation, e.g. use the asset ID and timestamp.",
+          "title": "Starttime"
+        },
+        "endTime": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The endTime attribute combines with a similar value in the startTime attribute to define a specific media segment within a broader timeline of an asset and/or instantiation.",
+          "title": "Endtime"
+        },
+        "timeAnnotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The timeAnnotation attribute includes narrative information intended to clarify any time-oriented nature of data used in the element.",
+          "title": "Timeannotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The ref attribute is used to supply a source's URI for the value of the element. Best practice: Attribute ref can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The version attribute identifies any version information about the authority or convention used to express data of this element.",
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
+          "title": "Annotation"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "PBCoreGenre",
+      "type": "object"
+    },
+    "PBCoreIdentifier": {
+      "additionalProperties": false,
+      "description": "PBCoreIdentifier element.\n\nDefinition: The pbcoreIdentifier element provides an identifier that can apply to the asset. This identifier should not be limited to a specific instantiation, but rather is shared by or common to all instantiations of an asset. It can also hold a URL or URI that points to the asset.\n\nBest practice: Identify the asset by means of a string or number corresponding to an established or formal identification system if one exists. Otherwise, use an identification method that is in use within your agency, station, production company, office, or institution.",
+      "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "source": {
+          "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+          "title": "Source",
+          "type": "string"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The ref attribute is used to supply a source's URI for the value of the element. Best practice: Attribute ref can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The version attribute identifies any version information about the authority or convention used to express data of this element.",
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
+          "title": "Annotation"
+        }
+      },
+      "required": [
+        "text",
+        "source"
+      ],
+      "title": "PBCoreIdentifier",
+      "type": "object"
+    },
+    "PBCoreInstantiation": {
+      "additionalProperties": false,
+      "description": "PBCore Instantiation element.\n\nDefinition: The pbcoreInstantiation element contains all the details on how the asset is actualized and made available for use.",
       "properties": {
         "startTime": {
           "anyOf": [
@@ -4991,118 +5587,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
-        }
-      },
-      "required": [
-        "text"
-      ],
-      "title": "PBCoreGenre",
-      "type": "object"
-    },
-    "PBCoreIdentifier": {
-      "description": "PBCoreIdentifier element.\n\nDefinition: The pbcoreIdentifier element provides an identifier that can apply to the asset. This identifier should not be limited to a specific instantiation, but rather is shared by or common to all instantiations of an asset. It can also hold a URL or URI that points to the asset.\n\nBest practice: Identify the asset by means of a string or number corresponding to an established or formal identification system if one exists. Otherwise, use an identification method that is in use within your agency, station, production company, office, or institution.",
-      "properties": {
-        "source": {
-          "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
-          "title": "Source",
-          "type": "string"
-        },
-        "ref": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "The ref attribute is used to supply a source's URI for the value of the element. Best practice: Attribute ref can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
-          "title": "Ref"
-        },
-        "version": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "The version attribute identifies any version information about the authority or convention used to express data of this element.",
-          "title": "Version"
-        },
-        "annotation": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
-          "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
-        }
-      },
-      "required": [
-        "source",
-        "text"
-      ],
-      "title": "PBCoreIdentifier",
-      "type": "object"
-    },
-    "PBCoreInstantiation": {
-      "description": "PBCore Instantiation element.\n\nDefinition: The pbcoreInstantiation element contains all the details on how the asset is actualized and made available for use.",
-      "properties": {
-        "startTime": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "The startTime attribute combines with the endTime attribute to define a specific media segment within a broader timeline of an asset and/or instantiation. Best practice: This is a free text attribute and can be applied at the asset or instantiation level. When used at the asset level, it may be used to talk generally about the start/end time of a segment (e.g. \"30 minutes\"), or by providing a timestamp to a specific point in an instantiation. If you're doing that for element at the asset level, we suggest referencing the instantiation ID you are referring to in timeAnnotation. One example would be if a six-hour long tape was broken into multiple programs, and each instantiation might have its start time labeled as when the instantiation began in the timeline of the broader tape. Another example for this usage might be a digital file created from a VHS tape that contains multiple segments. In the digital copy, color bars are removed from the beginning, and black from the end of the digital instantiation. Time references referring to the segments on the physical VHS are no longer relevant; therefore it's important to tie start and end time references to a specific instantiation, e.g. use the asset ID and timestamp.",
-          "title": "Starttime"
-        },
-        "endTime": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "The endTime attribute combines with a similar value in the startTime attribute to define a specific media segment within a broader timeline of an asset and/or instantiation.",
-          "title": "Endtime"
-        },
-        "timeAnnotation": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "The timeAnnotation attribute includes narrative information intended to clarify any time-oriented nature of data used in the element.",
-          "title": "Timeannotation"
         },
         "instantiationIdentifier": {
           "items": {
@@ -5389,288 +5873,9 @@
       "type": "object"
     },
     "PBCoreInstantiationDocument": {
+      "additionalProperties": false,
       "description": "Model for PBCoreInstantiationDocument elements.\n\nDefinition: The pbcoreInstantiation element is the equivalent of the instantiation element, but used for the expression of an\ninstantiation record at the root of an XML document. This is most commonly used when referenced from other schemas, or if you want to create and express a single,\nstand-alone instantiation.\n\nBest practice: This is most commonly used when Intellectual Content (in other words, descriptive metadata) is not expressed using\nPBCore, but rather another standard such as MODS or Dublin Core.",
       "properties": {
-        "pbcoreAssetType": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreAssetType"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcoreassettype"
-        },
-        "pbcoreAssetDate": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreAssetDate"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcoreassetdate"
-        },
-        "pbcoreIdentifier": {
-          "items": {
-            "$ref": "#/$defs/PBCoreIdentifier"
-          },
-          "minItems": 1,
-          "title": "Pbcoreidentifier",
-          "type": "array"
-        },
-        "pbcoreTitle": {
-          "items": {
-            "$ref": "#/$defs/PBCoreTitle"
-          },
-          "minItems": 1,
-          "title": "Pbcoretitle",
-          "type": "array"
-        },
-        "pbcoreSubject": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreSubject"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcoresubject"
-        },
-        "pbcoreDescription": {
-          "items": {
-            "$ref": "#/$defs/PBCoreDescription"
-          },
-          "minItems": 1,
-          "title": "Pbcoredescription",
-          "type": "array"
-        },
-        "pbcoreGenre": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreGenre"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcoregenre"
-        },
-        "pbcoreRelation": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreRelation"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcorerelation"
-        },
-        "pbcoreCoverage": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreCoverage"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcorecoverage"
-        },
-        "pbcoreAudienceLevel": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreAudienceLevel"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcoreaudiencelevel"
-        },
-        "pbcoreAudienceRating": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreAudienceRating"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcoreaudiencerating"
-        },
-        "pbcoreCreator": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreCreator"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcorecreator"
-        },
-        "pbcoreContributor": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreContributor"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcorecontributor"
-        },
-        "pbcorePublisher": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCorePublisher"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcorepublisher"
-        },
-        "pbcoreRightsSummary": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreRightsSummary"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcorerightssummary"
-        },
-        "pbcoreInstantiation": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreInstantiation"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcoreinstantiation"
-        },
-        "pbcoreAnnotation": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreAnnotation"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcoreannotation"
-        },
-        "pbcorePart": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCorePart"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcorepart"
-        },
-        "pbcoreExtension": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/PBCoreExtension"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pbcoreextension"
-        },
         "startTime": {
           "anyOf": [
             {
@@ -5709,17 +5914,351 @@
           "default": null,
           "description": "The timeAnnotation attribute includes narrative information intended to clarify any time-oriented nature of data used in the element.",
           "title": "Timeannotation"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The source attribute provides the name of the authority used to declare the value of the element. Best practice: Different elements will use the source attribute slightly differently. For example, identifier source (required) should be the name of the organization, institution, system or namespace that the identifier came from, such as \"PBS NOLA Code\" or an institutional database identifier. For other elements, this might be the name of a controlled vocabulary, namespace or authority list, such as Library of Congress Subject Headings. We recommend a consistent and human readable use.",
+          "title": "Source"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The ref attribute is used to supply a source's URI for the value of the element. Best practice: Attribute ref can be used to point to a term in a controlled vocabulary, or a URI associated with a source.",
+          "title": "Ref"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The version attribute identifies any version information about the authority or convention used to express data of this element.",
+          "title": "Version"
+        },
+        "annotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
+          "title": "Annotation"
+        },
+        "instantiationIdentifier": {
+          "items": {
+            "$ref": "#/$defs/InstantiationIdentifier"
+          },
+          "minItems": 1,
+          "title": "Instantiationidentifier",
+          "type": "array"
+        },
+        "instantiationDate": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationDate"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationdate"
+        },
+        "instantiationDimensions": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationDimensions"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationdimensions"
+        },
+        "instantiationPhysical": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationPhysical"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationDigital": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationDigital"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationStandard": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationStandard"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationLocation": {
+          "$ref": "#/$defs/InstantiationLocation"
+        },
+        "instantiationMediaType": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationMediaType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationGenerations": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationGenerations"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationgenerations"
+        },
+        "instantiationFileSize": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationFileSize"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationTimeStart": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationTimeStart"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationtimestart"
+        },
+        "instantiationDuration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationDuration"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationDataRate": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationDataRate"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationColors": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationColors"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationTracks": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationTracks"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationChannelConfiguration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationChannelConfiguration"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationLanguage": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationLanguage"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationlanguage"
+        },
+        "instantiationAlternativeModes": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstantiationAlternativeModes"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instantiationEssenceTrack": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationEssenceTrack"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationessencetrack"
+        },
+        "instantiationRelation": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationRelation"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationrelation"
+        },
+        "instantiationRights": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationRights"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationrights"
+        },
+        "instantiationAnnotation": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/InstantiationAnnotation"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instantiationannotation"
+        },
+        "xsi:schemaLocation": {
+          "description": "XML Schema location attribute for validation purposes.",
+          "title": "Xsi:Schemalocation",
+          "type": "string"
         }
       },
       "required": [
-        "pbcoreIdentifier",
-        "pbcoreTitle",
-        "pbcoreDescription"
+        "instantiationIdentifier",
+        "instantiationLocation",
+        "xsi:schemaLocation"
       ],
       "title": "PBCoreInstantiationDocument",
       "type": "object"
     },
     "PBCorePart": {
+      "additionalProperties": false,
       "description": "PBCorePart element.\n\nDefinition: The pbcorePart element may be used to split up a single asset so as to enable the use of all available elements at the pbcoreDescriptionDocument level to describe the intellectual content of individual segments of an asset.\"\n\nBest practice: Splitting up an asset in this way allows for defining and describing segments, stories, episodes or other divisions within the asset, such as individual films in a compilation reel, or distinct segments of a news show when each may have their own titles, creators, publishers, or other specific intellectual content information that does not apply across the whole asset.",
       "properties": {
         "pbcoreAssetType": {
@@ -6116,6 +6655,7 @@
       "type": "object"
     },
     "PBCorePublisher": {
+      "additionalProperties": false,
       "description": "PBCorePublisher element.\n\nDefinition: The pbcorePublisher element is a container for sub-elements 'publisher' and 'publisherRole.'",
       "properties": {
         "publisher": {
@@ -6145,6 +6685,7 @@
       "type": "object"
     },
     "PBCoreRelation": {
+      "additionalProperties": false,
       "description": "PBCore Relation element.\n\nDefinition: The pbcoreRelation element contains the pbcoreRelationType and pbcoreRelationIdentifier elements. In order to properly use these two elements they must be nested with the pbcoreRelation element, and pbcoreRelation must contain both pbcoreRelationType and pbcoreRelationIdentifier if it is included.",
       "properties": {
         "pbcoreRelationType": {
@@ -6162,8 +6703,13 @@
       "type": "object"
     },
     "PBCoreRelationIdentifier": {
+      "additionalProperties": false,
       "description": "PBCoreRelationIdentifier element.\n\nDefinition: The pbcoreRelationIdentifier element contains the identifier of the related asset. In the case that the related asset has a PBCore record, this identifier should correspond with the pbcoreIdentifier of the related asset. However, it is possible to use this element with a record that isn't in PBCore, in which case the source attribute should identify the source of the identifier.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -6215,10 +6761,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -6228,8 +6770,13 @@
       "type": "object"
     },
     "PBCoreRelationType": {
+      "additionalProperties": false,
       "description": "PBCoreRelationType element.\n\nDefinition: The pbcoreRelationType element describes the relationship between the asset being describe by the pbcore document and any other asset. Ideally it would contain text from a controlled vocabulary for describing relationships. There is some depth to what a relationship could be. The assets can be related as different episodes in a series, different tapes in a box set, or different versions of an original, among others.\n\nBest practice: The assets may be related in that they are different discrete parts of a single intellectual unit, one may be a derivative of another, or they may be different versions that are distinct enough to be described as separate assets.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -6281,10 +6828,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -6294,6 +6837,7 @@
       "type": "object"
     },
     "PBCoreRightsSummary": {
+      "additionalProperties": false,
       "description": "PBCoreRightsSummary element.\n\nDefinition: Th pbcoreRightsSummary element is a container for sub-elements 'rightsSummary', 'rightsLink', and 'rightsEmbedded' used to describe Rights for the asset.",
       "properties": {
         "startTime": {
@@ -6388,6 +6932,7 @@
       "type": "object"
     },
     "PBCoreSubject": {
+      "additionalProperties": false,
       "description": "PBCoreSubject element.\n\nDefinition: The pbcoreSubject element is used to assign topic headings or keywords that portray the intellectual content of the asset. A subject is expressed by keywords, key phrases, or even specific classification codes. Controlled vocabularies, authorities, formal classification codes, as well as folksonomies and user-generated tags, may be employed when assigning descriptive subject terms.",
       "properties": {
         "startTime": {
@@ -6428,6 +6973,10 @@
           "default": null,
           "description": "The timeAnnotation attribute includes narrative information intended to clarify any time-oriented nature of data used in the element.",
           "title": "Timeannotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
         },
         "source": {
           "anyOf": [
@@ -6481,10 +7030,6 @@
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
         },
-        "text": {
-          "title": "Text",
-          "type": "string"
-        },
         "subjectType": {
           "anyOf": [
             {
@@ -6499,17 +7044,10 @@
           "title": "Subjecttype"
         },
         "subjectTypeSource": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
           "default": null,
           "description": "The subjectTypeSource attribute provides the name of the authority used to declare the value of the attribute subjectType. Best practice: This might be the name of a controlled vocabulary, namespace or authority list, such as the official PBCore vocabulary. We recommend a consistent and human readable use.",
-          "title": "Subjecttypesource"
+          "title": "Subjecttypesource",
+          "type": "string"
         },
         "subjectTypeRef": {
           "anyOf": [
@@ -6558,6 +7096,7 @@
       "type": "object"
     },
     "PBCoreTitle": {
+      "additionalProperties": false,
       "description": "PBCoreTitle element.\n\nDefinition: The pbcoreTitle element is a name or label relevant to the asset.\n\nBest practice: An asset may have many types of titles, an asset may have, such as a series title, episode title, segment title, or project title; therefore the element is repeatable.",
       "properties": {
         "startTime": {
@@ -6598,6 +7137,10 @@
           "default": null,
           "description": "The timeAnnotation attribute includes narrative information intended to clarify any time-oriented nature of data used in the element.",
           "title": "Timeannotation"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
         },
         "source": {
           "anyOf": [
@@ -6650,10 +7193,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         },
         "titleType": {
           "anyOf": [
@@ -6728,6 +7267,7 @@
       "type": "object"
     },
     "Publisher": {
+      "additionalProperties": false,
       "description": "Publisher element.\n\nDefinition: The publisher element identifies a person, people, or organization primarily responsible for distributing or making the asset available to others. The publisher may be a person, a business, organization, group, project or service. Best practice: We recommend providing a consistent internal standard for entering proper names and organizational names, such as 'Last name, First name, Middle name,' or 'Main group, subdivision.' We also recommend supplying separate pbcoreCreator containers for each creator to be named for a resource.",
       "properties": {
         "startTime": {
@@ -6834,6 +7374,10 @@
           "description": "The affiliationAnnotation attribute includes narrative information intended to clarify the nature of data used in the attribute affiliation. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Affiliationannotation"
         },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -6885,10 +7429,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -6898,8 +7438,13 @@
       "type": "object"
     },
     "PublisherRole": {
+      "additionalProperties": false,
       "description": "PublisherRole element.\n\nDefinition: The publisherRole element is used to identify the role played by the specific publisher or publishing entity identified in the companion descriptor publisher. The PBCore schema allows for publisherRole to be repeated in the pbcorePublisher container element. This can be useful when a single person or organization is associated with multiple roles in an asset.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -6951,10 +7496,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -6964,8 +7505,13 @@
       "type": "object"
     },
     "RightsEmbedded": {
+      "additionalProperties": false,
       "description": "RightsEmbedded element.\n\nDefinition: The rightsEmbedded element allows the inclusion of xml from another rights standard, e.g. ODRL, METS, etc. The included XML then defines the rights for the PBCore asset and/or PBCore instantiation.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -7017,10 +7563,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -7030,8 +7572,13 @@
       "type": "object"
     },
     "RightsLink": {
+      "additionalProperties": false,
       "description": "RightsLink element.\n\nDefinition: The rightsLink element is a URI pointing to a declaration of rights.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -7083,10 +7630,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -7096,8 +7639,13 @@
       "type": "object"
     },
     "RightsSummary": {
+      "additionalProperties": false,
       "description": "RightsSummary element.\n\nDefinition: The rightsSummary element is used as a general free-text element to identify information about copyrights and property rights held in and over an asset or instantiation, whether they are open access or restricted in some way. If dates, times and availability periods are associated with a right, include them. End user permissions, constraints and obligations may also be identified as needed.\n\nBest practice: For rights information that applies to the asset as a whole, use this element within the container pbcoreRightsSummary. For rights information that is specific to an instantiation of an asset, use it within the container instantiationRights.",
       "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
         "source": {
           "anyOf": [
             {
@@ -7149,10 +7697,6 @@
           "default": null,
           "description": "The annotation attribute includes narrative information intended to clarify the nature of data used in the element. Best practice: This attribute can be used as a notes field to include any additional information about the element or associated attributes.",
           "title": "Annotation"
-        },
-        "text": {
-          "title": "Text",
-          "type": "string"
         }
       },
       "required": [
@@ -7162,6 +7706,7 @@
       "type": "object"
     }
   },
+  "additionalProperties": false,
   "description": "Root model for PBCore documents.",
   "properties": {
     "pbcoreDescriptionDocument": {
