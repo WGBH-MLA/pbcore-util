@@ -2,7 +2,12 @@ import json
 from pydantic import ValidationError
 from pytest import raises, mark
 from pbcore import PBCore
-from tests.helpers import assert_validation_error, list_fields_optional, list_fields_required, pbcore_element_models
+from tests.helpers import (
+    assert_validation_error,
+    list_fields_optional,
+    list_fields_required,
+    pbcore_element_models,
+)
 from tests import pbcore_test_data as td
 
 
@@ -71,6 +76,7 @@ def test_list_fields_required_missing(list_field):
             {"loc": ("pbcoreDescriptionDocument", list_field), "type": "missing"}
         ],
     )
+
 
 @mark.parametrize("model", pbcore_element_models())
 def test_pbcore_element_valid(model_factory, model, ids=lambda m: m.__name__):

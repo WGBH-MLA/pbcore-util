@@ -14,7 +14,7 @@ def model_factory():
         test_data_method_name = re.sub(
             r"([A-Z]+)", lambda m: m.group(1).lower(), model.__name__, count=1
         )
-        
+
         # Get the test data method from the pbcore_test_data module.
         test_data_method = getattr(td, test_data_method_name)
 
