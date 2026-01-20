@@ -10,6 +10,7 @@ READ_TIMEOUT = 10.0  # seconds
 MAX_RESPONSE_BYTES = 1_000_000  # 1 MB
 FOLLOW_REDIRECTS = False
 
+
 def is_public_hostname(hostname: str) -> bool:
     try:
         ip = ipaddress.ip_address(socket.gethostbyname(hostname))

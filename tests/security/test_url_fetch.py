@@ -19,4 +19,3 @@ async def test_rejects_metadata_ip():
     url = HttpUrl("http://169.254.169.254/latest/meta-data")
     with pytest.raises(HTTPException):
         await safe_fetch_url(url)
-
