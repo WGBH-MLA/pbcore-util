@@ -4,6 +4,8 @@ from lxml import etree
 import json
 from security.url_fetch import safe_fetch_url
 
+SECURE_XML_PARSER = etree.XMLParser(resolve_entities=False, no_network=True)
+
 app = FastAPI(title="PBCore Validation and Conversion API")
 
 # Placeholder paths
@@ -33,7 +35,7 @@ async def validate_xml_from_url(
     pbcore_xml: str = Depends(safe_fetch_url),
 ):
     try:
-        parsed_pbcore_xml = etree.fromstring(pbcore_xml)
+        parsed_pbcore_xml = etree.fromstring(pbcore_xml, parser=SECURE_XML_PARSER)
         pbcore_schema = etree.XMLSchema(etree.parse(XSD_PATH))
         pbcore_schema.assertValid(parsed_pbcore_xml)
     except etree.XMLSchemaError as e:
@@ -67,7 +69,7 @@ async def validate_json_from_url(
 @app.post("/convert/xml-to-json-file", tags=["XML to JSON Conversion"])
 async def convert_xml_to_json_from_file(file: UploadFile = File(...)):
     try:
-        parsed_pbcore_xml = etree.parse(file.file)
+        parsed_pbcore_xml = etree.parse(file.file, parser=SECURE_XML_PARSER)
         xslt_doc = etree.parse(XSL_PATH)
         transform = etree.XSLT(xslt_doc)
         json_str = str(transform(parsed_pbcore_xml))
@@ -82,7 +84,7 @@ async def convert_xml_to_json_from_url(
     pbcore_xml: str = Depends(safe_fetch_url),
 ):
     try:
-        parsed_pbcore_xml = etree.fromstring(pbcore_xml)
+        parsed_pbcore_xml = etree.fromstring(pbcore_xml, parser=SECURE_XML_PARSER)
         xslt_doc = etree.parse(XSL_PATH)
         transform = etree.XSLT(xslt_doc)
         json_str = str(transform(parsed_pbcore_xml))
