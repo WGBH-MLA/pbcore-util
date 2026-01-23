@@ -2,7 +2,7 @@ from fastapi import FastAPI, File, UploadFile, HTTPException, Query, Depends
 from pydantic import HttpUrl
 from lxml import etree
 import json
-from security.url_fetch import safe_fetch_url
+from app.helpers import safe_http_get
 
 SECURE_XML_PARSER = etree.XMLParser(resolve_entities=False, no_network=True)
 
@@ -32,7 +32,7 @@ async def validate_xml(file: UploadFile = File(...)):
 @app.post("/validate/xml-url", tags=["XML Validation"])
 async def validate_xml_from_url(
     url: HttpUrl = Query(..., description="URL pointing to a PBCore XML document"),
-    pbcore_xml: str = Depends(safe_fetch_url),
+    pbcore_xml: str = Depends(safe_http_get),
 ):
     try:
         parsed_pbcore_xml = etree.fromstring(pbcore_xml, parser=SECURE_XML_PARSER)
@@ -59,7 +59,7 @@ async def validate_json(file: UploadFile = File(...)):
 @app.post("/validate/json-url", tags=["JSON Validation"])
 async def validate_json_from_url(
     url: HttpUrl = Query(..., description="URL pointing to a PBCore JSON document"),
-    pbcore_json: str = Depends(safe_fetch_url),
+    pbcore_json: str = Depends(safe_http_get),
 ):
     raise HTTPException(
         status_code=400, detail="PBCore JSON validation not yet implemented"
@@ -81,7 +81,7 @@ async def convert_xml_to_json_from_file(file: UploadFile = File(...)):
 @app.post("/convert/xml-to-json-url", tags=["XML to JSON Conversion"])
 async def convert_xml_to_json_from_url(
     url: HttpUrl = Query(..., description="URL pointing to a PBCore XML document"),
-    pbcore_xml: str = Depends(safe_fetch_url),
+    pbcore_xml: str = Depends(safe_http_get),
 ):
     try:
         parsed_pbcore_xml = etree.fromstring(pbcore_xml, parser=SECURE_XML_PARSER)
@@ -103,7 +103,7 @@ async def convert_json_to_xml_from_file(file: UploadFile = File(...)):
 @app.post("/convert/json-to-xml-url", tags=["JSON to XML Conversion"])
 async def convert_json_to_xml_from_url(
     url: HttpUrl = Query(..., description="URL pointing to a PBCore JSON document"),
-    pbcore_json: str = Depends(safe_fetch_url),
+    pbcore_json: str = Depends(safe_http_get),
 ):
     raise HTTPException(
         status_code=400, detail="PBCore JSON to XML Conversion not yet implemented"

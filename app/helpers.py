@@ -25,7 +25,7 @@ def is_public_hostname(hostname: str) -> bool:
         return False
 
 
-async def safe_fetch_url(url: HttpUrl) -> str:
+async def safe_http_get(url: HttpUrl) -> str:
     """
     Fetch a URL safely, protecting against SSRF and unsafe responses.
     """
