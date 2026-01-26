@@ -11,6 +11,9 @@ on:
     types: [published, edited, prereleased]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     name: 🔨 Build docker image
