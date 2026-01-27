@@ -2,6 +2,9 @@ name: 🧪 Integration Tests
 
 on: [push, pull_request, merge_group, workflow_dispatch]
 
+permissions:
+  contents: read
+
 jobs:
   tests:
     name: 🐍 Run pytest
