@@ -1,6 +1,15 @@
 name: 🧪 Integration Tests
 
-on: [push, pull_request, merge_group, workflow_dispatch]
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+  release:
+    types: [published, edited, prereleased]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -12,18 +21,14 @@ jobs:
     environment: ${{ inputs.environment }}
 
     steps:
-      - uses: actions/checkout@v4
+    - name: 📰 Checkout repo
+      uses: actions/checkout@v6
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5
+    - name: 😎 Setup uv
+      uses: astral-sh/setup-uv@v7
 
-      - name: "Set up Python"
-        uses: actions/setup-python@v5
-        with:
-          python-version-file: "pyproject.toml"
-
-      - name: 🧪 Run pytest suite
-        run: uv run pytest
+    - name: 🧪 Run tests
+      run: uv run pytest
 
   lint:
     name: 👕 Lint
