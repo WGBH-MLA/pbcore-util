@@ -1,0 +1,21 @@
+name: 🔨 Build
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+  release:
+    types: [published, edited, prereleased]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    name: 🔨 Build docker image
+    uses: WGBH-MLA/.github/.github/workflows/build.yml@main
